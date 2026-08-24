@@ -568,6 +568,21 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "title": "Table",
+      "description": "Warm-gray data table: hairline grid, band header/footer, sortable heads, selected rows, mono cells.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/table.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
