@@ -442,6 +442,24 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "20px checkbox (16px small) with a draw-on check and indeterminate dash.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
