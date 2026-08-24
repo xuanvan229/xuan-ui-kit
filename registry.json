@@ -478,6 +478,32 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "Flat 40px select with grouped popup, disabled items and a multiple mode rendering removable chips.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/select/select.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/xuan/ui/select/item.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/xuan/ui/select/chip.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
