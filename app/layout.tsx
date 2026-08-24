@@ -1,6 +1,8 @@
 import type { Metadata } from "next"
 import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google"
 
+import { Toaster } from "@/registry/xuan/ui/toast"
+
 import "./globals.css"
 
 const plexSans = IBM_Plex_Sans({
@@ -18,10 +20,16 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = { title: "xuan-ui-kit registry" }
 
 // note: Next.js App Router requires a default export for layout files.
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="en" className={`${plexSans.variable} ${plexMono.variable}`}>
-      <body className="isolate">{children}</body>
+      <body className="isolate">
+        <Toaster>{children}</Toaster>
+      </body>
     </html>
   )
 }
