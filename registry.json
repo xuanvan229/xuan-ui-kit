@@ -673,6 +673,24 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "Bordered single-open accordion with animated height and rotating chevron.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/accordion.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
