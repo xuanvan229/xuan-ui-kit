@@ -504,6 +504,52 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "date-picker",
+      "type": "registry:ui",
+      "title": "Date picker",
+      "description": "Single and range date picker: Monday-first 6-row grid, full-cell selection, range band with staggered hover preview, diagonal-strike disabled dates.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/date/key.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/xuan/ui/date/grid.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/xuan/ui/date/range.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/xuan/ui/date/format.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/xuan/ui/date/cell.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/xuan/ui/date/header.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/xuan/ui/date/calendar.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/xuan/ui/date/picker.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
