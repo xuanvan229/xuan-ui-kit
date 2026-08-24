@@ -655,6 +655,24 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "300px info popover with title, description and a compact-button footer band.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/popover.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
