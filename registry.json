@@ -339,6 +339,25 @@
           "latin"
         ]
       }
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Bevelled 40px button: primary, secondary, outline, ghost, plain, destructive; compact 32px size.",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
