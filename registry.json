@@ -583,6 +583,24 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "toast",
+      "type": "registry:ui",
+      "title": "Toast",
+      "description": "Bottom-right toast stack with success/error/warning/info icons, 4s auto-dismiss and enter/exit animation.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/toast.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
