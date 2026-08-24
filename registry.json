@@ -358,6 +358,24 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "Text input with inset shadow, hover/focus/error/disabled states and prefix/suffix slots.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
