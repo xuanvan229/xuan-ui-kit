@@ -1,0 +1,783 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "xuan",
+  "homepage": "https://xuan-ui-kit.vercel.app",
+  "items": [
+    {
+      "name": "xuan",
+      "type": "registry:style",
+      "title": "xuan theme",
+      "description": "Design tokens, fonts and utilities for the @xuan component kit. Install this first.",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "utils",
+        "@xuan/font-plex-sans",
+        "@xuan/font-plex-mono"
+      ],
+      "cssVars": {
+        "theme": {
+          "font-sans": "var(--font-plex-sans), \"IBM Plex Sans\", sans-serif",
+          "font-mono": "var(--font-plex-mono), \"IBM Plex Mono\", monospace",
+          "color-accent-500": "var(--accent-500)",
+          "color-accent-600": "var(--accent-600)",
+          "color-accent-700": "var(--accent-700)",
+          "color-accent-800": "var(--accent-800)",
+          "color-accent-hover": "var(--accent-hover)",
+          "color-accent-active": "var(--accent-active)",
+          "color-accent-deep": "var(--accent-deep)",
+          "color-accent-tint-90": "var(--accent-tint-90)",
+          "color-accent-tint-93": "var(--accent-tint-93)",
+          "color-accent-tint-94": "var(--accent-tint-94)",
+          "color-accent-tint-95": "var(--accent-tint-95)",
+          "color-accent-tint-96": "var(--accent-tint-96)",
+          "color-accent-tint-97": "var(--accent-tint-97)",
+          "color-accent-line": "var(--accent-line)",
+          "color-accent-line-hover": "var(--accent-line-hover)",
+          "color-accent-line-active": "var(--accent-line-active)",
+          "color-accent-line-soft": "var(--accent-line-soft)",
+          "color-accent-line-badge": "var(--accent-line-badge)",
+          "color-ink-heading": "var(--ink-heading)",
+          "color-ink": "var(--ink)",
+          "color-ink-strong": "var(--ink-strong)",
+          "color-ink-secondary": "var(--ink-secondary)",
+          "color-ink-muted": "var(--ink-muted)",
+          "color-ink-disabled": "var(--ink-disabled)",
+          "color-ink-subtle": "var(--ink-subtle)",
+          "color-ink-weekday": "var(--ink-weekday)",
+          "color-line-control": "var(--line-control)",
+          "color-line-input": "var(--line-input)",
+          "color-line-input-hover": "var(--line-input-hover)",
+          "color-line-popup": "var(--line-popup)",
+          "color-line-hair": "var(--line-hair)",
+          "color-line-hair-soft": "var(--line-hair-soft)",
+          "color-line-dashed": "var(--line-dashed)",
+          "color-fill-hover": "var(--fill-hover)",
+          "color-fill-active": "var(--fill-active)",
+          "color-fill-menu": "var(--fill-menu)",
+          "color-disabled-bg": "var(--disabled-bg)",
+          "color-disabled-line": "var(--disabled-line)",
+          "color-disabled-fill": "var(--disabled-fill)",
+          "color-disabled-fill-line": "var(--disabled-fill-line)",
+          "color-switch-off": "var(--switch-off)",
+          "color-switch-off-line": "var(--switch-off-line)",
+          "color-table-band": "var(--table-band)",
+          "color-table-hair": "var(--table-hair)",
+          "color-table-line": "var(--table-line)",
+          "color-success": "var(--success)",
+          "color-success-bg": "var(--success-bg)",
+          "color-success-text": "var(--success-text)",
+          "color-success-line": "var(--success-line)",
+          "color-warning": "var(--warning)",
+          "color-warning-bg": "var(--warning-bg)",
+          "color-warning-text": "var(--warning-text)",
+          "color-warning-line": "var(--warning-line)",
+          "color-error": "var(--error)",
+          "color-error-text": "var(--error-text)",
+          "color-error-badge-text": "var(--error-badge-text)",
+          "color-error-bg": "var(--error-bg)",
+          "color-error-bg-soft": "var(--error-bg-soft)",
+          "color-error-line": "var(--error-line)",
+          "color-destructive": "var(--destructive)",
+          "color-destructive-line": "var(--destructive-line)",
+          "color-destructive-hover": "var(--destructive-hover)",
+          "color-neutral-bg": "var(--neutral-bg)",
+          "color-neutral-text": "var(--neutral-text)",
+          "color-neutral-line": "var(--neutral-line)",
+          "color-calendar": "var(--calendar)",
+          "color-calendar-line": "var(--calendar-line)",
+          "color-calendar-band": "var(--calendar-band)",
+          "color-calendar-nav": "var(--calendar-nav)",
+          "color-calendar-outside": "var(--calendar-outside)",
+          "color-calendar-disabled": "var(--calendar-disabled)",
+          "color-calendar-strike": "var(--calendar-strike)",
+          "color-calendar-selected": "var(--calendar-selected)",
+          "color-today": "var(--today)",
+          "color-overlay": "var(--overlay)",
+          "color-background": "var(--background)",
+          "color-foreground": "var(--foreground)",
+          "color-card": "var(--card)",
+          "color-card-foreground": "var(--card-foreground)",
+          "color-popover": "var(--popover)",
+          "color-popover-foreground": "var(--popover-foreground)",
+          "color-primary": "var(--primary)",
+          "color-primary-foreground": "var(--primary-foreground)",
+          "color-secondary": "var(--secondary)",
+          "color-secondary-foreground": "var(--secondary-foreground)",
+          "color-muted": "var(--muted)",
+          "color-muted-foreground": "var(--muted-foreground)",
+          "color-accent": "var(--accent)",
+          "color-accent-foreground": "var(--accent-foreground)",
+          "color-destructive-foreground": "var(--destructive-foreground)",
+          "color-border": "var(--border)",
+          "color-input": "var(--input)",
+          "color-ring": "var(--ring)",
+          "shadow-popup": "var(--shadow-popup)",
+          "shadow-toast": "var(--shadow-toast)",
+          "shadow-modal": "var(--shadow-modal)",
+          "shadow-panel": "var(--shadow-panel)",
+          "radius-sm": "6px",
+          "radius-md": "8px",
+          "radius-lg": "10px",
+          "radius-xl": "12px"
+        },
+        "light": {
+          "accent-500": "hsl(210 100% 45%)",
+          "accent-600": "hsl(210 100% 42%)",
+          "accent-700": "hsl(210 100% 40%)",
+          "accent-800": "hsl(210 100% 32%)",
+          "accent-hover": "hsl(210 100% 38%)",
+          "accent-active": "hsl(210 100% 30%)",
+          "accent-deep": "hsl(210 100% 35%)",
+          "accent-tint-90": "hsl(210 100% 90%)",
+          "accent-tint-93": "hsl(210 100% 93%)",
+          "accent-tint-94": "hsl(210 100% 94%)",
+          "accent-tint-95": "hsl(210 100% 95%)",
+          "accent-tint-96": "hsl(210 100% 96%)",
+          "accent-tint-97": "hsl(210 100% 97%)",
+          "accent-line": "hsl(210 70% 75%)",
+          "accent-line-hover": "hsl(210 80% 60%)",
+          "accent-line-active": "hsl(210 80% 55%)",
+          "accent-line-soft": "hsl(210 80% 86%)",
+          "accent-line-badge": "hsl(210 80% 84%)",
+          "focus-ring": "rgb(0 115 230 / 0.5)",
+          "error-ring": "rgb(220 38 38 / 0.25)",
+          "ink-heading": "#1b1b1f",
+          "ink": "#232329",
+          "ink-strong": "hsl(215 15% 12%)",
+          "ink-secondary": "#55555e",
+          "ink-muted": "#9a9aa5",
+          "ink-disabled": "#acacb8",
+          "ink-subtle": "#3e3e47",
+          "ink-weekday": "#7c7c89",
+          "line-control": "hsl(210 14% 87%)",
+          "line-input": "#d0d0d9",
+          "line-input-hover": "#a9a9b8",
+          "line-popup": "#e2e2e8",
+          "line-hair": "#ececf0",
+          "line-hair-soft": "hsl(215 15% 94%)",
+          "line-dashed": "hsl(210 14% 80%)",
+          "fill-hover": "hsl(215 15% 97%)",
+          "fill-active": "hsl(215 15% 92%)",
+          "fill-menu": "hsl(215 15% 95%)",
+          "disabled-bg": "#f0f0f4",
+          "disabled-line": "#e2e2e8",
+          "disabled-fill": "#dadae1",
+          "disabled-fill-line": "#cdcdd6",
+          "switch-off": "#d9d9e0",
+          "switch-off-line": "#cdcdd6",
+          "table-band": "#f7f7f2",
+          "table-hair": "#ecece4",
+          "table-line": "#e4e4dc",
+          "success": "hsl(145 55% 42%)",
+          "success-bg": "#dff2e4",
+          "success-text": "#1f5b32",
+          "success-line": "#a9d8b5",
+          "warning": "hsl(38 92% 50%)",
+          "warning-bg": "#fbefc7",
+          "warning-text": "#7a5410",
+          "warning-line": "#ebd285",
+          "error": "hsl(0 72% 51%)",
+          "error-text": "hsl(0 72% 45%)",
+          "error-badge-text": "hsl(0 72% 40%)",
+          "error-bg": "hsl(0 72% 95%)",
+          "error-bg-soft": "hsl(0 72% 96%)",
+          "error-line": "hsl(0 60% 84%)",
+          "destructive": "hsl(0 72% 48%)",
+          "destructive-line": "hsl(0 72% 42%)",
+          "destructive-hover": "hsl(0 72% 40%)",
+          "neutral-bg": "#ebebe5",
+          "neutral-text": "#3e3e47",
+          "neutral-line": "#d5d5cb",
+          "calendar": "#efeff3",
+          "calendar-line": "#d9d9e0",
+          "calendar-band": "#e4e4ea",
+          "calendar-nav": "#e9e9ee",
+          "calendar-outside": "#b9b9c4",
+          "calendar-disabled": "#8e8e9b",
+          "calendar-strike": "#c2c2cc",
+          "calendar-selected": "#1b1b1f",
+          "today": "#6366f1",
+          "overlay": "rgb(20 22 28 / 0.45)",
+          "shadow-popup": "0 8px 24px rgb(24 24 44 / 0.1), 0 2px 6px rgb(24 24 44 / 0.05)",
+          "shadow-toast": "0 8px 24px rgb(24 24 44 / 0.14), 0 2px 6px rgb(24 24 44 / 0.06)",
+          "shadow-modal": "0 16px 48px rgb(24 24 44 / 0.24), 0 4px 12px rgb(24 24 44 / 0.08)",
+          "shadow-panel": "0 6px 16px rgb(24 24 44 / 0.06)",
+          "background": "#ffffff",
+          "foreground": "var(--ink)",
+          "card": "#ffffff",
+          "card-foreground": "var(--ink)",
+          "popover": "#ffffff",
+          "popover-foreground": "var(--ink)",
+          "primary": "var(--accent-500)",
+          "primary-foreground": "#ffffff",
+          "secondary": "var(--fill-hover)",
+          "secondary-foreground": "var(--ink-strong)",
+          "muted": "var(--fill-hover)",
+          "muted-foreground": "var(--ink-secondary)",
+          "accent": "var(--fill-menu)",
+          "accent-foreground": "var(--ink)",
+          "destructive-foreground": "#ffffff",
+          "border": "var(--line-control)",
+          "input": "var(--line-input)",
+          "ring": "var(--focus-ring)",
+          "radius": "10px"
+        }
+      },
+      "css": {
+        "@utility control": {
+          "height": "40px",
+          "border-radius": "10px",
+          "padding": "8px 12px 10px",
+          "font-size": "15px",
+          "box-sizing": "border-box"
+        },
+        "@utility transition-control": {
+          "transition-property": "background-color, border-color, color, box-shadow, outline-color",
+          "transition-duration": "120ms",
+          "transition-timing-function": "ease-in"
+        },
+        "@utility shadow-flat": {
+          "box-shadow": "none"
+        },
+        "@utility bevel-primary": {
+          "box-shadow": "inset 0 1px 0 rgb(51 153 255 / 0.5), inset 0 -1px 0 1px rgb(0 77 153 / 0.4), 0 2px 4px rgb(9 11 11 / 0.1)"
+        },
+        "@utility bevel-primary-active": {
+          "box-shadow": "inset 0 1px 0 1px rgb(0 59 117 / 0.7)"
+        },
+        "@utility bevel-secondary": {
+          "box-shadow": "inset 0 1px 0 1px #fff, inset 0 -1px 0 1px rgb(223 226 231 / 0.4), 0 1px 2px rgb(223 226 231 / 0.5)"
+        },
+        "@utility bevel-outline": {
+          "box-shadow": "inset 0 1px 0 rgb(255 255 255 / 1), inset 0 -1px 0 1px rgb(0 77 153 / 0.1), 0 2px 4px rgb(9 11 11 / 0.08)"
+        },
+        "@utility bevel-outline-active": {
+          "box-shadow": "inset 0 1px 2px rgb(0 59 117 / 0.15)"
+        },
+        "@utility bevel-destructive": {
+          "box-shadow": "inset 0 1px 0 rgb(255 120 120 / 0.4), inset 0 -1px 0 1px rgb(120 0 0 / 0.3), 0 2px 4px rgb(9 11 11 / 0.1)"
+        },
+        "@utility bevel-tab": {
+          "box-shadow": "inset 0 1px 0 rgb(51 153 255 / 0.5), inset 0 -1px 0 1px rgb(0 77 153 / 0.4)"
+        },
+        "@utility focus-ring": {
+          "outline": "3px solid var(--focus-ring)",
+          "outline-offset": "2px"
+        },
+        "@utility focus-ring-error": {
+          "outline": "3px solid var(--error-ring)",
+          "outline-offset": "2px"
+        },
+        "@utility text-shadow-button": {
+          "text-shadow": "0 1px 1px rgb(9 11 11 / 0.6)"
+        },
+        "@utility text-shadow-destructive": {
+          "text-shadow": "0 1px 1px rgb(9 11 11 / 0.5)"
+        },
+        "@utility text-shadow-tab": {
+          "text-shadow": "0 1px 1px rgb(9 11 11 / 0.4)"
+        },
+        "@utility inset-input": {
+          "box-shadow": "inset 0 1px 2px rgb(9 11 11 / 0.06)"
+        },
+        "@utility popup": {
+          "background": "#fff",
+          "border": "1px solid var(--line-popup)",
+          "border-radius": "12px",
+          "box-shadow": "var(--shadow-popup)"
+        },
+        "@utility strike-diagonal": {
+          "background-image": "linear-gradient(to bottom right, transparent calc(50% - 0.5px), var(--calendar-strike) calc(50% - 0.5px), var(--calendar-strike) calc(50% + 0.5px), transparent calc(50% + 0.5px))"
+        },
+        "@layer base": {
+          "body": {
+            "background": "var(--background)",
+            "color": "var(--ink)",
+            "font-family": "var(--font-sans)"
+          }
+        }
+      }
+    },
+    {
+      "name": "font-plex-sans",
+      "type": "registry:font",
+      "title": "IBM Plex Sans",
+      "font": {
+        "family": "'IBM Plex Sans', sans-serif",
+        "provider": "google",
+        "import": "IBM_Plex_Sans",
+        "variable": "--font-plex-sans",
+        "weight": [
+          "400",
+          "500",
+          "600"
+        ],
+        "subsets": [
+          "latin"
+        ]
+      }
+    },
+    {
+      "name": "font-plex-mono",
+      "type": "registry:font",
+      "title": "IBM Plex Mono",
+      "font": {
+        "family": "'IBM Plex Mono', monospace",
+        "provider": "google",
+        "import": "IBM_Plex_Mono",
+        "variable": "--font-plex-mono",
+        "weight": [
+          "400",
+          "500"
+        ],
+        "subsets": [
+          "latin"
+        ]
+      }
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Bevelled 40px button: primary, secondary, outline, ghost, plain, destructive; compact 32px size.",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "Text input with inset shadow, hover/focus/error/disabled states and prefix/suffix slots.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "Textarea with focus/error/disabled states and a character counter.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/textarea.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "title": "Label",
+      "description": "15px inline label for checkbox, radio and switch rows.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/label.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "field",
+      "type": "registry:ui",
+      "title": "Field",
+      "description": "Form field wrapper: 13px label, description and 12px error text (Base UI Field).",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/field.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "36×22 switch with a 16px sliding knob.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/switch.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "20px checkbox (16px small) with a draw-on check and indeterminate dash.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "radio",
+      "type": "registry:ui",
+      "title": "Radio",
+      "description": "20px radio group with a popping 8px dot.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/radio.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "Flat 40px select with grouped popup, disabled items and a multiple mode rendering removable chips.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/select/select.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/xuan/ui/select/item.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/xuan/ui/select/chip.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "date-picker",
+      "type": "registry:ui",
+      "title": "Date picker",
+      "description": "Single and range date picker: Monday-first 6-row grid, full-cell selection, range band with staggered hover preview, diagonal-strike disabled dates.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/date/key.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/xuan/ui/date/grid.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/xuan/ui/date/range.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/xuan/ui/date/format.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/xuan/ui/date/cell.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/xuan/ui/date/header.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/xuan/ui/date/calendar.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/xuan/ui/date/picker.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Segmented tray tabs (bevelled active) and underline tabs with an animated bar.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "title": "Table",
+      "description": "Warm-gray data table: hairline grid, band header/footer, sortable heads, selected rows, mono cells.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/table.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toast",
+      "type": "registry:ui",
+      "title": "Toast",
+      "description": "Bottom-right toast stack with success/error/warning/info icons, 4s auto-dismiss and enter/exit animation.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/toast.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "440px modal with overlay fade, header/body/footer band and an icon tile for destructive confirms.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "title": "Alert dialog",
+      "description": "400px confirm dialog (role=alertdialog) with icon tile and footer band.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/alert/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "menu",
+      "type": "registry:ui",
+      "title": "Menu",
+      "description": "Action dropdown menu: icon items, shortcut hints, separators and a danger item.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "300px info popover with title, description and a compact-button footer band.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/popover.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "Bordered single-open accordion with animated height and rotating chevron.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/accordion.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "title": "Breadcrumb",
+      "description": "Breadcrumb trail with hover links, current page and an overflow ellipsis button.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/breadcrumb.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "Pill badges: neutral/info/success/warning/error tints, outline shell with status dot, small 20px size.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tag",
+      "type": "registry:ui",
+      "title": "Tag",
+      "description": "Removable 26px tag chip and a dashed reset button.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/tag.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "24px initials avatar in warm-gray or blue-tint tone.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/avatar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator",
+      "description": "Hairline separator, with a popup variant matching menu dividers.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/separator.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    }
+  ]
+}
