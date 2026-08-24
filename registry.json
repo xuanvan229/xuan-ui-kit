@@ -637,6 +637,24 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "menu",
+      "type": "registry:ui",
+      "title": "Menu",
+      "description": "Action dropdown menu: icon items, shortcut hints, separators and a danger item.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
