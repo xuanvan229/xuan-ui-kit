@@ -460,6 +460,24 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "radio",
+      "type": "registry:ui",
+      "title": "Radio",
+      "description": "20px radio group with a popping 8px dot.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/radio.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
