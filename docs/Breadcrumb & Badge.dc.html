@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #FFFFFF; }
+  a { color: #55555E; text-decoration: none; }
+  a:hover { color: #232329; }
+</style>
+</helmet>
+<div style="min-height:100vh;background:#FFFFFF;font-family:'Geist',system-ui,sans-serif;padding:72px 64px;box-sizing:border-box;display:flex;justify-content:center">
+  <div style="display:flex;flex-direction:column;gap:48px">
+    <div>
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9A9AA5;margin-bottom:24px">Breadcrumb</div>
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <div style="display:flex;align-items:center;gap:8px;font-family:'IBM Plex Sans',sans-serif;font-size:14px">
+          <a href="#" style="font-weight:400;padding:2px 4px;border-radius:6px" style-hover="background:hsl(215,15%,95%)">Home</a>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C2C2CC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 6.5L15 12l-5.5 5.5"></path></svg>
+          <a href="#" style="font-weight:400;padding:2px 4px;border-radius:6px" style-hover="background:hsl(215,15%,95%)">Design system</a>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C2C2CC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 6.5L15 12l-5.5 5.5"></path></svg>
+          <a href="#" style="font-weight:400;padding:2px 4px;border-radius:6px" style-hover="background:hsl(215,15%,95%)">Components</a>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C2C2CC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 6.5L15 12l-5.5 5.5"></path></svg>
+          <span style="font-weight:600;color:#1B1B1F;padding:2px 4px">Date Picker</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;font-family:'IBM Plex Sans',sans-serif;font-size:14px">
+          <a href="#" style="font-weight:400;padding:2px 4px;border-radius:6px" style-hover="background:hsl(215,15%,95%)">Home</a>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C2C2CC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 6.5L15 12l-5.5 5.5"></path></svg>
+          <span onClick="{{ noop }}" style="width:24px;height:24px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;color:#55555E" style-hover="background:hsl(215,15%,95%);color:#232329">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"></circle><circle cx="12" cy="12" r="1.6"></circle><circle cx="19" cy="12" r="1.6"></circle></svg>
+          </span>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C2C2CC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 6.5L15 12l-5.5 5.5"></path></svg>
+          <a href="#" style="font-weight:400;padding:2px 4px;border-radius:6px" style-hover="background:hsl(215,15%,95%)">Components</a>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C2C2CC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 6.5L15 12l-5.5 5.5"></path></svg>
+          <span style="font-weight:600;color:#1B1B1F;padding:2px 4px">Date Picker</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9A9AA5;margin-bottom:24px">Badge / Tinted</div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center">
+        <span style="display:inline-flex;align-items:center;height:24px;padding:0 12px;border-radius:999px;background:#EBEBE5;color:#3E3E47;border:1px solid #D5D5CB;font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:500">Neutral</span>
+        <span style="display:inline-flex;align-items:center;height:24px;padding:0 12px;border-radius:999px;background:hsl(210,100%,94%);color:hsl(210,100%,35%);border:1px solid hsl(210,80%,84%);font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:500">Info</span>
+        <span style="display:inline-flex;align-items:center;height:24px;padding:0 12px;border-radius:999px;background:#DFF2E4;color:#1F5B32;border:1px solid #A9D8B5;font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:500">Success</span>
+        <span style="display:inline-flex;align-items:center;height:24px;padding:0 12px;border-radius:999px;background:#FBEFC7;color:#7A5410;border:1px solid #EBD285;font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:500">Warning</span>
+        <span style="display:inline-flex;align-items:center;height:24px;padding:0 12px;border-radius:999px;background:hsl(0,72%,95%);color:hsl(0,72%,40%);border:1px solid hsl(0,60%,84%);font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:500">Error</span>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9A9AA5;margin-bottom:24px">Badge / With dot</div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center">
+        <span style="display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 12px;border-radius:999px;background:#FFFFFF;color:#3E3E47;border:1px solid hsl(210,14%,87%);font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:500"><span style="width:7px;height:7px;border-radius:50%;background:#9A9AA5"></span>Draft</span>
+        <span style="display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 12px;border-radius:999px;background:#FFFFFF;color:#3E3E47;border:1px solid hsl(210,14%,87%);font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:500"><span style="width:7px;height:7px;border-radius:50%;background:hsl(38,92%,50%)"></span>In review</span>
+        <span style="display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 12px;border-radius:999px;background:#FFFFFF;color:#3E3E47;border:1px solid hsl(210,14%,87%);font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:500"><span style="width:7px;height:7px;border-radius:50%;background:hsl(145,55%,42%)"></span>Stable</span>
+        <span style="display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 12px;border-radius:999px;background:#FFFFFF;color:#3E3E47;border:1px solid hsl(210,14%,87%);font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:500"><span style="width:7px;height:7px;border-radius:50%;background:hsl(0,72%,51%)"></span>Deprecated</span>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9A9AA5;margin-bottom:24px">Tag / Removable — Interactive</div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+        <sc-for list="{{ tags }}" as="t" hint-placeholder-count="4">
+          <span style="display:inline-flex;align-items:center;gap:5px;height:26px;padding:0 5px 0 10px;border-radius:8px;background:hsl(210,100%,94%);border:1px solid hsl(210,80%,86%);font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:500;color:hsl(210,100%,35%)">
+            {{ t.label }}
+            <span onClick="{{ t.onRemove }}" style="width:16px;height:16px;border-radius:5px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer" style-hover="background:hsl(210,80%,86%)">
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="hsl(210,100%,35%)" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+            </span>
+          </span>
+        </sc-for>
+        <button onClick="{{ resetTags }}" style="{{ resetStyle }}" style-hover="background:hsl(215,15%,95%)">Reset</button>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{ &quot;$preview&quot;: { &quot;width&quot;: 900, &quot;height&quot;: 640 } }">
+class Component extends DCLogic {
+  ALL = ['datepicker', 'range', 'calendar', 'form'];
+  state = { tags: ['datepicker', 'range', 'calendar', 'form'] };
+  renderVals() {
+    return {
+      noop: () => {},
+      tags: this.state.tags.map(label => ({
+        label,
+        onRemove: () => this.setState(s => ({ tags: s.tags.filter(t => t !== label) })),
+      })),
+      resetTags: () => this.setState({ tags: [...this.ALL] }),
+      resetStyle: { display: this.state.tags.length === this.ALL.length ? 'none' : 'inline-flex', alignItems: 'center', height: '26px', padding: '0 10px', borderRadius: '8px', border: '1px dashed hsl(210,14%,80%)', background: 'transparent', cursor: 'pointer', fontFamily: "'IBM Plex Sans',sans-serif", fontSize: '13px', fontWeight: 500, color: '#55555E', transition: '120ms ease-in' },
+    };
+  }
+}
+</script>
+</body>
+</html>

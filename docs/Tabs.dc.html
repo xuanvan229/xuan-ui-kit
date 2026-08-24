@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #FFFFFF; }
+  a { color: #6366F1; text-decoration: none; }
+  a:hover { color: #4F51D8; }
+</style>
+</helmet>
+<div style="min-height:100vh;background:#FFFFFF;font-family:'Geist',system-ui,sans-serif;padding:72px 64px;box-sizing:border-box;display:flex;justify-content:center">
+  <div style="display:flex;flex-direction:column;gap:48px">
+    <div>
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9A9AA5;margin-bottom:24px">Tabs / Primary — segmented</div>
+      <div style="display:inline-flex;gap:4px;padding:4px;background:hsl(215,15%,97%);border:1px solid hsl(210,14%,87%);border-radius:12px;align-self:flex-start">
+        <sc-for list="{{ pTabs }}" as="t" hint-placeholder-count="4">
+          <button onClick="{{ t.onClick }}" style="{{ t.style }}" style-hover="{{ t.hoverStyle }}">{{ t.label }}</button>
+        </sc-for>
+      </div>
+      <div style="display:flex;gap:48px;align-items:flex-start;flex-wrap:wrap;margin-top:28px">
+        <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
+          <button style="height:32px;padding:0 14px;border:none;border-radius:8px;background:transparent;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;color:#55555E;cursor:pointer">Label</button>
+          <span style="font-size:12px;font-weight:500;color:#9A9AA5">Inactive</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
+          <button style="height:32px;padding:0 14px;border:none;border-radius:8px;background:hsl(215,15%,92%);font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;color:#232329;cursor:pointer">Label</button>
+          <span style="font-size:12px;font-weight:500;color:#9A9AA5">Hover</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
+          <button style="height:32px;padding:0 14px;border:none;border-radius:8px;background:hsl(210,100%,45%);font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;color:#FFFFFF;text-shadow:0 1px 1px rgba(9,11,11,0.4);box-shadow:inset 0 1px 0 rgba(51,153,255,0.5), inset 0 -1px 0 1px rgba(0,77,153,0.4);cursor:pointer;border:none">Label</button>
+          <span style="font-size:12px;font-weight:500;color:#9A9AA5">Active</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
+          <button style="height:32px;padding:0 14px;border:none;border-radius:8px;background:hsl(210,100%,45%);font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;color:#FFFFFF;text-shadow:0 1px 1px rgba(9,11,11,0.4);box-shadow:inset 0 1px 0 rgba(51,153,255,0.5), inset 0 -1px 0 1px rgba(0,77,153,0.4);cursor:pointer;outline:3px solid rgba(0,115,230,0.5);outline-offset:2px">Label</button>
+          <span style="font-size:12px;font-weight:500;color:#9A9AA5">Focus</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
+          <button style="height:32px;padding:0 14px;border:none;border-radius:8px;background:transparent;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;color:#ACACB8;cursor:not-allowed">Label</button>
+          <span style="font-size:12px;font-weight:500;color:#9A9AA5">Disabled</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9A9AA5;margin-bottom:24px">Tabs / Secondary — underline</div>
+      <div style="display:flex;gap:28px;border-bottom:1px solid hsl(210,14%,87%);align-self:flex-start;width:fit-content">
+        <sc-for list="{{ sTabs }}" as="t" hint-placeholder-count="4">
+          <button onClick="{{ t.onClick }}" style="{{ t.style }}" style-hover="{{ t.hoverStyle }}">
+            {{ t.label }}
+            <span style="{{ t.underline }}"></span>
+          </button>
+        </sc-for>
+      </div>
+      <div style="display:flex;gap:48px;align-items:flex-start;flex-wrap:wrap;margin-top:28px">
+        <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
+          <button style="position:relative;padding:10px 2px 12px;border:none;background:transparent;font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:500;color:#55555E;cursor:pointer">Label</button>
+          <span style="font-size:12px;font-weight:500;color:#9A9AA5">Inactive</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
+          <button style="position:relative;padding:10px 2px 12px;border:none;background:transparent;font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:500;color:#232329;cursor:pointer">Label</button>
+          <span style="font-size:12px;font-weight:500;color:#9A9AA5">Hover</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
+          <button style="position:relative;padding:10px 2px 12px;border:none;background:transparent;font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:600;color:hsl(210,100%,40%);cursor:pointer">Label<span style="position:absolute;left:0;right:0;bottom:0;height:2px;border-radius:1px;background:hsl(210,100%,45%)"></span></button>
+          <span style="font-size:12px;font-weight:500;color:#9A9AA5">Active</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
+          <button style="position:relative;padding:10px 2px 12px;border:none;background:transparent;font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:600;color:hsl(210,100%,40%);cursor:pointer;outline:3px solid rgba(0,115,230,0.5);outline-offset:2px;border-radius:6px">Label<span style="position:absolute;left:0;right:0;bottom:0;height:2px;border-radius:1px;background:hsl(210,100%,45%)"></span></button>
+          <span style="font-size:12px;font-weight:500;color:#9A9AA5">Focus</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
+          <button style="position:relative;padding:10px 2px 12px;border:none;background:transparent;font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:500;color:#ACACB8;cursor:not-allowed">Label</button>
+          <span style="font-size:12px;font-weight:500;color:#9A9AA5">Disabled</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{ &quot;$preview&quot;: { &quot;width&quot;: 1400, &quot;height&quot;: 560 } }">
+class Component extends DCLogic {
+  state = { p: 0, s: 0 };
+  renderVals() {
+    const labels = ['Overview', 'Components', 'Tokens', 'Changelog'];
+    const pTabs = labels.map((label, i) => {
+      const active = this.state.p === i;
+      return {
+        label,
+        onClick: () => this.setState({ p: i }),
+        style: {
+          height: '32px', padding: '0 14px', border: 'none', borderRadius: '8px', cursor: 'pointer',
+          fontFamily: "'IBM Plex Sans',sans-serif", fontSize: '14px', fontWeight: 500,
+          background: active ? 'hsl(210,100%,45%)' : 'transparent',
+          color: active ? '#FFFFFF' : '#55555E',
+          textShadow: active ? '0 1px 1px rgba(9,11,11,0.4)' : 'none',
+          boxShadow: active ? 'inset 0 1px 0 rgba(51,153,255,0.5), inset 0 -1px 0 1px rgba(0,77,153,0.4)' : 'none',
+          transition: 'background 120ms ease-in, color 120ms ease-in',
+        },
+        hoverStyle: active ? {} : { background: 'hsl(215,15%,92%)', color: '#232329' },
+      };
+    });
+    const sTabs = labels.map((label, i) => {
+      const active = this.state.s === i;
+      return {
+        label,
+        onClick: () => this.setState({ s: i }),
+        style: {
+          position: 'relative', padding: '10px 2px 12px', border: 'none', background: 'transparent', cursor: 'pointer',
+          fontFamily: "'IBM Plex Sans',sans-serif", fontSize: '15px', fontWeight: active ? 600 : 500,
+          color: active ? 'hsl(210,100%,40%)' : '#55555E', transition: 'color 120ms ease-in',
+        },
+        hoverStyle: active ? {} : { color: '#232329' },
+        underline: {
+          position: 'absolute', left: 0, right: 0, bottom: 0, height: '2px', borderRadius: '1px',
+          background: 'hsl(210,100%,45%)', transform: active ? 'scaleX(1)' : 'scaleX(0)',
+          transformOrigin: 'left center', transition: 'transform 0.15s ease-out',
+        },
+      };
+    });
+    return { pTabs, sTabs };
+  }
+}
+</script>
+</body>
+</html>

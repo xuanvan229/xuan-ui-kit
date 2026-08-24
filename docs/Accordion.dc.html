@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #FFFFFF; }
+  a { color: #6366F1; text-decoration: none; }
+  a:hover { color: #4F51D8; }
+</style>
+</helmet>
+<div style="min-height:100vh;background:#FFFFFF;font-family:'Geist',system-ui,sans-serif;padding:72px 64px;box-sizing:border-box;display:flex;justify-content:center">
+  <div style="display:flex;flex-direction:column;gap:48px">
+    <div>
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9A9AA5;margin-bottom:24px">Accordion — Interactive</div>
+      <div style="width:520px;border:1px solid hsl(210,14%,87%);border-radius:12px;background:#FFFFFF;overflow:hidden">
+        <sc-for list="{{ items }}" as="it" hint-placeholder-count="4">
+          <div style="{{ it.wrapStyle }}">
+            <div onClick="{{ it.onToggle }}" style="{{ it.headStyle }}" style-hover="background:hsl(215,15%,97%)">
+              <span style="{{ it.titleStyle }}">{{ it.title }}</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#55555E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="{{ it.chevStyle }}"><path d="M6.5 9.5L12 15l5.5-5.5"></path></svg>
+            </div>
+            <div style="{{ it.bodyStyle }}">
+              <div style="overflow:hidden">
+                <div style="padding:0 16px 14px;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:400;color:#55555E;line-height:1.55">{{ it.content }}</div>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{ &quot;$preview&quot;: { &quot;width&quot;: 800, &quot;height&quot;: 520 } }">
+class Component extends DCLogic {
+  state = { open: 0 };
+  renderVals() {
+    const data = [
+      { title: 'What is this design system?', content: 'A component library built on a hue-210 blue palette with IBM Plex Sans, 10px radii and a consistent 40px control height. It covers form controls, overlays, navigation and data display.' },
+      { title: 'Which components are included?', content: 'Button, Input, Textarea, Checkbox, Radio, Switch, Select, Date Picker, Tabs, Table, Toast, Modal, Dropdown, Popover, Accordion, Breadcrumb and Badge — each with full state specs.' },
+      { title: 'How do focus states work?', content: 'Every interactive control uses the same focus treatment: a 1px hue-210 border plus a 3px outline at rgba(0,115,230,0.5) with 2px offset. This keeps keyboard navigation visually consistent.' },
+      { title: 'Can I use it with Base UI?', content: 'Yes. The anatomy of each component maps 1:1 to Base UI parts — triggers, popups, items and indicators — so the styles drop straight onto the unstyled primitives.' },
+    ];
+    return {
+      items: data.map((d, i) => {
+        const open = this.state.open === i;
+        return {
+          title: d.title, content: d.content,
+          onToggle: () => this.setState({ open: open ? null : i }),
+          wrapStyle: { borderTop: i > 0 ? '1px solid hsl(215,15%,94%)' : 'none' },
+          headStyle: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px', padding: '14px 16px', cursor: 'pointer', userSelect: 'none', transition: 'background 120ms ease-in', background: '#FFFFFF' },
+          titleStyle: { fontFamily: "'IBM Plex Sans',sans-serif", fontSize: '15px', fontWeight: open ? 600 : 500, color: '#1B1B1F' },
+          chevStyle: { transition: 'transform 0.18s ease-out', transform: open ? 'rotate(180deg)' : 'none', flexShrink: 0 },
+          bodyStyle: { display: 'grid', gridTemplateRows: open ? '1fr' : '0fr', transition: 'grid-template-rows 0.2s ease-out' },
+        };
+      }),
+    };
+  }
+}
+</script>
+</body>
+</html>

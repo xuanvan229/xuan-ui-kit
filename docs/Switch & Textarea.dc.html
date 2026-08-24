@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #FFFFFF; }
+  a { color: #6366F1; text-decoration: none; }
+  a:hover { color: #4F51D8; }
+  textarea::placeholder { color: #9A9AA5; opacity: 1; }
+</style>
+</helmet>
+<div style="min-height:100vh;background:#FFFFFF;font-family:'Geist',system-ui,sans-serif;padding:72px 64px;box-sizing:border-box;display:flex;justify-content:center">
+  <div style="display:flex;flex-direction:column;gap:48px">
+    <div>
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9A9AA5;margin-bottom:24px">Switch — states</div>
+      <div style="display:flex;gap:48px;align-items:flex-start;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="width:36px;height:22px;box-sizing:border-box;border-radius:999px;background:#D9D9E0;border:1px solid #CDCDD6;position:relative;display:inline-block"><span style="position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#FFFFFF;box-shadow:0 1px 2px rgba(9,11,11,0.2)"></span></span>
+            <span style="font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:400;color:#232329">Label</span>
+          </div>
+          <span style="font-size:12px;font-weight:500;color:#9A9AA5">Off</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="width:36px;height:22px;box-sizing:border-box;border-radius:999px;background:hsl(210,100%,45%);border:1px solid hsl(210,100%,42%);position:relative;display:inline-block"><span style="position:absolute;top:2px;left:16px;width:16px;height:16px;border-radius:50%;background:#FFFFFF;box-shadow:0 1px 2px rgba(9,11,11,0.2)"></span></span>
+            <span style="font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:400;color:#232329">Label</span>
+          </div>
+          <span style="font-size:12px;font-weight:500;color:#9A9AA5">On</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="width:36px;height:22px;box-sizing:border-box;border-radius:999px;background:hsl(210,100%,45%);border:1px solid hsl(210,100%,42%);position:relative;display:inline-block;outline:3px solid rgba(0,115,230,0.5);outline-offset:2px"><span style="position:absolute;top:2px;left:16px;width:16px;height:16px;border-radius:50%;background:#FFFFFF;box-shadow:0 1px 2px rgba(9,11,11,0.2)"></span></span>
+            <span style="font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:400;color:#232329">Label</span>
+          </div>
+          <span style="font-size:12px;font-weight:500;color:#9A9AA5">Focus</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="width:36px;height:22px;box-sizing:border-box;border-radius:999px;background:#F0F0F4;border:1px solid #E2E2E8;position:relative;display:inline-block"><span style="position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#DADAE1"></span></span>
+            <span style="font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:400;color:#ACACB8">Label</span>
+          </div>
+          <span style="font-size:12px;font-weight:500;color:#9A9AA5">Disabled</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;margin-left:24px">
+          <sc-for list="{{ switches }}" as="sw" hint-placeholder-count="2">
+            <div onClick="{{ sw.onToggle }}" style="display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none">
+              <span style="{{ sw.trackStyle }}"><span style="{{ sw.knobStyle }}"></span></span>
+              <span style="font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:400;color:#232329">{{ sw.label }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9A9AA5;margin-bottom:24px">Textarea — states</div>
+      <div style="display:flex;gap:40px;align-items:flex-start;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;gap:8px;width:280px">
+          <label style="font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:600;color:#232329">Label</label>
+          <textarea placeholder="Placeholder" rows="3" style="box-sizing:border-box;padding:10px 12px;border-radius:10px;border:1px solid hsl(210,14%,87%);background:#FFFFFF;font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:400;color:#232329;outline:none;resize:vertical;transition:120ms ease-in;line-height:1.45"></textarea>
+          <span style="font-size:12px;font-weight:500;color:#9A9AA5">Default</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;width:280px">
+          <label style="font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:600;color:#232329">Label</label>
+          <textarea rows="3" readOnly="{{ true }}" defaultValue="Focused textarea with some content." style="box-sizing:border-box;padding:10px 12px;border-radius:10px;border:1px solid hsl(210,100%,42%);background:#FFFFFF;font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:400;color:#232329;outline:3px solid rgba(0,115,230,0.5);outline-offset:2px;resize:vertical;line-height:1.45"></textarea>
+          <span style="font-size:12px;font-weight:500;color:#9A9AA5">Focus</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;width:280px">
+          <label style="font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:600;color:#232329">Label</label>
+          <textarea rows="3" readOnly="{{ true }}" defaultValue="Too short." style="box-sizing:border-box;padding:10px 12px;border-radius:10px;border:1px solid hsl(0,72%,51%);background:#FFFFFF;font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:400;color:#232329;outline:3px solid rgba(220,38,38,0.25);outline-offset:2px;resize:vertical;line-height:1.45"></textarea>
+          <span style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;font-weight:500;color:hsl(0,72%,45%)">Minimum 20 characters</span>
+          <span style="font-size:12px;font-weight:500;color:#9A9AA5">Error</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;width:280px">
+          <label style="font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:600;color:#9A9AA5">Label</label>
+          <textarea rows="3" disabled="{{ true }}" defaultValue="Disabled textarea." style="box-sizing:border-box;padding:10px 12px;border-radius:10px;border:1px solid #E2E2E8;background:#F0F0F4;font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:400;color:#ACACB8;cursor:not-allowed;outline:none;resize:none;line-height:1.45"></textarea>
+          <span style="font-size:12px;font-weight:500;color:#9A9AA5">Disabled</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;width:400px;margin-top:28px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between">
+          <label style="font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:600;color:#232329">Description</label>
+          <span style="{{ countStyle }}">{{ countText }}</span>
+        </div>
+        <textarea placeholder="Describe the component…" rows="4" onChange="{{ onType }}" style="box-sizing:border-box;padding:10px 12px;border-radius:10px;border:1px solid hsl(210,14%,87%);background:#FFFFFF;font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:400;color:#232329;outline:none;resize:vertical;transition:120ms ease-in;line-height:1.45" style-hover="border:1px solid #A9A9B8" style-focus="border:1px solid hsl(210,100%,42%);outline:3px solid rgba(0,115,230,0.5);outline-offset:2px"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{ &quot;$preview&quot;: { &quot;width&quot;: 1400, &quot;height&quot;: 720 } }">
+class Component extends DCLogic {
+  state = { sw: [true, false], count: 0 };
+  renderVals() {
+    const MAX = 200;
+    const labels = ['Email notifications', 'Public profile'];
+    return {
+      switches: this.state.sw.map((on, i) => ({
+        label: labels[i],
+        onToggle: () => this.setState(s => ({ sw: s.sw.map((v, j) => j === i ? !v : v) })),
+        trackStyle: { width: '36px', height: '22px', boxSizing: 'border-box', borderRadius: '999px', position: 'relative', display: 'inline-block', flexShrink: 0, transition: '120ms ease-in', background: on ? 'hsl(210,100%,45%)' : '#D9D9E0', border: on ? '1px solid hsl(210,100%,42%)' : '1px solid #CDCDD6' },
+        knobStyle: { position: 'absolute', top: '2px', left: on ? '16px' : '2px', width: '16px', height: '16px', borderRadius: '50%', background: '#FFFFFF', boxShadow: '0 1px 2px rgba(9,11,11,0.2)', transition: 'left 0.15s ease-out' },
+      })),
+      onType: (e) => this.setState({ count: e.target.value.length }),
+      countText: this.state.count + ' / ' + MAX,
+      countStyle: { fontFamily: "'IBM Plex Sans',sans-serif", fontSize: '12px', fontWeight: 500, color: this.state.count > MAX ? 'hsl(0,72%,45%)' : '#9A9AA5' },
+    };
+  }
+}
+</script>
+</body>
+</html>

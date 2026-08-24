@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #FFFFFF; }
+  a { color: #6366F1; text-decoration: none; }
+  a:hover { color: #4F51D8; }
+</style>
+</helmet>
+<div style="min-height:100vh;background:#FFFFFF;font-family:'Geist',system-ui,sans-serif;padding:72px 64px;box-sizing:border-box;display:flex;justify-content:center">
+  <div style="display:flex;flex-direction:column;gap:48px">
+    <div>
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9A9AA5;margin-bottom:24px">Table / Default</div>
+      <div style="width:840px;border:1px solid #E4E4DC;border-radius:14px;overflow:hidden;background:#FFFFFF">
+        <div style="display:grid;grid-template-columns:52px 2fr 1.4fr 1fr 1fr 64px;align-items:center;background:#F7F7F2;border-bottom:1px solid #ECECE4">
+          <div style="border-right:1px solid #ECECE4;display:flex;align-items:center;justify-content:center;padding:12px 0">
+            <span onClick="{{ toggleAll }}" style="{{ headCheckStyle }}">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" style="{{ headCheckIcon }}"><path d="M4.5 12.5l5 5L19.5 6.5"></path></svg>
+              <span style="{{ headDashIcon }}"></span>
+            </span>
+          </div>
+          <div onClick="{{ sortName }}" style="border-right:1px solid #ECECE4;padding:12px 14px;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:400;color:#55555E;cursor:pointer;user-select:none;display:flex;align-items:center;gap:4px" style-hover="color:#232329">Component {{ nameArrow }}</div>
+          <div style="border-right:1px solid #ECECE4;padding:12px 14px;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:400;color:#55555E">Owner</div>
+          <div style="border-right:1px solid #ECECE4;padding:12px 14px;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:400;color:#55555E">Status</div>
+          <div onClick="{{ sortDate }}" style="border-right:1px solid #ECECE4;padding:12px 14px;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:400;color:#55555E;cursor:pointer;user-select:none;display:flex;align-items:center;gap:4px;justify-content:flex-end;text-align:right" style-hover="color:#232329">Updated {{ dateArrow }}</div>
+          <div></div>
+        </div>
+        <sc-for list="{{ rows }}" as="r" hint-placeholder-count="6">
+          <div style="{{ r.rowStyle }}" style-hover="{{ r.rowHover }}">
+            <div style="border-right:1px solid #ECECE4;display:flex;align-items:center;justify-content:center;padding:10px 0">
+              <span onClick="{{ r.onToggle }}" style="{{ r.checkStyle }}">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" style="{{ r.checkIcon }}"><path d="M4.5 12.5l5 5L19.5 6.5"></path></svg>
+              </span>
+            </div>
+            <div style="border-right:1px solid #ECECE4;padding:10px 14px;font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:500;color:#232329;display:flex;align-items:center">{{ r.name }}</div>
+            <div style="border-right:1px solid #ECECE4;padding:10px 14px;display:flex;align-items:center;gap:8px">
+              <span style="{{ r.avatarStyle }}">{{ r.initials }}</span>
+              <span style="font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:400;color:#3E3E47">{{ r.owner }}</span>
+            </div>
+            <div style="border-right:1px solid #ECECE4;padding:10px 14px;display:flex;align-items:center"><span style="{{ r.badgeStyle }}">{{ r.status }}</span></div>
+            <div style="border-right:1px solid #ECECE4;padding:10px 14px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;font-weight:400;color:#232329;display:flex;align-items:center;justify-content:flex-end">{{ r.updated }}</div>
+            <div style="padding:10px 14px;display:flex;justify-content:center">
+              <button style="width:26px;height:26px;border:none;background:transparent;border-radius:6px;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;color:#55555E" style-hover="background:#ECECE4;color:#232329">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"></circle><circle cx="12" cy="12" r="1.6"></circle><circle cx="19" cy="12" r="1.6"></circle></svg>
+              </button>
+            </div>
+          </div>
+        </sc-for>
+        <div style="display:grid;grid-template-columns:52px 2fr 1.4fr 1fr 1fr 64px;align-items:center;background:#F7F7F2;border-top:1px solid #ECECE4">
+          <div></div>
+          <div style="padding:12px 14px;font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:600;color:#1B1B1F">Total</div>
+          <div></div>
+          <div></div>
+          <div style="padding:12px 14px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;font-weight:500;color:#1B1B1F;text-align:right">{{ footerText }}</div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{ &quot;$preview&quot;: { &quot;width&quot;: 1000, &quot;height&quot;: 520 } }">
+class Component extends DCLogic {
+  state = {
+    selected: [1],
+    sortKey: 'name', sortDir: 1,
+    data: [
+      { id: 1, name: 'Date Picker', owner: 'An Nguyen', status: 'Stable', updated: 20260824 },
+      { id: 2, name: 'Button', owner: 'An Nguyen', status: 'Stable', updated: 20260822 },
+      { id: 3, name: 'Input', owner: 'Minh Tran', status: 'Review', updated: 20260821 },
+      { id: 4, name: 'Checkbox & Radio', owner: 'Minh Tran', status: 'Review', updated: 20260820 },
+      { id: 5, name: 'Tabs', owner: 'Linh Pham', status: 'Draft', updated: 20260819 },
+      { id: 6, name: 'Table', owner: 'Linh Pham', status: 'Draft', updated: 20260818 },
+    ],
+  };
+  renderVals() {
+    const { selected, data, sortKey, sortDir } = this.state;
+    const fmtDate = (k) => { const m = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][Math.floor(k/100)%100-1]; return m + ' ' + (k%100) + ', ' + Math.floor(k/10000); };
+    const badge = (s) => {
+      const map = { Stable: ['#DFF2E4', '#1F5B32', '#A9D8B5'], Review: ['#FBEFC7', '#7A5410', '#EBD285'], Draft: ['#EBEBE5', '#3E3E47', '#D5D5CB'] };
+      const [bg, fg, bd] = map[s];
+      return { display: 'inline-flex', alignItems: 'center', height: '24px', padding: '0 12px', borderRadius: '999px', background: bg, color: fg, border: '1px solid ' + bd, fontFamily: "'IBM Plex Sans',sans-serif", fontSize: '13px', fontWeight: 500 };
+    };
+    const checkBase = (on) => ({ width: '20px', height: '20px', boxSizing: 'border-box', borderRadius: '6px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: '120ms ease-in', flexShrink: 0, border: on ? '1px solid hsl(210,100%,42%)' : '1px solid #D0D0D9', background: on ? 'hsl(210,100%,45%)' : '#FFFFFF' });
+    const sorted = [...data].sort((a, b) => {
+      const va = sortKey === 'name' ? a.name : a.updated, vb = sortKey === 'name' ? b.name : b.updated;
+      return (va < vb ? -1 : va > vb ? 1 : 0) * sortDir;
+    });
+    const rows = sorted.map((d, i) => {
+      const on = selected.includes(d.id);
+      const [fn, ln] = d.owner.split(' ');
+      return {
+        name: d.name, owner: d.owner, status: d.status, updated: fmtDate(d.updated),
+        initials: fn[0] + ln[0],
+        onToggle: () => this.setState(s => ({ selected: on ? s.selected.filter(x => x !== d.id) : [...s.selected, d.id] })),
+        checkStyle: checkBase(on),
+        checkIcon: { opacity: on ? 1 : 0, strokeDasharray: 24, strokeDashoffset: on ? 0 : 24, transition: on ? 'stroke-dashoffset 0.15s ease-out, opacity 0.01s' : 'none' },
+        avatarStyle: { width: '24px', height: '24px', borderRadius: '50%', background: '#EBEBE5', color: '#3E3E47', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: "'IBM Plex Sans',sans-serif", fontSize: '10px', fontWeight: 600, flexShrink: 0 },
+        badgeStyle: badge(d.status),
+        rowStyle: { display: 'grid', gridTemplateColumns: '52px 2fr 1.4fr 1fr 1fr 64px', alignItems: 'stretch', background: on ? 'hsl(210,100%,96%)' : '#FFFFFF', borderBottom: '1px solid #ECECE4', transition: 'background 120ms ease-in' },
+        rowHover: on ? {} : { background: '#F7F7F2' },
+      };
+    });
+    const all = selected.length === data.length, some = selected.length > 0 && !all;
+    const arrow = (key) => sortKey === key ? (sortDir === 1 ? '\u2191' : '\u2193') : '';
+    const sortBy = (key) => () => this.setState(s => ({ sortKey: key, sortDir: s.sortKey === key ? -s.sortDir : 1 }));
+    return {
+      rows,
+      toggleAll: () => this.setState(s => ({ selected: all ? [] : data.map(d => d.id) })),
+      headCheckStyle: checkBase(all || some),
+      headCheckIcon: { display: all ? 'block' : 'none' },
+      headDashIcon: { display: some ? 'block' : 'none', width: '9px', height: '2.5px', borderRadius: '2px', background: '#FFFFFF' },
+      footerText: selected.length > 0 ? selected.length + ' / ' + data.length + ' selected' : data.length + ' components',
+      sortName: sortBy('name'), sortDate: sortBy('updated'),
+      nameArrow: arrow('name'), dateArrow: arrow('updated'),
+    };
+  }
+}
+</script>
+</body>
+</html>

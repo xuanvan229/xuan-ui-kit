@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #FFFFFF; }
+  a { color: #6366F1; text-decoration: none; }
+  a:hover { color: #4F51D8; }
+  @keyframes toast-in { from { opacity: 0; transform: translateY(12px) scale(0.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+</style>
+</helmet>
+<div style="min-height:100vh;background:#FFFFFF;font-family:'Geist',system-ui,sans-serif;padding:72px 64px;box-sizing:border-box;display:flex;justify-content:center">
+  <div style="display:flex;flex-direction:column;gap:48px">
+    <div>
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9A9AA5;margin-bottom:24px">Toast — variants</div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <sc-for list="{{ variants }}" as="v" hint-placeholder-count="4">
+          <div style="width:380px;display:flex;align-items:flex-start;gap:10px;padding:12px 14px;background:#FFFFFF;border:1px solid #E2E2E8;border-radius:12px;box-shadow:0 8px 24px rgba(24,24,44,0.10), 0 2px 6px rgba(24,24,44,0.05);box-sizing:border-box">
+            <span style="{{ v.iconWrap }}">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" path-d="{{ v.iconPath }}"><path d="{{ v.iconPath }}"></path></svg>
+            </span>
+            <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px">
+              <span style="font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:600;color:#1B1B1F">{{ v.title }}</span>
+              <span style="font-family:'IBM Plex Sans',sans-serif;font-size:13.5px;font-weight:400;color:#55555E">{{ v.message }}</span>
+            </div>
+            <button style="width:22px;height:22px;border:none;background:transparent;border-radius:6px;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;color:#9A9AA5;flex-shrink:0" style-hover="background:hsl(215,15%,92%);color:#232329">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+            </button>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9A9AA5;margin-bottom:24px">Interactive — click to fire</div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <sc-for list="{{ fireButtons }}" as="b" hint-placeholder-count="4">
+          <button onClick="{{ b.onFire }}" style="display:inline-flex;align-items:center;justify-content:center;padding:8px 14px 10px;height:40px;border-radius:10px;cursor:pointer;user-select:none;font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:500;line-height:1.25;color:hsl(215,15%,12%);background-color:rgba(232,235,237,0.1);border:1px solid hsl(210,14%,87%);box-shadow:inset 0 1px 0 1px #fff, inset 0 -1px 0 1px rgba(223,226,231,0.4), 0 1px 2px rgba(223,226,231,0.5);transition:120ms ease-in" style-hover="background-color:hsl(215,15%,97%);box-shadow:none" style-active="background-color:hsl(215,15%,92%);box-shadow:none">{{ b.label }}</button>
+        </sc-for>
+      </div>
+      <div style="position:fixed;bottom:24px;right:24px;display:flex;flex-direction:column;gap:10px;z-index:50">
+        <sc-for list="{{ liveToasts }}" as="t" hint-placeholder-count="0">
+          <div style="{{ t.style }}">
+            <span style="{{ t.iconWrap }}">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="{{ t.iconPath }}"></path></svg>
+            </span>
+            <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px">
+              <span style="font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:600;color:#1B1B1F">{{ t.title }}</span>
+              <span style="font-family:'IBM Plex Sans',sans-serif;font-size:13.5px;font-weight:400;color:#55555E">{{ t.message }}</span>
+            </div>
+            <button onClick="{{ t.onClose }}" style="width:22px;height:22px;border:none;background:transparent;border-radius:6px;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;color:#9A9AA5;flex-shrink:0" style-hover="background:hsl(215,15%,92%);color:#232329">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+            </button>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{ &quot;$preview&quot;: { &quot;width&quot;: 1100, &quot;height&quot;: 720 } }">
+class Component extends DCLogic {
+  state = { toasts: [] };
+  DEFS = {
+    success: { title: 'Saved', message: 'Component published to the library.', color: 'hsl(145,55%,42%)', icon: 'M4.5 12.5l5 5L19.5 6.5' },
+    error: { title: 'Something went wrong', message: 'Changes could not be saved. Try again.', color: 'hsl(0,72%,51%)', icon: 'M6 6l12 12M18 6L6 18' },
+    warning: { title: 'Heads up', message: 'This component has unpublished changes.', color: 'hsl(38,92%,50%)', icon: 'M12 5v9m0 4v.5' },
+    info: { title: 'New version', message: 'v2.4 of the design system is available.', color: 'hsl(210,100%,45%)', icon: 'M12 19v-9m0-4v-.5' },
+  };
+  renderVals() {
+    const iconWrap = (color) => ({ width: '20px', height: '20px', borderRadius: '50%', background: color, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '1px' });
+    const kinds = ['success', 'error', 'warning', 'info'];
+    return {
+      variants: kinds.map(k => { const d = this.DEFS[k]; return { title: d.title, message: d.message, iconWrap: iconWrap(d.color), iconPath: d.icon }; }),
+      fireButtons: kinds.map(k => ({
+        label: 'Fire ' + k,
+        onFire: () => {
+          const id = Date.now() + Math.random();
+          this.setState(s => ({ toasts: [...s.toasts, { id, kind: k }] }));
+          setTimeout(() => this.setState(s => ({ toasts: s.toasts.filter(t => t.id !== id) })), 4000);
+        },
+      })),
+      liveToasts: this.state.toasts.map(t => {
+        const d = this.DEFS[t.kind];
+        return {
+          title: d.title, message: d.message, iconPath: d.icon, iconWrap: iconWrap(d.color),
+          onClose: () => this.setState(s => ({ toasts: s.toasts.filter(x => x.id !== t.id) })),
+          style: { width: '380px', display: 'flex', alignItems: 'flex-start', gap: '10px', padding: '12px 14px', background: '#FFFFFF', border: '1px solid #E2E2E8', borderRadius: '12px', boxShadow: '0 8px 24px rgba(24,24,44,0.14), 0 2px 6px rgba(24,24,44,0.06)', boxSizing: 'border-box', animation: 'toast-in 0.2s ease-out' },
+        };
+      }),
+    };
+  }
+}
+</script>
+</body>
+</html>
