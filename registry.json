@@ -424,6 +424,24 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "36×22 switch with a 16px sliding knob.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/switch.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
