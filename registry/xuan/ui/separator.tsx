@@ -16,8 +16,9 @@ function Separator({
       data-variant={variant}
       orientation={orientation}
       className={cn(
-        "shrink-0 bg-line-hair data-horizontal:h-px data-horizontal:w-full data-vertical:w-px data-vertical:self-stretch",
-        variant === "popup" && "mx-1.5 my-[5px] data-horizontal:w-auto",
+        "shrink-0 bg-line-hair data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-px data-[orientation=vertical]:self-stretch",
+        variant === "popup" &&
+          "mx-1.5 my-[5px] data-[orientation=horizontal]:w-auto",
         className
       )}
       {...props}

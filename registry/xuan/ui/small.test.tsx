@@ -101,9 +101,9 @@ describe("Avatar", () => {
 describe("Separator", () => {
   it("renders a horizontal separator", () => {
     render(<Separator variant="popup" />)
-    expect(screen.getByRole("separator")).toHaveAttribute(
-      "data-variant",
-      "popup"
-    )
+    const separator = screen.getByRole("separator")
+    expect(separator).toHaveAttribute("data-variant", "popup")
+    expect(separator).toHaveAttribute("data-orientation", "horizontal")
+    expect(separator.className).toContain("data-[orientation=horizontal]:h-px")
   })
 })
