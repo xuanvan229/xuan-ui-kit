@@ -55,7 +55,7 @@ function DialogHeader({
         <DialogPrimitive.Close
           data-slot="dialog-close"
           aria-label="Close"
-          className="flex size-[26px] shrink-0 cursor-pointer items-center justify-center rounded-md text-ink-muted transition-control outline-none hover:bg-fill-active hover:text-ink focus-visible:focus-ring"
+          className="flex size-[26px] shrink-0 cursor-pointer items-center justify-center rounded-sm text-ink-muted transition-control outline-none hover:bg-fill-active hover:text-ink focus-visible:focus-ring"
         >
           <svg
             width="11"

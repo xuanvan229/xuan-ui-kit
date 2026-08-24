@@ -73,7 +73,7 @@ function MenuItem({
       data-slot="menu-item"
       data-variant={variant}
       className={cn(
-        "flex h-[34px] cursor-pointer items-center gap-2.5 rounded-lg px-2.5 font-sans text-[14.5px] text-ink transition-[background-color] duration-100 ease-in outline-none select-none data-disabled:cursor-not-allowed data-disabled:text-ink-disabled data-highlighted:bg-fill-menu data-[variant=danger]:text-error-text data-[variant=danger]:data-highlighted:bg-error-bg-soft [&>svg]:size-[15px] [&>svg]:shrink-0",
+        "flex h-[34px] cursor-pointer items-center gap-2.5 rounded-md px-2.5 font-sans text-[14.5px] text-ink transition-[background-color] duration-100 ease-in outline-none select-none data-disabled:cursor-not-allowed data-disabled:text-ink-disabled data-highlighted:bg-fill-menu data-[variant=danger]:text-error-text data-[variant=danger]:data-highlighted:bg-error-bg-soft [&>svg]:size-[15px] [&>svg]:shrink-0",
         className
       )}
       {...props}

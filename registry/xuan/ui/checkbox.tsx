@@ -14,7 +14,7 @@ function Checkbox({ className, size = "default", ...props }: CheckboxProps) {
       data-size={size}
       className={cn(
         "peer flex shrink-0 cursor-pointer items-center justify-center border border-line-input bg-white outline-none transition-control focus-visible:focus-ring data-checked:border-accent-600 data-checked:bg-accent-500 data-indeterminate:border-accent-600 data-indeterminate:bg-accent-500 data-disabled:cursor-not-allowed data-disabled:border-disabled-line data-disabled:bg-disabled-bg data-disabled:data-checked:border-disabled-fill-line data-disabled:data-checked:bg-disabled-fill data-disabled:data-indeterminate:border-disabled-fill-line data-disabled:data-indeterminate:bg-disabled-fill",
-        size === "default" ? "size-5 rounded-md" : "size-4 rounded-[5px]",
+        size === "default" ? "size-5 rounded-sm" : "size-4 rounded-[5px]",
         className
       )}
       {...props}

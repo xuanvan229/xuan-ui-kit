@@ -7,7 +7,7 @@ type DateHeaderProps = {
 }
 
 const NAV_BUTTON =
-  "flex size-8 cursor-pointer items-center justify-center rounded-lg text-ink outline-none transition-control hover:bg-calendar-nav focus-visible:focus-ring"
+  "flex size-8 cursor-pointer items-center justify-center rounded-md text-ink outline-none transition-control hover:bg-calendar-nav focus-visible:focus-ring"
 
 function DateHeader({
   year,
@@ -31,18 +31,18 @@ function DateHeader({
       <div className="flex items-center gap-1">
         <button
           type="button"
-          onClick={onToday}
-          className="cursor-pointer rounded-lg px-2 py-1.5 font-sans text-sm font-semibold text-today transition-control outline-none hover:bg-calendar-nav focus-visible:focus-ring"
-        >
-          Today
-        </button>
-        <button
-          type="button"
           aria-label="Previous month"
           onClick={onPrevious}
           className={NAV_BUTTON}
         >
           <DateHeaderChevron direction="left" />
+        </button>
+        <button
+          type="button"
+          onClick={onToday}
+          className="cursor-pointer rounded-md px-2 py-1.5 font-sans text-sm font-semibold text-today transition-control outline-none hover:bg-calendar-nav focus-visible:focus-ring"
+        >
+          Today
         </button>
         <button
           type="button"
@@ -70,7 +70,7 @@ function DateHeaderChevron({ direction }: { direction: "left" | "right" }) {
       strokeLinejoin="round"
       aria-hidden="true"
     >
-      <path d={direction === "left" ? "M15 6l-6 6 6 6" : "M9 6l6 6-6 6"} />
+      <path d={direction === "left" ? "M14.5 6.5L9 12l5.5 5.5" : "M9.5 6.5L15 12l-5.5 5.5"} />
     </svg>
   )
 }

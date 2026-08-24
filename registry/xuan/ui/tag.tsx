@@ -5,7 +5,7 @@ function Tag({ className, ...props }: React.ComponentProps<"span">) {
     <span
       data-slot="tag"
       className={cn(
-        "inline-flex h-[26px] items-center gap-[5px] rounded-lg border border-accent-line-soft bg-accent-tint-94 pr-[5px] pl-2.5 font-sans text-[13px] font-medium text-accent-deep",
+        "inline-flex h-[26px] items-center gap-[5px] rounded-md border border-accent-line-soft bg-accent-tint-94 pr-[5px] pl-2.5 font-sans text-[13px] font-medium text-accent-deep",
         className
       )}
       {...props}
@@ -47,7 +47,7 @@ function TagReset({ className, ...props }: React.ComponentProps<"button">) {
       type="button"
       data-slot="tag-reset"
       className={cn(
-        "inline-flex h-[26px] cursor-pointer items-center rounded-lg border border-dashed border-line-dashed bg-transparent px-2.5 font-sans text-[13px] font-medium text-ink-secondary transition-control outline-none hover:bg-fill-menu focus-visible:focus-ring",
+        "inline-flex h-[26px] cursor-pointer items-center rounded-md border border-dashed border-line-dashed bg-transparent px-2.5 font-sans text-[13px] font-medium text-ink-secondary transition-control outline-none hover:bg-fill-menu focus-visible:focus-ring",
         className
       )}
       {...props}

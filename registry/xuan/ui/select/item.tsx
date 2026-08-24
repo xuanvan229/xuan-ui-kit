@@ -68,7 +68,7 @@ function SelectItem({
     <SelectPrimitive.Item
       data-slot="select-item"
       className={cn(
-        "group/item flex h-[34px] cursor-pointer items-center rounded-lg px-2.5 font-sans text-[14.5px] text-ink transition-[background-color] duration-100 ease-in outline-none select-none data-disabled:cursor-not-allowed data-disabled:text-ink-disabled data-highlighted:bg-fill-menu data-disabled:data-highlighted:bg-transparent",
+        "group/item flex h-[34px] cursor-pointer items-center rounded-md px-2.5 font-sans text-[14.5px] text-ink transition-[background-color] duration-100 ease-in outline-none select-none data-disabled:cursor-not-allowed data-disabled:text-ink-disabled data-highlighted:bg-fill-menu data-disabled:data-highlighted:bg-transparent",
         multiple
           ? "gap-2.5"
           : "justify-between data-[selected]:font-medium data-[selected]:text-accent-hover",

@@ -35,7 +35,7 @@ function BreadcrumbLink({
     props: {
       "data-slot": "breadcrumb-link",
       className: cn(
-        "rounded-md px-1 py-0.5 text-ink-secondary transition-control outline-none hover:bg-fill-menu hover:text-ink focus-visible:focus-ring",
+        "rounded-sm px-1 py-0.5 text-ink-secondary transition-control outline-none hover:bg-fill-menu hover:text-ink focus-visible:focus-ring",
         className
       ),
       ...props,
@@ -92,7 +92,7 @@ function BreadcrumbEllipsis({
       aria-label="More"
       data-slot="breadcrumb-ellipsis"
       className={cn(
-        "flex size-6 cursor-pointer items-center justify-center rounded-md text-ink-secondary transition-control outline-none hover:bg-fill-menu hover:text-ink focus-visible:focus-ring",
+        "flex size-6 cursor-pointer items-center justify-center rounded-sm text-ink-secondary transition-control outline-none hover:bg-fill-menu hover:text-ink focus-visible:focus-ring",
         className
       )}
       {...props}
