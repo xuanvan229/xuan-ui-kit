@@ -2251,7 +2251,7 @@ describe("DatePicker", () => {
   })
 })
 ```
-Note: day-number buttons include outside-month days, so `getByRole("button", { name: "20" })` is unambiguous only because July 2026's grid shows Jun 29–30 and Aug 1–9; there is exactly one "20", "10", "4" and "5".
+Note: day-number buttons include outside-month days (July 2026's grid shows Jun 29–30 and Aug 1–9), so "20" and "10" are unique but "4"/"5" are NOT — the min/max test therefore uses `min={new Date(2026, 6, 15)}` and asserts "14" disabled / "15" enabled (corrected during execution).
 
 - [ ] **Step 6: Run it to see it fail** → FAIL.
 
