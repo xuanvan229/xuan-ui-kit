@@ -13,8 +13,10 @@ describe("DatePicker", () => {
     const trigger = screen.getByRole("button", { name: /Jul 18, 2026/ })
     await userEvent.click(trigger)
     expect(await screen.findByText("July")).toBeInTheDocument()
-    expect(screen.getAllByRole("button", { name: /^\d+$/ })).toHaveLength(42)
-    await userEvent.click(screen.getByRole("button", { name: "20" }))
+    expect(
+      document.querySelectorAll("button[data-slot=date-cell]")
+    ).toHaveLength(42)
+    await userEvent.click(screen.getByRole("button", { name: /July 20, 2026/ }))
     expect(onValueChange).toHaveBeenCalledWith(new Date(2026, 6, 20))
   })
 
@@ -28,7 +30,9 @@ describe("DatePicker", () => {
       />
     )
     await userEvent.click(screen.getByRole("button", { name: /Jul 12/ }))
-    await userEvent.click(await screen.findByRole("button", { name: "10" }))
+    await userEvent.click(
+      await screen.findByRole("button", { name: /July 10, 2026/ })
+    )
     expect(onValueChange).toHaveBeenCalledWith({
       start: new Date(2026, 6, 10),
       end: null,
@@ -44,7 +48,21 @@ describe("DatePicker", () => {
       />
     )
     await userEvent.click(screen.getByRole("button", { name: /Jul 18/ }))
-    expect(await screen.findByRole("button", { name: "14" })).toBeDisabled()
-    expect(screen.getByRole("button", { name: "15" })).toBeEnabled()
+    expect(
+      await screen.findByRole("button", { name: /July 14, 2026/ })
+    ).toBeDisabled()
+    expect(screen.getByRole("button", { name: /July 15, 2026/ })).toBeEnabled()
+  })
+
+  it("spreads triggerProps onto the trigger", () => {
+    render(
+      <DatePicker
+        value={new Date(2026, 6, 18)}
+        onValueChange={() => {}}
+        triggerProps={{ id: "start", "aria-label": "Start date" }}
+      />
+    )
+    const trigger = screen.getByRole("button", { name: "Start date" })
+    expect(trigger).toHaveAttribute("id", "start")
   })
 })
