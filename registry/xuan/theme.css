@@ -109,6 +109,15 @@
   --input: var(--line-input);
   --ring: var(--focus-ring);
   --radius: 10px;
+
+  /* Pinned again here (unlayered :root) so they win over any font CSS custom
+     properties a consumer's base template already defines under the same
+     names (e.g. Next.js's default "next" starter loads Geist as --font-sans
+     / --font-mono). @theme inline below is layered by Tailwind and loses
+     that fight, so it stays only to drive the font-sans/font-mono utility
+     class generation. */
+  --font-sans: var(--font-plex-sans), "IBM Plex Sans", sans-serif;
+  --font-mono: var(--font-plex-mono), "IBM Plex Mono", monospace;
 }
 
 @theme inline {

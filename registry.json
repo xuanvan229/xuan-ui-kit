@@ -225,7 +225,9 @@
           "border": "var(--line-control)",
           "input": "var(--line-input)",
           "ring": "var(--focus-ring)",
-          "radius": "10px"
+          "radius": "10px",
+          "font-sans": "var(--font-plex-sans), \"IBM Plex Sans\", sans-serif",
+          "font-mono": "var(--font-plex-mono), \"IBM Plex Mono\", monospace"
         }
       },
       "css": {
