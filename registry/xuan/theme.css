@@ -137,6 +137,126 @@
      class generation. */
   --font-sans: var(--font-plex-sans, "IBM Plex Sans"), sans-serif;
   --font-mono: var(--font-plex-mono, "IBM Plex Mono"), monospace;
+
+  color-scheme: light;
+}
+
+.dark {
+  --accent-500: hsl(210 100% 45%);
+  --accent-600: hsl(210 100% 42%);
+  --accent-700: hsl(210 90% 68%);
+  --accent-800: hsl(210 90% 75%);
+  --accent-hover: hsl(210 100% 38%);
+  --accent-active: hsl(210 100% 30%);
+  --accent-deep: hsl(210 90% 72%);
+  --accent-tint-90: hsl(210 45% 24%);
+  --accent-tint-93: hsl(210 45% 22%);
+  --accent-tint-94: hsl(210 55% 20%);
+  --accent-tint-95: hsl(210 45% 18%);
+  --accent-tint-96: hsl(210 50% 18%);
+  --accent-tint-97: hsl(210 40% 16%);
+  --accent-line: hsl(210 50% 40%);
+  --accent-line-hover: hsl(210 60% 48%);
+  --accent-line-active: hsl(210 60% 50%);
+  --accent-line-soft: hsl(210 50% 32%);
+  --accent-line-badge: hsl(210 50% 32%);
+  --focus-ring: rgb(0 115 230 / 0.5);
+  --error-ring: rgb(220 38 38 / 0.25);
+
+  --ink-heading: #f2f2f5;
+  --ink: #e8e8ec;
+  --ink-strong: #e8e8ec;
+  --ink-secondary: #a5a5b0;
+  --ink-muted: #9a9aa5;
+  --ink-disabled: #5f5f6b;
+  --ink-subtle: #b8b8c0;
+  --ink-weekday: #8b8b98;
+
+  --line-control: #3a3b44;
+  --line-input: #3a3b44;
+  --line-input-hover: #4a4b55;
+  --line-popup: #34353d;
+  --line-hair: #2a2b32;
+  --line-hair-soft: #2a2b32;
+  --line-dashed: #4a4b55;
+
+  --fill-hover: #26272e;
+  --fill-active: #30313a;
+  --fill-menu: #2a2b32;
+
+  --disabled-bg: #22232a;
+  --disabled-line: #34353d;
+  --disabled-fill: #2e2f37;
+  --disabled-fill-line: #3a3b44;
+  --switch-off: #34353d;
+  --switch-off-line: #3a3b44;
+
+  --table-band: #25262b;
+  --table-hair: #2e2f35;
+  --table-line: #3a3b44;
+
+  --success: hsl(145 55% 42%);
+  --success-bg: hsl(145 35% 15%);
+  --success-text: hsl(145 45% 62%);
+  --success-line: hsl(145 30% 30%);
+  --warning: hsl(38 92% 50%);
+  --warning-bg: hsl(44 45% 15%);
+  --warning-text: hsl(42 70% 62%);
+  --warning-line: hsl(42 40% 32%);
+  --error: hsl(0 72% 51%);
+  --error-text: hsl(0 75% 65%);
+  --error-badge-text: hsl(0 75% 68%);
+  --error-bg: hsl(0 40% 16%);
+  --error-bg-soft: hsl(0 40% 16%);
+  --error-line: hsl(0 35% 32%);
+  --destructive: hsl(0 72% 48%);
+  --destructive-line: hsl(0 72% 42%);
+  --destructive-hover: hsl(0 72% 40%);
+  --neutral-bg: #2e2f35;
+  --neutral-text: #b8b8c0;
+  --neutral-line: #454650;
+
+  --calendar: #1b1c21;
+  --calendar-line: #34353d;
+  --calendar-band: #2e3038;
+  --calendar-nav: #2a2b32;
+  --calendar-outside: #565764;
+  --calendar-disabled: #6a6b76;
+  --calendar-strike: #4a4b55;
+  --calendar-selected: #f2f2f5;
+  --today: #818cf8;
+  --overlay: rgb(0 0 0 / 0.6);
+
+  --surface: #1e1f25;
+  --on-accent: #ffffff;
+  --secondary-fill: rgb(255 255 255 / 0.04);
+  --secondary-bevel:
+    inset 0 1px 0 rgb(255 255 255 / 0.08), 0 1px 2px rgb(0 0 0 / 0.4);
+  --outline-bevel:
+    inset 0 1px 0 rgb(255 255 255 / 0.06), inset 0 -1px 0 1px rgb(0 77 153 / 0.1),
+    0 2px 4px rgb(0 0 0 / 0.4);
+  --inset-input: inset 0 1px 2px rgb(0 0 0 / 0.35);
+  --knob-shadow: 0 1px 2px rgb(0 0 0 / 0.5);
+  --accent-selected: hsl(210 90% 70%);
+  --line-chevron: #4a4b55;
+  --calendar-selected-ink: #16171c;
+  --calendar-today: #e8e8ec;
+
+  --shadow-popup:
+    0 8px 24px rgb(0 0 0 / 0.1), 0 2px 6px rgb(0 0 0 / 0.05);
+  --shadow-toast:
+    0 8px 24px rgb(0 0 0 / 0.14), 0 2px 6px rgb(0 0 0 / 0.06);
+  --shadow-modal:
+    0 16px 48px rgb(0 0 0 / 0.24), 0 4px 12px rgb(0 0 0 / 0.08);
+  --shadow-panel: 0 6px 16px rgb(0 0 0 / 0.06);
+
+  /* shadcn semantic aliases */
+  --background: #141519;
+  --primary-foreground: #ffffff;
+  --destructive-foreground: #ffffff;
+  --radius: 10px;
+
+  color-scheme: dark;
 }
 
 @theme inline {

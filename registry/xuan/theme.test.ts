@@ -36,4 +36,12 @@ describe("theme tokens", () => {
       "color-calendar-today": "var(--calendar-today)",
     })
   })
+
+  it("gives every literal light token a dark value", () => {
+    const literal = Object.entries(cssVars.light)
+      .filter(([, value]) => typeof value === "string" && !value.startsWith("var("))
+      .map(([name]) => name)
+    const missing = literal.filter((name) => !(name in cssVars.dark))
+    expect(missing).toEqual([])
+  })
 })

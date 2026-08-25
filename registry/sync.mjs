@@ -19,18 +19,19 @@ function toObject(node) {
 function declsToVars(node) {
   const out = {}
   node.each((child) => {
-    if (child.type === "decl") out[child.prop.replace(/^--/, "")] = child.value
+    if (child.type === "decl" && child.prop.startsWith("--")) out[child.prop.replace(/^--/, "")] = child.value
   })
   return out
 }
 
 export function themeToRegistryFields(cssText) {
   const root = postcss.parse(cssText)
-  const cssVars = { theme: {}, light: {} }
+  const cssVars = { theme: {}, light: {}, dark: {} }
   const css = {}
   root.each((node) => {
     if (node.type === "atrule" && node.name === "theme") Object.assign(cssVars.theme, declsToVars(node))
     else if (node.type === "rule" && node.selector === ":root") Object.assign(cssVars.light, declsToVars(node))
+    else if (node.type === "rule" && node.selector === ".dark") Object.assign(cssVars.dark, declsToVars(node))
     else if (node.type === "atrule") css[`@${node.name} ${node.params}`.trim()] = toObject(node)
     else if (node.type === "rule") css[node.selector] = toObject(node)
   })
