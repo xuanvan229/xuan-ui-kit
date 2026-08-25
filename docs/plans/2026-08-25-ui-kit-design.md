@@ -94,7 +94,7 @@ Namespace `@xuan`; hosted on Vercel at a placeholder `https://xuan-ui-kit.vercel
 
 **New components:** Tooltip · Alert/banner · Card · Skeleton · Spinner/loading · Progress · Pagination · Slider · Combobox / search-in-select · Number field · Sheet/Drawer · Kbd · Toggle group (standalone) · Scroll area · Empty state.
 
-**States/variants on existing components:** button loading, icon-only, sizes, leading icon; hover for checkbox/radio/switch; switch on+disabled; select error and empty/no-results; date trigger error/disabled, month/year jump, two-month range, presets; tabs with icons/counts, vertical; table pagination, empty, loading, dense; toast action button; dialog sizes, scrollable body; menu submenu, checkbox/radio items, disabled item; breadcrumb collapsed-expand menu; dark mode for everything.
+**States/variants on existing components:** button loading, icon-only, sizes, leading icon; hover for checkbox/radio/switch; switch on+disabled; select error and empty/no-results; date trigger error/disabled, month/year jump, two-month range, presets; tabs with icons/counts, vertical; table pagination, empty, loading, dense; toast action button; dialog sizes, scrollable body; menu submenu, checkbox/radio items, disabled item; breadcrumb collapsed-expand menu.
 
 ### Verification
 
@@ -137,5 +137,7 @@ All 24 registry items shipped:
 | separator | registry:ui | `registry/xuan/ui/separator.tsx` |
 
 Preview page: `/preview` (`app/preview/`) — renders every component with all documented states.
+
+Dark mode shipped (see 2026-08-25-dark-mode-design.md).
 
 Missing from the design — unchanged, still to be designed (see the section above).

@@ -13,6 +13,14 @@ pnpm dlx shadcn@latest add @xuan/button @xuan/select  # any component
 
 Wrap the app root in a `<div className="isolate">` (Base UI portals) and mount `<Toaster>` once.
 
+## Dark mode
+
+The kit ships both light and dark tokens — installing `@xuan/xuan` writes a `.dark { … }`
+block into the consumer's `globals.css` alongside the light `:root` tokens. The app owns the
+switch: add the `dark` class to `<html>` to render the dark theme, e.g. with
+[`next-themes`](https://github.com/pacocoursey/next-themes) using `attribute="class"`. This
+repo's own `/preview` page has a light/dark toggle for browsing every component in both themes.
+
 ## Develop
 
 ```bash
