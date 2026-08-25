@@ -84,6 +84,22 @@
   --today: #6366f1;
   --overlay: rgb(20 22 28 / 0.45);
 
+  --surface: #ffffff;
+  --on-accent: #ffffff;
+  --secondary-fill: rgb(232 235 237 / 0.1);
+  --secondary-bevel:
+    inset 0 1px 0 1px #fff, inset 0 -1px 0 1px rgb(223 226 231 / 0.4),
+    0 1px 2px rgb(223 226 231 / 0.5);
+  --outline-bevel:
+    inset 0 1px 0 rgb(255 255 255 / 1), inset 0 -1px 0 1px rgb(0 77 153 / 0.1),
+    0 2px 4px rgb(9 11 11 / 0.08);
+  --inset-input: inset 0 1px 2px rgb(9 11 11 / 0.06);
+  --knob-shadow: 0 1px 2px rgb(9 11 11 / 0.2);
+  --accent-selected: hsl(210 100% 38%);
+  --line-chevron: #c2c2cc;
+  --calendar-selected-ink: #ffffff;
+  --calendar-today: #232329;
+
   --shadow-popup:
     0 8px 24px rgb(24 24 44 / 0.1), 0 2px 6px rgb(24 24 44 / 0.05);
   --shadow-toast:
@@ -95,9 +111,9 @@
   /* shadcn semantic aliases so third-party shadcn components look coherent */
   --background: #ffffff;
   --foreground: var(--ink);
-  --card: #ffffff;
+  --card: var(--surface);
   --card-foreground: var(--ink);
-  --popover: #ffffff;
+  --popover: var(--surface);
   --popover-foreground: var(--ink);
   --primary: var(--accent-500);
   --primary-foreground: #ffffff;
@@ -202,6 +218,13 @@
   --color-calendar-selected: var(--calendar-selected);
   --color-today: var(--today);
   --color-overlay: var(--overlay);
+  --color-surface: var(--surface);
+  --color-on-accent: var(--on-accent);
+  --color-secondary-fill: var(--secondary-fill);
+  --color-accent-selected: var(--accent-selected);
+  --color-line-chevron: var(--line-chevron);
+  --color-calendar-selected-ink: var(--calendar-selected-ink);
+  --color-calendar-today: var(--calendar-today);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -256,16 +279,10 @@
   box-shadow: inset 0 1px 0 1px rgb(0 59 117 / 0.7);
 }
 @utility bevel-secondary {
-  box-shadow:
-    inset 0 1px 0 1px #fff,
-    inset 0 -1px 0 1px rgb(223 226 231 / 0.4),
-    0 1px 2px rgb(223 226 231 / 0.5);
+  box-shadow: var(--secondary-bevel);
 }
 @utility bevel-outline {
-  box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 1),
-    inset 0 -1px 0 1px rgb(0 77 153 / 0.1),
-    0 2px 4px rgb(9 11 11 / 0.08);
+  box-shadow: var(--outline-bevel);
 }
 @utility bevel-outline-active {
   box-shadow: inset 0 1px 2px rgb(0 59 117 / 0.15);
@@ -299,10 +316,10 @@
   text-shadow: 0 1px 1px rgb(9 11 11 / 0.4);
 }
 @utility inset-input {
-  box-shadow: inset 0 1px 2px rgb(9 11 11 / 0.06);
+  box-shadow: var(--inset-input);
 }
 @utility popup {
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--line-popup);
   border-radius: 12px;
   box-shadow: var(--shadow-popup);

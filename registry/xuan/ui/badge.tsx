@@ -12,7 +12,7 @@ const badgeVariants = cva(
         success: "border-success-line bg-success-bg text-success-text",
         warning: "border-warning-line bg-warning-bg text-warning-text",
         error: "border-error-line bg-error-bg text-error-badge-text",
-        outline: "border-line-control bg-white text-ink-subtle",
+        outline: "border-line-control bg-surface text-ink-subtle",
       },
       size: {
         default: "h-6 px-3 text-[13px]",

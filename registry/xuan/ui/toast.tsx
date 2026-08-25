@@ -27,7 +27,7 @@ function ToastIcon({ type }: { type: ToastType }) {
       data-slot="toast-icon"
       data-type={type}
       className={cn(
-        "mt-px flex size-5 shrink-0 items-center justify-center rounded-full text-white",
+        "mt-px flex size-5 shrink-0 items-center justify-center rounded-full text-on-accent",
         icon.className
       )}
     >
@@ -55,7 +55,7 @@ function ToastList() {
       key={item.id}
       toast={item}
       data-slot="toast"
-      className="flex w-[380px] items-start gap-2.5 rounded-xl border border-line-popup bg-white px-3.5 py-3 shadow-toast transition-[translate,scale,opacity] duration-200 ease-out data-ending-style:translate-y-3 data-ending-style:opacity-0 data-starting-style:translate-y-3 data-starting-style:scale-[0.97] data-starting-style:opacity-0"
+      className="flex w-[380px] items-start gap-2.5 rounded-xl border border-line-popup bg-surface px-3.5 py-3 shadow-toast transition-[translate,scale,opacity] duration-200 ease-out data-ending-style:translate-y-3 data-ending-style:opacity-0 data-starting-style:translate-y-3 data-starting-style:scale-[0.97] data-starting-style:opacity-0"
     >
       {isToastType(item.type) ? <ToastIcon type={item.type} /> : null}
       <div className="flex min-w-0 flex-1 flex-col gap-0.5">

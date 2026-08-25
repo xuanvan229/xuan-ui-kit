@@ -76,7 +76,7 @@ function DateCalendar({
           {WEEKDAYS.map((name) => (
             <div
               key={name}
-              className="flex items-center justify-center bg-white text-xs font-semibold text-ink-weekday first:rounded-tl-[11px] last:rounded-tr-[11px]"
+              className="flex items-center justify-center bg-surface text-xs font-semibold text-ink-weekday first:rounded-tl-[11px] last:rounded-tr-[11px]"
             >
               {name}
             </div>

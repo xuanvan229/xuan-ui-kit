@@ -20,14 +20,14 @@ function Radio({ className, ...props }: RadioPrimitive.Root.Props) {
     <RadioPrimitive.Root
       data-slot="radio"
       className={cn(
-        "peer flex size-5 shrink-0 cursor-pointer items-center justify-center rounded-full border border-line-input bg-white outline-none transition-control focus-visible:focus-ring data-checked:border-accent-600 data-checked:bg-accent-500 data-disabled:cursor-not-allowed data-disabled:border-disabled-line data-disabled:bg-disabled-bg data-disabled:data-checked:border-disabled-fill-line data-disabled:data-checked:bg-disabled-fill",
+        "peer flex size-5 shrink-0 cursor-pointer items-center justify-center rounded-full border border-line-input bg-surface transition-control outline-none focus-visible:focus-ring data-checked:border-accent-600 data-checked:bg-accent-500 data-disabled:cursor-not-allowed data-disabled:border-disabled-line data-disabled:bg-disabled-bg data-disabled:data-checked:border-disabled-fill-line data-disabled:data-checked:bg-disabled-fill",
         className
       )}
       {...props}
     >
       <RadioPrimitive.Indicator
         data-slot="radio-indicator"
-        className="size-2 rounded-full bg-white transition-[transform,opacity] duration-[120ms] ease-in data-disabled:bg-ink-muted data-starting-style:scale-[0.4] data-starting-style:opacity-0"
+        className="size-2 rounded-full bg-on-accent transition-[transform,opacity] duration-[120ms] ease-in data-disabled:bg-ink-muted data-starting-style:scale-[0.4] data-starting-style:opacity-0"
       />
     </RadioPrimitive.Root>
   )

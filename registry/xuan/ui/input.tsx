@@ -9,7 +9,7 @@ function Input({ className, ...props }: InputPrimitive.Props) {
     <InputPrimitive
       data-slot="input"
       className={cn(
-        "control w-full min-w-0 border border-line-input bg-white font-sans font-normal text-ink inset-input outline-none transition-control placeholder:text-ink-muted hover:border-line-input-hover focus-visible:border-accent-600 focus-visible:focus-ring aria-invalid:border-error aria-invalid:focus-ring-error aria-invalid:focus-visible:focus-ring-error data-invalid:border-error data-invalid:focus-ring-error disabled:cursor-not-allowed disabled:border-disabled-line disabled:bg-disabled-bg disabled:text-ink-disabled disabled:shadow-flat",
+        "control w-full min-w-0 border border-line-input bg-surface font-sans font-normal text-ink inset-input transition-control outline-none placeholder:text-ink-muted hover:border-line-input-hover focus-visible:border-accent-600 focus-visible:focus-ring disabled:cursor-not-allowed disabled:border-disabled-line disabled:bg-disabled-bg disabled:text-ink-disabled disabled:shadow-flat aria-invalid:border-error aria-invalid:focus-ring-error aria-invalid:focus-visible:focus-ring-error data-invalid:border-error data-invalid:focus-ring-error",
         className
       )}
       {...props}

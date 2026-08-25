@@ -37,7 +37,7 @@ function SelectItemCheckbox() {
     <span
       aria-hidden="true"
       data-slot="select-item-checkbox"
-      className="flex size-4 shrink-0 items-center justify-center rounded-[5px] border border-line-input bg-white text-white transition-control group-data-[selected]/item:border-accent-600 group-data-[selected]/item:bg-accent-500"
+      className="flex size-4 shrink-0 items-center justify-center rounded-[5px] border border-line-input bg-surface text-on-accent transition-control group-data-[selected]/item:border-accent-600 group-data-[selected]/item:bg-accent-500"
     >
       <svg
         width="10"
@@ -71,7 +71,7 @@ function SelectItem({
         "group/item flex h-[34px] cursor-pointer items-center rounded-md px-2.5 font-sans text-[14.5px] text-ink transition-[background-color] duration-100 ease-in outline-none select-none data-disabled:cursor-not-allowed data-disabled:text-ink-disabled data-highlighted:bg-fill-menu data-disabled:data-highlighted:bg-transparent",
         multiple
           ? "gap-2.5"
-          : "justify-between data-[selected]:font-medium data-[selected]:text-accent-hover",
+          : "justify-between data-[selected]:font-medium data-[selected]:text-accent-selected",
         className
       )}
       {...props}
