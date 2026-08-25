@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #141519; }
+  a { color: #818CF8; text-decoration: none; }
+  a:hover { color: #A5B4FC; }
+</style>
+</helmet>
+<div style="min-height:100vh;background:#141519;font-family:'Geist',system-ui,sans-serif;padding:72px 64px;box-sizing:border-box;display:flex;justify-content:center">
+  <div style="display:flex;flex-direction:column;gap:48px">
+    <div>
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9A9AA5;margin-bottom:24px">Checkbox — states</div>
+      <div style="display:flex;gap:48px;align-items:flex-start;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="width:20px;height:20px;box-sizing:border-box;border-radius:6px;border:1px solid #3A3B44;background:#1E1F25"></span>
+            <span style="font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:400;color:#E8E8EC">Label</span>
+          </div>
+          <span style="font-size:12px;font-weight:500;color:#9A9AA5">Unchecked</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="width:20px;height:20px;box-sizing:border-box;border-radius:6px;border:1px solid hsl(210,100%,42%);background:hsl(210,100%,45%);display:flex;align-items:center;justify-content:center">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 6.5"></path></svg>
+            </span>
+            <span style="font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:400;color:#E8E8EC">Label</span>
+          </div>
+          <span style="font-size:12px;font-weight:500;color:#9A9AA5">Checked</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="width:20px;height:20px;box-sizing:border-box;border-radius:6px;border:1px solid hsl(210,100%,42%);background:hsl(210,100%,45%);display:flex;align-items:center;justify-content:center">
+              <span style="width:10px;height:2.5px;border-radius:2px;background:#FFFFFF"></span>
+            </span>
+            <span style="font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:400;color:#E8E8EC">Label</span>
+          </div>
+          <span style="font-size:12px;font-weight:500;color:#9A9AA5">Indeterminate</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="width:20px;height:20px;box-sizing:border-box;border-radius:6px;border:1px solid hsl(210,100%,42%);background:hsl(210,100%,45%);display:flex;align-items:center;justify-content:center;outline:3px solid rgba(0,115,230,0.5);outline-offset:2px">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 6.5"></path></svg>
+            </span>
+            <span style="font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:400;color:#E8E8EC">Label</span>
+          </div>
+          <span style="font-size:12px;font-weight:500;color:#9A9AA5">Focus</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="width:20px;height:20px;box-sizing:border-box;border-radius:6px;border:1px solid #34353D;background:#22232A"></span>
+            <span style="font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:400;color:#5F5F6B">Label</span>
+          </div>
+          <span style="font-size:12px;font-weight:500;color:#9A9AA5">Disabled</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="width:20px;height:20px;box-sizing:border-box;border-radius:6px;border:1px solid #3A3B44;background:#2E2F37;display:flex;align-items:center;justify-content:center">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#9A9AA5" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 6.5"></path></svg>
+            </span>
+            <span style="font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:400;color:#5F5F6B">Label</span>
+          </div>
+          <span style="font-size:12px;font-weight:500;color:#9A9AA5">Disabled checked</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9A9AA5;margin-bottom:24px">Radio — states</div>
+      <div style="display:flex;gap:48px;align-items:flex-start;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="width:20px;height:20px;box-sizing:border-box;border-radius:50%;border:1px solid #3A3B44;background:#1E1F25"></span>
+            <span style="font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:400;color:#E8E8EC">Label</span>
+          </div>
+          <span style="font-size:12px;font-weight:500;color:#9A9AA5">Unchecked</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="width:20px;height:20px;box-sizing:border-box;border-radius:50%;border:1px solid hsl(210,100%,42%);background:hsl(210,100%,45%);display:flex;align-items:center;justify-content:center">
+              <span style="width:8px;height:8px;border-radius:50%;background:#FFFFFF"></span>
+            </span>
+            <span style="font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:400;color:#E8E8EC">Label</span>
+          </div>
+          <span style="font-size:12px;font-weight:500;color:#9A9AA5">Checked</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="width:20px;height:20px;box-sizing:border-box;border-radius:50%;border:1px solid hsl(210,100%,42%);background:hsl(210,100%,45%);display:flex;align-items:center;justify-content:center;outline:3px solid rgba(0,115,230,0.5);outline-offset:2px">
+              <span style="width:8px;height:8px;border-radius:50%;background:#FFFFFF"></span>
+            </span>
+            <span style="font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:400;color:#E8E8EC">Label</span>
+          </div>
+          <span style="font-size:12px;font-weight:500;color:#9A9AA5">Focus</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="width:20px;height:20px;box-sizing:border-box;border-radius:50%;border:1px solid #34353D;background:#22232A"></span>
+            <span style="font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:400;color:#5F5F6B">Label</span>
+          </div>
+          <span style="font-size:12px;font-weight:500;color:#9A9AA5">Disabled</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="width:20px;height:20px;box-sizing:border-box;border-radius:50%;border:1px solid #3A3B44;background:#2E2F37;display:flex;align-items:center;justify-content:center">
+              <span style="width:8px;height:8px;border-radius:50%;background:#9A9AA5"></span>
+            </span>
+            <span style="font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:400;color:#5F5F6B">Label</span>
+          </div>
+          <span style="font-size:12px;font-weight:500;color:#9A9AA5">Disabled checked</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9A9AA5;margin-bottom:24px">Interactive</div>
+      <div style="display:flex;gap:96px;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <sc-for list="{{ cbItems }}" as="it" hint-placeholder-count="3">
+            <div onClick="{{ it.onToggle }}" style="display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none">
+              <span style="{{ it.boxStyle }}">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" style="{{ it.checkStyle }}"><path d="M4.5 12.5l5 5L19.5 6.5"></path></svg>
+              </span>
+              <span style="font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:400;color:#E8E8EC">{{ it.label }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <sc-for list="{{ radioItems }}" as="it" hint-placeholder-count="3">
+            <div onClick="{{ it.onSelect }}" style="display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none">
+              <span style="{{ it.boxStyle }}">
+                <span style="{{ it.dotStyle }}"></span>
+              </span>
+              <span style="font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:400;color:#E8E8EC">{{ it.label }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{ &quot;$preview&quot;: { &quot;width&quot;: 1400, &quot;height&quot;: 620 } }">
+class Component extends DCLogic {
+  state = { checks: [true, false, false], radio: 0 };
+  renderVals() {
+    const off = { width: '20px', height: '20px', boxSizing: 'border-box', border: '1px solid #3A3B44', background: '#1E1F25', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: '120ms ease-in', flexShrink: 0 };
+    const on = { ...off, border: '1px solid hsl(210,100%,42%)', background: 'hsl(210,100%,45%)', boxShadow: 'none' };
+    const cbLabels = ['Show weekends', 'Highlight today', 'Disable past dates'];
+    const rLabels = ['Single date', 'Date range', 'Multiple dates'];
+    return {
+      cbItems: this.state.checks.map((c, i) => ({
+        label: cbLabels[i],
+        boxStyle: { ...(c ? on : off), borderRadius: '6px' },
+        checkStyle: { opacity: c ? 1 : 0, strokeDasharray: 24, strokeDashoffset: c ? 0 : 24, transition: c ? 'stroke-dashoffset 0.15s ease-out, opacity 0.01s' : 'none' },
+        onToggle: () => this.setState(s => ({ checks: s.checks.map((v, j) => j === i ? !v : v) })),
+      })),
+      radioItems: rLabels.map((label, i) => {
+        const c = this.state.radio === i;
+        return {
+          label,
+          boxStyle: { ...(c ? on : off), borderRadius: '50%' },
+          dotStyle: { width: '8px', height: '8px', borderRadius: '50%', background: '#FFFFFF', opacity: c ? 1 : 0, transform: c ? 'scale(1)' : 'scale(0.4)', transition: '120ms ease-in' },
+          onSelect: () => this.setState({ radio: i }),
+        };
+      }),
+    };
+  }
+}
+</script>
+</body>
+</html>
