@@ -1,7 +1,14 @@
 import { render, screen } from "@testing-library/react"
 import { describe, expect, it } from "vitest"
 
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./table"
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "./table"
 
 describe("Table", () => {
   it("renders sortable headers, mono cells and selected rows", () => {
@@ -26,8 +33,13 @@ describe("Table", () => {
     const name = screen.getByRole("columnheader", { name: /Name/ })
     expect(name).toHaveAttribute("aria-sort", "ascending")
     expect(name).toHaveTextContent("↑")
-    expect(screen.getByRole("columnheader", { name: "Updated" })).toHaveAttribute("data-align", "right")
-    expect(screen.getByText("button").closest("tr")).toHaveAttribute("data-selected", "true")
+    const updated = screen.getByRole("columnheader", { name: "Updated" })
+    expect(updated).toHaveAttribute("data-align", "right")
+    expect(updated).not.toHaveAttribute("aria-sort")
+    expect(screen.getByText("button").closest("tr")).toHaveAttribute(
+      "data-selected",
+      "true"
+    )
     expect(screen.getByText("button")).toHaveAttribute("data-mono")
   })
 })

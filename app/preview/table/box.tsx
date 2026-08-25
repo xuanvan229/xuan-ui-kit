@@ -13,13 +13,19 @@ import {
   TableFooter,
   TableRow,
 } from "@/registry/xuan/ui/table"
-import { PreviewTableHead, type SortKey } from "@/app/preview/table/head"
+import {
+  PreviewTableHead,
+  type PreviewTableSortKey,
+} from "@/app/preview/table/head"
 import { previewTableBadge, previewTableRows } from "@/app/preview/table/rows"
 import { PreviewKitGroup, PreviewKitSection } from "@/app/preview/kit/section"
 
 function PreviewTableBox() {
   const [selected, setSelected] = React.useState<number[]>([1])
-  const [sort, setSort] = React.useState<{ key: SortKey; dir: 1 | -1 }>({
+  const [sort, setSort] = React.useState<{
+    key: PreviewTableSortKey
+    dir: 1 | -1
+  }>({
     key: "name",
     dir: 1,
   })
@@ -31,12 +37,12 @@ function PreviewTableBox() {
   )
   const all = selected.length === previewTableRows.length
   const some = selected.length > 0 && !all
-  const toggleSort = (key: SortKey) =>
+  const toggleSort = (key: PreviewTableSortKey) =>
     setSort((current) => ({
       key,
       dir: current.key === key ? ((current.dir * -1) as 1 | -1) : 1,
     }))
-  const directionOf = (key: SortKey) =>
+  const directionOf = (key: PreviewTableSortKey) =>
     sort.key === key ? (sort.dir === 1 ? "asc" : "desc") : null
 
   return (

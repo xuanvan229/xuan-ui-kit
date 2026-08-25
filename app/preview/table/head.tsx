@@ -3,14 +3,14 @@
 import { Checkbox } from "@/registry/xuan/ui/checkbox"
 import { TableHead, TableHeader, TableRow } from "@/registry/xuan/ui/table"
 
-type SortKey = "name" | "updated"
+type PreviewTableSortKey = "name" | "updated"
 
 type PreviewTableHeadProps = {
   all: boolean
   some: boolean
   onToggleAll: (checked: boolean) => void
-  directionOf: (key: SortKey) => "asc" | "desc" | null
-  onSort: (key: SortKey) => void
+  directionOf: (key: PreviewTableSortKey) => "asc" | "desc" | null
+  onSort: (key: PreviewTableSortKey) => void
 }
 
 function PreviewTableHead({
@@ -58,4 +58,4 @@ function PreviewTableHead({
 }
 
 export { PreviewTableHead }
-export type { SortKey }
+export type { PreviewTableSortKey }

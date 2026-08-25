@@ -40,8 +40,8 @@ Files that outgrow ~100 lines are split into a folder named after the component 
 
 | name | type | contents |
 |---|---|---|
-| `xuan` | `registry:base` | `dependencies`: `@base-ui/react`, `class-variance-authority`, `tw-animate-css`, `lucide-react`; `registryDependencies`: `utils` (shadcn's `cn`), `@xuan/font-plex`; `cssVars.theme/light`; `css` importing `theme.css` content; `config.style = "base-xuan"` |
-| `font-plex` | `registry:font` | IBM Plex Sans 400/500/600 + IBM Plex Mono 400/500 from Google, `--font-sans` / `--font-mono` |
+| `xuan` | `registry:style` | `dependencies`: `@base-ui/react`, `class-variance-authority`, `clsx`, `tailwind-merge`; `registryDependencies`: `utils`, `@xuan/font-plex-sans`, `@xuan/font-plex-mono`; `cssVars`/`css` generated from `theme.css` by `registry/sync.mjs`; no `config` |
+| `font-plex` | `registry:font` | two items, `font-plex-sans` and `font-plex-mono` — IBM Plex Sans 400/500/600 + IBM Plex Mono 400/500 from Google, `--font-sans` / `--font-mono` |
 | one per component | `registry:ui` | `files[]` under `registry/xuan/ui/…`; `registryDependencies` on `utils` and sibling `@xuan/*` items |
 
 Namespace `@xuan`; hosted on Vercel at a placeholder `https://xuan-ui-kit.vercel.app` (replace at deploy).
