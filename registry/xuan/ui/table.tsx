@@ -10,7 +10,10 @@ function Table({ className, ...props }: React.ComponentProps<"table">) {
     >
       <table
         data-slot="table"
-        className={cn("w-full border-collapse font-sans text-sm text-ink", className)}
+        className={cn(
+          "w-full border-collapse font-sans text-sm text-ink",
+          className
+        )}
         {...props}
       />
     </div>
@@ -18,7 +21,13 @@ function Table({ className, ...props }: React.ComponentProps<"table">) {
 }
 
 function TableHeader({ className, ...props }: React.ComponentProps<"thead">) {
-  return <thead data-slot="table-header" className={cn("bg-table-band", className)} {...props} />
+  return (
+    <thead
+      data-slot="table-header"
+      className={cn("bg-table-band", className)}
+      {...props}
+    />
+  )
 }
 
 function TableBody({ className, ...props }: React.ComponentProps<"tbody">) {
@@ -29,13 +38,20 @@ function TableFooter({ className, ...props }: React.ComponentProps<"tfoot">) {
   return (
     <tfoot
       data-slot="table-footer"
-      className={cn("bg-table-band [&_tr]:border-t [&_tr]:border-b-0", className)}
+      className={cn(
+        "bg-table-band [&_tr]:border-t [&_tr]:border-b-0",
+        className
+      )}
       {...props}
     />
   )
 }
 
-function TableRow({ className, selected = false, ...props }: React.ComponentProps<"tr"> & { selected?: boolean }) {
+function TableRow({
+  className,
+  selected = false,
+  ...props
+}: React.ComponentProps<"tr"> & { selected?: boolean }) {
   return (
     <tr
       data-slot="table-row"
@@ -55,37 +71,63 @@ type TableHeadProps = React.ComponentProps<"th"> & {
   direction?: "asc" | "desc" | null
 }
 
-function TableHead({ className, children, align = "left", sortable = false, direction = null, ...props }: TableHeadProps) {
+function TableHead({
+  className,
+  children,
+  align = "left",
+  sortable = false,
+  direction = null,
+  ...props
+}: TableHeadProps) {
   return (
     <th
       data-slot="table-head"
       data-align={align}
       data-sortable={sortable ? "true" : null}
-      aria-sort={direction === "asc" ? "ascending" : direction === "desc" ? "descending" : "none"}
+      {...(sortable
+        ? {
+            "aria-sort":
+              direction === "asc"
+                ? "ascending"
+                : direction === "desc"
+                  ? "descending"
+                  : "none",
+          }
+        : {})}
       className={cn(
-        "border-r border-table-hair px-3.5 py-3 text-left align-middle text-sm font-normal text-ink-secondary transition-colors duration-[120ms] last:border-r-0 data-[align=center]:text-center data-[align=right]:text-right data-sortable:cursor-pointer data-sortable:select-none data-sortable:hover:text-ink",
+        "border-r border-table-hair px-3.5 py-3 text-left align-middle text-sm font-normal text-ink-secondary transition-colors duration-[120ms] last:border-r-0 data-sortable:cursor-pointer data-sortable:select-none data-sortable:hover:text-ink data-[align=center]:text-center data-[align=right]:text-right",
         className
       )}
       {...props}
     >
       <span className="inline-flex items-center gap-1">
         {children}
-        {direction === null ? null : <span aria-hidden="true">{direction === "asc" ? "↑" : "↓"}</span>}
+        {direction === null ? null : (
+          <span aria-hidden="true">{direction === "asc" ? "↑" : "↓"}</span>
+        )}
       </span>
     </th>
   )
 }
 
-type TableCellProps = React.ComponentProps<"td"> & { align?: Align; mono?: boolean }
+type TableCellProps = React.ComponentProps<"td"> & {
+  align?: Align
+  mono?: boolean
+}
 
-function TableCell({ className, align = "left", mono = false, ...props }: TableCellProps) {
+function TableCell({
+  className,
+  align = "left",
+  mono = false,
+  ...props
+}: TableCellProps) {
   return (
     <td
       data-slot="table-cell"
       data-align={align}
       data-mono={mono ? "true" : null}
       className={cn(
-        "border-r border-table-hair px-3.5 py-2.5 align-middle last:border-r-0 data-[align=center]:text-center data-[align=right]:text-right data-mono:font-mono",
+        "border-r border-table-hair px-3.5 py-2.5 align-middle last:border-r-0 data-mono:font-mono data-[align=center]:text-center data-[align=right]:text-right",
         className
       )}
       {...props}
@@ -93,4 +135,12 @@ function TableCell({ className, align = "left", mono = false, ...props }: TableC
   )
 }
 
-export { Table, TableBody, TableCell, TableFooter, TableHead, TableHeader, TableRow }
+export {
+  Table,
+  TableBody,
+  TableCell,
+  TableFooter,
+  TableHead,
+  TableHeader,
+  TableRow,
+}

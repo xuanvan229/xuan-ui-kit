@@ -11,6 +11,7 @@ import {
   dateKeyDiff,
   dateKeyMonth,
   dateKeyYear,
+  fromDateKey,
   toDateKey,
 } from "@/registry/xuan/ui/date/key"
 import {
@@ -89,6 +90,7 @@ function DateCalendar({
           >
             {grid.slice(row * 7, row * 7 + 7).map((key, column) => {
               const outside = Math.floor(key / 100) !== viewMonthKey
+              const hidden = outside && !showOutsideDays
               const disabled = isDateDisabled(key)
               const band = dateRangeBand(range, key)
               const preview =
@@ -97,12 +99,14 @@ function DateCalendar({
               return (
                 <DateCell
                   key={key}
-                  day={outside && !showOutsideDays ? 0 : key % 100}
-                  selected={band === "start" || band === "end"}
-                  band={band === "band" || preview}
+                  day={key % 100}
+                  date={fromDateKey(key)}
+                  selected={!hidden && (band === "start" || band === "end")}
+                  band={!hidden && (band === "band" || preview)}
                   today={key === today}
                   outside={outside}
-                  disabled={disabled || (outside && !showOutsideDays)}
+                  disabled={disabled}
+                  hidden={hidden}
                   corner={
                     lastRow && column === 0
                       ? "bl"

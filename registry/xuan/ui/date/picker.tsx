@@ -40,6 +40,7 @@ type DatePickerProps = DatePickerModeProps & {
   showOutsideDays?: boolean
   disabled?: boolean
   className?: string
+  triggerProps?: PopoverPrimitive.Trigger.Props
 }
 
 function keyOf(date: Date | null): DateKey | null {
@@ -58,6 +59,7 @@ function DatePicker(props: DatePickerProps) {
     showOutsideDays = true,
     disabled = false,
     className,
+    triggerProps,
   } = props
   const [open, setOpen] = React.useState(false)
   const isRange = props.mode === "range"
@@ -93,6 +95,7 @@ function DatePicker(props: DatePickerProps) {
           "control flex w-[360px] cursor-pointer items-center justify-between border border-line-input bg-white font-sans font-medium text-ink inset-input transition-control outline-none select-none hover:border-line-input-hover focus-visible:border-accent-600 focus-visible:focus-ring disabled:cursor-not-allowed disabled:border-disabled-line disabled:bg-disabled-bg disabled:text-ink-disabled disabled:shadow-flat data-popup-open:border-accent-600 data-popup-open:focus-ring",
           className
         )}
+        {...triggerProps}
       >
         <span
           data-slot="date-picker-value"

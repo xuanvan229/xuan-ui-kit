@@ -84,9 +84,12 @@
   --today: #6366f1;
   --overlay: rgb(20 22 28 / 0.45);
 
-  --shadow-popup: 0 8px 24px rgb(24 24 44 / 0.1), 0 2px 6px rgb(24 24 44 / 0.05);
-  --shadow-toast: 0 8px 24px rgb(24 24 44 / 0.14), 0 2px 6px rgb(24 24 44 / 0.06);
-  --shadow-modal: 0 16px 48px rgb(24 24 44 / 0.24), 0 4px 12px rgb(24 24 44 / 0.08);
+  --shadow-popup:
+    0 8px 24px rgb(24 24 44 / 0.1), 0 2px 6px rgb(24 24 44 / 0.05);
+  --shadow-toast:
+    0 8px 24px rgb(24 24 44 / 0.14), 0 2px 6px rgb(24 24 44 / 0.06);
+  --shadow-modal:
+    0 16px 48px rgb(24 24 44 / 0.24), 0 4px 12px rgb(24 24 44 / 0.08);
   --shadow-panel: 0 6px 16px rgb(24 24 44 / 0.06);
 
   /* shadcn semantic aliases so third-party shadcn components look coherent */
@@ -109,11 +112,20 @@
   --input: var(--line-input);
   --ring: var(--focus-ring);
   --radius: 10px;
+
+  /* Pinned again here (unlayered :root) so they win over any font CSS custom
+     properties a consumer's base template already defines under the same
+     names (e.g. Next.js's default "next" starter loads Geist as --font-sans
+     / --font-mono). @theme inline below is layered by Tailwind and loses
+     that fight, so it stays only to drive the font-sans/font-mono utility
+     class generation. */
+  --font-sans: var(--font-plex-sans, "IBM Plex Sans"), sans-serif;
+  --font-mono: var(--font-plex-mono, "IBM Plex Mono"), monospace;
 }
 
 @theme inline {
-  --font-sans: var(--font-plex-sans), "IBM Plex Sans", sans-serif;
-  --font-mono: var(--font-plex-mono), "IBM Plex Mono", monospace;
+  --font-sans: var(--font-plex-sans, "IBM Plex Sans"), sans-serif;
+  --font-mono: var(--font-plex-mono, "IBM Plex Mono"), monospace;
 
   --color-accent-500: var(--accent-500);
   --color-accent-600: var(--accent-600);
@@ -226,7 +238,8 @@
   box-sizing: border-box;
 }
 @utility transition-control {
-  transition-property: background-color, border-color, color, box-shadow, outline-color;
+  transition-property:
+    background-color, border-color, color, box-shadow, outline-color;
   transition-duration: 120ms;
   transition-timing-function: ease-in;
 }
@@ -234,25 +247,39 @@
   box-shadow: none;
 }
 @utility bevel-primary {
-  box-shadow: inset 0 1px 0 rgb(51 153 255 / 0.5), inset 0 -1px 0 1px rgb(0 77 153 / 0.4), 0 2px 4px rgb(9 11 11 / 0.1);
+  box-shadow:
+    inset 0 1px 0 rgb(51 153 255 / 0.5),
+    inset 0 -1px 0 1px rgb(0 77 153 / 0.4),
+    0 2px 4px rgb(9 11 11 / 0.1);
 }
 @utility bevel-primary-active {
   box-shadow: inset 0 1px 0 1px rgb(0 59 117 / 0.7);
 }
 @utility bevel-secondary {
-  box-shadow: inset 0 1px 0 1px #fff, inset 0 -1px 0 1px rgb(223 226 231 / 0.4), 0 1px 2px rgb(223 226 231 / 0.5);
+  box-shadow:
+    inset 0 1px 0 1px #fff,
+    inset 0 -1px 0 1px rgb(223 226 231 / 0.4),
+    0 1px 2px rgb(223 226 231 / 0.5);
 }
 @utility bevel-outline {
-  box-shadow: inset 0 1px 0 rgb(255 255 255 / 1), inset 0 -1px 0 1px rgb(0 77 153 / 0.1), 0 2px 4px rgb(9 11 11 / 0.08);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 1),
+    inset 0 -1px 0 1px rgb(0 77 153 / 0.1),
+    0 2px 4px rgb(9 11 11 / 0.08);
 }
 @utility bevel-outline-active {
   box-shadow: inset 0 1px 2px rgb(0 59 117 / 0.15);
 }
 @utility bevel-destructive {
-  box-shadow: inset 0 1px 0 rgb(255 120 120 / 0.4), inset 0 -1px 0 1px rgb(120 0 0 / 0.3), 0 2px 4px rgb(9 11 11 / 0.1);
+  box-shadow:
+    inset 0 1px 0 rgb(255 120 120 / 0.4),
+    inset 0 -1px 0 1px rgb(120 0 0 / 0.3),
+    0 2px 4px rgb(9 11 11 / 0.1);
 }
 @utility bevel-tab {
-  box-shadow: inset 0 1px 0 rgb(51 153 255 / 0.5), inset 0 -1px 0 1px rgb(0 77 153 / 0.4);
+  box-shadow:
+    inset 0 1px 0 rgb(51 153 255 / 0.5),
+    inset 0 -1px 0 1px rgb(0 77 153 / 0.4);
 }
 @utility focus-ring {
   outline: 3px solid var(--focus-ring);
@@ -281,7 +308,13 @@
   box-shadow: var(--shadow-popup);
 }
 @utility strike-diagonal {
-  background-image: linear-gradient(to bottom right, transparent calc(50% - 0.5px), var(--calendar-strike) calc(50% - 0.5px), var(--calendar-strike) calc(50% + 0.5px), transparent calc(50% + 0.5px));
+  background-image: linear-gradient(
+    to bottom right,
+    transparent calc(50% - 0.5px),
+    var(--calendar-strike) calc(50% - 0.5px),
+    var(--calendar-strike) calc(50% + 0.5px),
+    transparent calc(50% + 0.5px)
+  );
 }
 
 @layer base {
