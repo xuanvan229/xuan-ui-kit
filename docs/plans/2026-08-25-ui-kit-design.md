@@ -102,3 +102,40 @@ Namespace `@xuan`; hosted on Vercel at a placeholder `https://xuan-ui-kit.vercel
 - `pnpm registry:validate` (`shadcn registry validate`) and `pnpm registry:build` produce `public/r/*.json`.
 - A throw-away consumer Next.js app (in the scratchpad) runs `npx shadcn init http://localhost:3000/r/xuan.json` and `npx shadcn add @xuan/<every item>`, then typechecks.
 - Each component is rendered on a scratch page and screenshotted next to its `.dc.html` for visual comparison; the scratch page is deleted before finishing.
+
+## Implementation status (2026-08-25)
+
+All 24 registry items shipped:
+
+| Item | Type | Source |
+|---|---|---|
+| xuan | registry:base | `registry/xuan/theme.css` |
+| font-plex-sans | registry:font | Google Fonts (IBM Plex Sans 400/500/600) |
+| font-plex-mono | registry:font | Google Fonts (IBM Plex Mono 400/500) |
+| button | registry:ui | `registry/xuan/ui/button.tsx` |
+| input | registry:ui | `registry/xuan/ui/input.tsx` |
+| textarea | registry:ui | `registry/xuan/ui/textarea.tsx` |
+| label | registry:ui | `registry/xuan/ui/label.tsx` |
+| field | registry:ui | `registry/xuan/ui/field.tsx` |
+| switch | registry:ui | `registry/xuan/ui/switch.tsx` |
+| checkbox | registry:ui | `registry/xuan/ui/checkbox.tsx` |
+| radio | registry:ui | `registry/xuan/ui/radio.tsx` |
+| select | registry:ui | `registry/xuan/ui/select/` |
+| date-picker | registry:ui | `registry/xuan/ui/date/picker.tsx` |
+| tabs | registry:ui | `registry/xuan/ui/tabs.tsx` |
+| table | registry:ui | `registry/xuan/ui/table.tsx` |
+| toast | registry:ui | `registry/xuan/ui/toast.tsx` |
+| dialog | registry:ui | `registry/xuan/ui/dialog.tsx` |
+| alert-dialog | registry:ui | `registry/xuan/ui/alert-dialog.tsx` |
+| menu | registry:ui | `registry/xuan/ui/menu.tsx` |
+| popover | registry:ui | `registry/xuan/ui/popover.tsx` |
+| accordion | registry:ui | `registry/xuan/ui/accordion.tsx` |
+| breadcrumb | registry:ui | `registry/xuan/ui/breadcrumb.tsx` |
+| badge | registry:ui | `registry/xuan/ui/badge.tsx` |
+| tag | registry:ui | `registry/xuan/ui/tag.tsx` |
+| avatar | registry:ui | `registry/xuan/ui/avatar.tsx` |
+| separator | registry:ui | `registry/xuan/ui/separator.tsx` |
+
+Preview page: `/preview` (`app/preview/`) — renders every component with all documented states.
+
+Missing from the design — unchanged, still to be designed (see the section above).
