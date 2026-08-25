@@ -213,8 +213,8 @@
           "surface": "#ffffff",
           "on-accent": "#ffffff",
           "secondary-fill": "rgb(232 235 237 / 0.1)",
-          "secondary-bevel": "inset 0 1px 0 1px #fff, inset 0 -1px 0 1px rgb(223 226 231 / 0.4),\n    0 1px 2px rgb(223 226 231 / 0.5)",
-          "outline-bevel": "inset 0 1px 0 rgb(255 255 255 / 1), inset 0 -1px 0 1px rgb(0 77 153 / 0.1),\n    0 2px 4px rgb(9 11 11 / 0.08)",
+          "secondary-bevel": "inset 0 1px 0 1px #fff, inset 0 -1px 0 1px rgb(223 226 231 / 0.4), 0 1px 2px rgb(223 226 231 / 0.5)",
+          "outline-bevel": "inset 0 1px 0 rgb(255 255 255 / 1), inset 0 -1px 0 1px rgb(0 77 153 / 0.1), 0 2px 4px rgb(9 11 11 / 0.08)",
           "inset-input": "inset 0 1px 2px rgb(9 11 11 / 0.06)",
           "knob-shadow": "0 1px 2px rgb(9 11 11 / 0.2)",
           "accent-selected": "hsl(210 100% 38%)",
@@ -329,7 +329,7 @@
           "on-accent": "#ffffff",
           "secondary-fill": "rgb(255 255 255 / 0.04)",
           "secondary-bevel": "inset 0 1px 0 rgb(255 255 255 / 0.08), 0 1px 2px rgb(0 0 0 / 0.4)",
-          "outline-bevel": "inset 0 1px 0 rgb(255 255 255 / 0.06), inset 0 -1px 0 1px rgb(0 77 153 / 0.1),\n    0 2px 4px rgb(0 0 0 / 0.4)",
+          "outline-bevel": "inset 0 1px 0 rgb(255 255 255 / 0.06), inset 0 -1px 0 1px rgb(0 77 153 / 0.1), 0 2px 4px rgb(0 0 0 / 0.4)",
           "inset-input": "inset 0 1px 2px rgb(0 0 0 / 0.35)",
           "knob-shadow": "0 1px 2px rgb(0 0 0 / 0.5)",
           "accent-selected": "hsl(210 90% 70%)",
@@ -341,9 +341,26 @@
           "shadow-modal": "0 16px 48px rgb(0 0 0 / 0.24), 0 4px 12px rgb(0 0 0 / 0.08)",
           "shadow-panel": "0 6px 16px rgb(0 0 0 / 0.06)",
           "background": "#141519",
+          "foreground": "var(--ink)",
+          "card": "var(--surface)",
+          "card-foreground": "var(--ink)",
+          "popover": "var(--surface)",
+          "popover-foreground": "var(--ink)",
+          "primary": "var(--accent-500)",
           "primary-foreground": "#ffffff",
+          "secondary": "var(--fill-hover)",
+          "secondary-foreground": "var(--ink-strong)",
+          "muted": "var(--fill-hover)",
+          "muted-foreground": "var(--ink-secondary)",
+          "accent": "var(--fill-menu)",
+          "accent-foreground": "var(--ink)",
           "destructive-foreground": "#ffffff",
-          "radius": "10px"
+          "border": "var(--line-control)",
+          "input": "var(--line-input)",
+          "ring": "var(--focus-ring)",
+          "radius": "10px",
+          "font-sans": "var(--font-plex-sans, \"IBM Plex Sans\"), sans-serif",
+          "font-mono": "var(--font-plex-mono, \"IBM Plex Mono\"), monospace"
         }
       },
       "css": {
@@ -413,6 +430,12 @@
           "background-image": "linear-gradient(\n    to bottom right,\n    transparent calc(50% - 0.5px),\n    var(--calendar-strike) calc(50% - 0.5px),\n    var(--calendar-strike) calc(50% + 0.5px),\n    transparent calc(50% + 0.5px)\n  )"
         },
         "@layer base": {
+          ":root": {
+            "color-scheme": "light"
+          },
+          ".dark": {
+            "color-scheme": "dark"
+          },
           "body": {
             "background": "var(--background)",
             "color": "var(--ink)",

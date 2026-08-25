@@ -37,11 +37,12 @@ describe("theme tokens", () => {
     })
   })
 
-  it("gives every literal light token a dark value", () => {
-    const literal = Object.entries(cssVars.light)
-      .filter(([, value]) => typeof value === "string" && !value.startsWith("var("))
-      .map(([name]) => name)
-    const missing = literal.filter((name) => !(name in cssVars.dark))
-    expect(missing).toEqual([])
+  it("gives every :root token (literal and var()) a dark value, with no dark-only tokens", () => {
+    const lightNames = Object.keys(cssVars.light)
+    const darkNames = Object.keys(cssVars.dark)
+    const missingInDark = lightNames.filter((name) => !(name in cssVars.dark))
+    const extraInDark = darkNames.filter((name) => !(name in cssVars.light))
+    expect(missingInDark).toEqual([])
+    expect(extraInDark).toEqual([])
   })
 })
