@@ -26,8 +26,19 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${plexSans.variable} ${plexMono.variable}`}>
+    <html
+      lang="en"
+      className={`${plexSans.variable} ${plexMono.variable}`}
+      suppressHydrationWarning
+    >
       <body className="isolate">
+        <script
+          // note: applies the stored theme before first paint; an effect would flash light first.
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{if(localStorage.getItem('xuan-theme')==='dark')document.documentElement.classList.add('dark')}catch(e){}",
+          }}
+        />
         <Toaster>{children}</Toaster>
       </body>
     </html>
