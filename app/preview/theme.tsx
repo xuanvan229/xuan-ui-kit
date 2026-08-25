@@ -8,9 +8,17 @@ const STORAGE_KEY = "xuan-theme"
 
 type Theme = "light" | "dark"
 
-function currentTheme(): Theme {
-  if (typeof document === "undefined") return "light"
+function readTheme(): Theme {
   return document.documentElement.classList.contains("dark") ? "dark" : "light"
+}
+
+function subscribe(onChange: () => void) {
+  const observer = new MutationObserver(onChange)
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["class"],
+  })
+  return () => observer.disconnect()
 }
 
 function applyTheme(theme: Theme) {
@@ -23,18 +31,14 @@ function applyTheme(theme: Theme) {
 }
 
 function PreviewTheme() {
-  const [theme, setTheme] = React.useState<Theme>(currentTheme)
+  const theme = React.useSyncExternalStore(
+    subscribe,
+    readTheme,
+    () => "light" as Theme
+  )
   const next: Theme = theme === "dark" ? "light" : "dark"
   return (
-    <Button
-      variant="secondary"
-      size="compact"
-      suppressHydrationWarning
-      onClick={() => {
-        applyTheme(next)
-        setTheme(next)
-      }}
-    >
+    <Button variant="secondary" size="compact" onClick={() => applyTheme(next)}>
       {theme === "dark" ? "Light mode" : "Dark mode"}
     </Button>
   )
