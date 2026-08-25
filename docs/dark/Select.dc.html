@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #141519; }
+  a { color: #818CF8; text-decoration: none; }
+  a:hover { color: #A5B4FC; }
+</style>
+</helmet>
+<div style="min-height:100vh;background:#141519;font-family:'Geist',system-ui,sans-serif;padding:72px 64px;box-sizing:border-box;display:flex;justify-content:center">
+  <div style="display:flex;flex-direction:column;gap:48px">
+    <div>
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9A9AA5;margin-bottom:24px">Select — states</div>
+      <div style="display:flex;gap:40px;align-items:flex-start;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;gap:8px;width:240px">
+          <label style="font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:600;color:#E8E8EC">Label</label>
+          <div style="height:40px;box-sizing:border-box;padding:8px 12px 10px 12px;border-radius:10px;border:1px solid #3A3B44;background:#1E1F25;display:flex;align-items:center;justify-content:space-between;cursor:pointer">
+            <span style="font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:400;color:#9A9AA5">Select a component</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A5A5B0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5L12 15l5.5-5.5"></path></svg>
+          </div>
+          <span style="font-size:12px;font-weight:500;color:#9A9AA5">Default</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;width:240px">
+          <label style="font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:600;color:#E8E8EC">Label</label>
+          <div style="height:40px;box-sizing:border-box;padding:8px 12px 10px 12px;border-radius:10px;border:1px solid #3A3B44;background:#26272E;display:flex;align-items:center;justify-content:space-between;cursor:pointer">
+            <span style="font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:400;color:#9A9AA5">Select a component</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A5A5B0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5L12 15l5.5-5.5"></path></svg>
+          </div>
+          <span style="font-size:12px;font-weight:500;color:#9A9AA5">Hover</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;width:240px">
+          <label style="font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:600;color:#E8E8EC">Label</label>
+          <div style="height:40px;box-sizing:border-box;padding:8px 12px 10px 12px;border-radius:10px;border:1px solid hsl(210,100%,42%);background:#1E1F25;outline:3px solid rgba(0,115,230,0.5);outline-offset:2px;display:flex;align-items:center;justify-content:space-between;cursor:pointer">
+            <span style="font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:400;color:#E8E8EC">Date Picker</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A5A5B0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="transform:rotate(180deg)"><path d="M6.5 9.5L12 15l5.5-5.5"></path></svg>
+          </div>
+          <span style="font-size:12px;font-weight:500;color:#9A9AA5">Open / Focus</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;width:240px">
+          <label style="font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:600;color:#9A9AA5">Label</label>
+          <div style="height:40px;box-sizing:border-box;padding:8px 12px 10px 12px;border-radius:10px;border:1px solid #34353D;background:#22232A;display:flex;align-items:center;justify-content:space-between;cursor:not-allowed">
+            <span style="font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:400;color:#5F5F6B">Date Picker</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5F5F6B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5L12 15l5.5-5.5"></path></svg>
+          </div>
+          <span style="font-size:12px;font-weight:500;color:#9A9AA5">Disabled</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9A9AA5;margin-bottom:24px">Select / Popup anatomy</div>
+      <div style="width:240px;background:#1E1F25;border:1px solid #34353D;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.10), 0 2px 6px rgba(0,0,0,0.05);padding:5px;box-sizing:border-box">
+        <div style="padding:6px 10px 4px;font-family:'IBM Plex Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#9A9AA5">Form</div>
+        <div style="height:34px;border-radius:8px;display:flex;align-items:center;justify-content:space-between;padding:0 10px;background:transparent">
+          <span style="font-family:'IBM Plex Sans',sans-serif;font-size:14.5px;font-weight:400;color:#E8E8EC">Button</span>
+        </div>
+        <div style="height:34px;border-radius:8px;display:flex;align-items:center;justify-content:space-between;padding:0 10px;background:#2A2B32">
+          <span style="font-family:'IBM Plex Sans',sans-serif;font-size:14.5px;font-weight:400;color:#E8E8EC">Input</span>
+        </div>
+        <div style="height:34px;border-radius:8px;display:flex;align-items:center;justify-content:space-between;padding:0 10px;background:transparent">
+          <span style="font-family:'IBM Plex Sans',sans-serif;font-size:14.5px;font-weight:500;color:hsl(210,90%,70%)">Date Picker</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="hsl(210,100%,42%)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 6.5"></path></svg>
+        </div>
+        <div style="height:1px;background:#2A2B32;margin:5px 6px"></div>
+        <div style="padding:6px 10px 4px;font-family:'IBM Plex Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#9A9AA5">Data</div>
+        <div style="height:34px;border-radius:8px;display:flex;align-items:center;padding:0 10px">
+          <span style="font-family:'IBM Plex Sans',sans-serif;font-size:14.5px;font-weight:400;color:#E8E8EC">Table</span>
+        </div>
+        <div style="height:34px;border-radius:8px;display:flex;align-items:center;padding:0 10px;cursor:not-allowed">
+          <span style="font-family:'IBM Plex Sans',sans-serif;font-size:14.5px;font-weight:400;color:#5F5F6B">Charts (soon)</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9A9AA5;margin-bottom:24px">Multiple select — Interactive</div>
+      <div style="display:flex;flex-direction:column;gap:8px;width:320px;position:relative">
+        <label style="font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:600;color:#E8E8EC">Components</label>
+        <div onClick="{{ mToggle }}" style="{{ mTriggerStyle }}" style-hover="{{ mTriggerHover }}">
+          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;flex:1;min-width:0">
+            <span style="{{ mPlaceholderStyle }}">Select components</span>
+            <sc-for list="{{ mChips }}" as="c" hint-placeholder-count="0">
+              <span style="display:inline-flex;align-items:center;gap:5px;height:24px;padding:0 4px 0 8px;border-radius:7px;background:hsl(210,55%,20%);border:1px solid hsl(210,50%,32%);font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:500;color:hsl(210,90%,72%)">
+                {{ c.label }}
+                <span onClick="{{ c.onRemove }}" style="width:16px;height:16px;border-radius:5px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer" style-hover="background:hsl(210,50%,32%)">
+                  <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="hsl(210,90%,72%)" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+                </span>
+              </span>
+            </sc-for>
+          </div>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A5A5B0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="{{ mChevStyle }}"><path d="M6.5 9.5L12 15l5.5-5.5"></path></svg>
+        </div>
+        <sc-if value="{{ mOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute;top:100%;left:0;right:0;margin-top:6px;background:#1E1F25;border:1px solid #34353D;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.10), 0 2px 6px rgba(0,0,0,0.05);padding:5px;box-sizing:border-box;z-index:10">
+            <sc-for list="{{ mOptions }}" as="o" hint-placeholder-count="6">
+              <div onClick="{{ o.onToggle }}" style="{{ o.style }}" style-hover="{{ o.hoverStyle }}">
+                <span style="{{ o.boxStyle }}">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" style="{{ o.checkIcon }}"><path d="M4.5 12.5l5 5L19.5 6.5"></path></svg>
+                </span>
+                <span style="{{ o.txtStyle }}">{{ o.label }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9A9AA5;margin-bottom:24px">Interactive</div>
+      <div style="display:flex;flex-direction:column;gap:8px;width:280px;position:relative">
+        <label style="font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:600;color:#E8E8EC">Component</label>
+        <div onClick="{{ toggle }}" style="{{ triggerStyle }}" style-hover="{{ triggerHover }}">
+          <span style="{{ valueStyle }}">{{ value }}</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A5A5B0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="{{ chevStyle }}"><path d="M6.5 9.5L12 15l5.5-5.5"></path></svg>
+        </div>
+        <sc-if value="{{ open }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute;top:100%;left:0;right:0;margin-top:6px;background:#1E1F25;border:1px solid #34353D;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.10), 0 2px 6px rgba(0,0,0,0.05);padding:5px;box-sizing:border-box;z-index:10">
+            <sc-for list="{{ options }}" as="o" hint-placeholder-count="5">
+              <div onClick="{{ o.onSelect }}" style="{{ o.style }}" style-hover="{{ o.hoverStyle }}">
+                <span style="{{ o.txtStyle }}">{{ o.label }}</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="hsl(210,100%,42%)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="{{ o.checkStyle }}"><path d="M4.5 12.5l5 5L19.5 6.5"></path></svg>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{ &quot;$preview&quot;: { &quot;width&quot;: 1300, &quot;height&quot;: 760 } }">
+class Component extends DCLogic {
+  state = { open: false, value: null, mOpen: false, mValues: ['Button', 'Input'] };
+  renderVals() {
+    const opts = ['Button', 'Input', 'Date Picker', 'Checkbox & Radio', 'Tabs', 'Table'];
+    const { open, value, mOpen, mValues } = this.state;
+    const mTrigger = {
+      minHeight: '40px', boxSizing: 'border-box', padding: '7px 12px', borderRadius: '10px',
+      background: '#1E1F25', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px',
+      cursor: 'pointer', userSelect: 'none', transition: '120ms ease-in',
+      border: mOpen ? '1px solid hsl(210,100%,42%)' : '1px solid #3A3B44',
+      outline: mOpen ? '3px solid rgba(0,115,230,0.5)' : 'none', outlineOffset: '2px',
+    };
+    return {
+      mOpen,
+      mToggle: () => this.setState(s => ({ mOpen: !s.mOpen })),
+      mTriggerStyle: mTrigger,
+      mTriggerHover: mOpen ? {} : { background: '#26272E' },
+      mChevStyle: { transition: 'transform 0.15s ease-out', transform: mOpen ? 'rotate(180deg)' : 'none', flexShrink: 0 },
+      mPlaceholderStyle: mValues.length ? { display: 'none' } : { fontFamily: "'IBM Plex Sans',sans-serif", fontSize: '15px', fontWeight: 400, color: '#9A9AA5' },
+      mChips: mValues.map(label => ({
+        label,
+        onRemove: (e) => { e.stopPropagation(); this.setState(s => ({ mValues: s.mValues.filter(v => v !== label) })); },
+      })),
+      mOptions: opts.map(label => {
+        const on = mValues.includes(label);
+        return {
+          label,
+          onToggle: () => this.setState(s => ({ mValues: on ? s.mValues.filter(v => v !== label) : [...s.mValues, label] })),
+          style: { height: '34px', borderRadius: '8px', display: 'flex', alignItems: 'center', gap: '10px', padding: '0 10px', cursor: 'pointer', userSelect: 'none', background: 'transparent', transition: 'background 100ms ease-in' },
+          hoverStyle: { background: '#2A2B32' },
+          boxStyle: { width: '16px', height: '16px', boxSizing: 'border-box', borderRadius: '5px', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: '120ms ease-in', flexShrink: 0, border: on ? '1px solid hsl(210,100%,42%)' : '1px solid #3A3B44', background: on ? 'hsl(210,100%,45%)' : '#1E1F25' },
+          checkIcon: { opacity: on ? 1 : 0, strokeDasharray: 24, strokeDashoffset: on ? 0 : 24, transition: on ? 'stroke-dashoffset 0.15s ease-out, opacity 0.01s' : 'none' },
+          txtStyle: { fontFamily: "'IBM Plex Sans',sans-serif", fontSize: '14.5px', fontWeight: on ? 500 : 400, color: on ? 'hsl(210,90%,70%)' : '#E8E8EC' },
+        };
+      }),
+      open,
+      value: value ?? 'Select a component',
+      valueStyle: { fontFamily: "'IBM Plex Sans',sans-serif", fontSize: '15px', fontWeight: 400, color: value ? '#E8E8EC' : '#9A9AA5' },
+      toggle: () => this.setState(s => ({ open: !s.open })),
+      triggerStyle: {
+        height: '40px', boxSizing: 'border-box', padding: '8px 12px 10px 12px', borderRadius: '10px',
+        background: '#1E1F25', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        cursor: 'pointer', userSelect: 'none', transition: '120ms ease-in',
+        border: open ? '1px solid hsl(210,100%,42%)' : '1px solid #3A3B44',
+        boxShadow: 'none',
+        outline: open ? '3px solid rgba(0,115,230,0.5)' : 'none', outlineOffset: '2px',
+      },
+      triggerHover: open ? {} : { background: '#26272E' },
+      chevStyle: { transition: 'transform 0.15s ease-out', transform: open ? 'rotate(180deg)' : 'none', flexShrink: 0 },
+      options: opts.map(label => {
+        const sel = label === value;
+        return {
+          label,
+          onSelect: () => this.setState({ value: label, open: false }),
+          style: { height: '34px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 10px', cursor: 'pointer', userSelect: 'none', background: 'transparent', transition: 'background 100ms ease-in' },
+          hoverStyle: { background: '#2A2B32' },
+          txtStyle: { fontFamily: "'IBM Plex Sans',sans-serif", fontSize: '14.5px', fontWeight: sel ? 500 : 400, color: sel ? 'hsl(210,90%,70%)' : '#E8E8EC' },
+          checkStyle: { opacity: sel ? 1 : 0 },
+        };
+      }),
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -9,7 +9,7 @@ function Accordion({ className, ...props }: AccordionPrimitive.Root.Props) {
     <AccordionPrimitive.Root
       data-slot="accordion"
       className={cn(
-        "w-full overflow-hidden rounded-xl border border-line-control bg-white",
+        "w-full overflow-hidden rounded-xl border border-line-control bg-surface",
         className
       )}
       {...props}
@@ -40,7 +40,7 @@ function AccordionTrigger({
       <AccordionPrimitive.Trigger
         data-slot="accordion-trigger"
         className={cn(
-          "group/trigger flex w-full cursor-pointer items-center justify-between gap-3 bg-white px-4 py-3.5 text-left font-sans text-[15px] font-medium text-ink-heading transition-[background-color] duration-[120ms] ease-in outline-none select-none hover:bg-fill-hover focus-visible:focus-ring focus-visible:-outline-offset-[3px] data-panel-open:font-semibold",
+          "group/trigger flex w-full cursor-pointer items-center justify-between gap-3 bg-surface px-4 py-3.5 text-left font-sans text-[15px] font-medium text-ink-heading transition-[background-color] duration-[120ms] ease-in outline-none select-none hover:bg-fill-hover focus-visible:focus-ring focus-visible:-outline-offset-[3px] data-panel-open:font-semibold",
           className
         )}
         {...props}

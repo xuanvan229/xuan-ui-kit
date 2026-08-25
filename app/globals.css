@@ -1,2 +1,4 @@
 @import "tailwindcss";
 @import "../registry/xuan/theme.css";
+
+@custom-variant dark (&:is(.dark *));

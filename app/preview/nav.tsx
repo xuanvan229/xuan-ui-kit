@@ -1,3 +1,5 @@
+import { PreviewTheme } from "@/app/preview/theme"
+
 const PREVIEW_SECTIONS = [
   { id: "button", label: "Button" },
   { id: "input", label: "Input" },
@@ -20,6 +22,7 @@ function PreviewNav() {
       aria-label="Components"
       className="sticky top-0 hidden h-screen w-56 shrink-0 flex-col gap-3 overflow-y-auto border-r border-line-hair px-6 py-12 lg:flex"
     >
+      <PreviewTheme />
       <span className="text-[11px] font-semibold tracking-[0.12em] text-ink-muted uppercase">
         Components
       </span>

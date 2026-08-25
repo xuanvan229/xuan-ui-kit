@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #141519; }
+  a { color: #818CF8; text-decoration: none; }
+  a:hover { color: #A5B4FC; }
+</style>
+</helmet>
+<div style="min-height:100vh;background:#141519;font-family:'Geist','Inter',system-ui,sans-serif;padding:72px 64px;box-sizing:border-box;display:flex;justify-content:center">
+  <div style="display:flex;gap:96px;align-items:flex-start;flex-wrap:wrap">
+
+    <div style="width:400px;display:flex;flex-direction:column">
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9A9AA5;margin-bottom:24px">Date picker / Single</div>
+      <div style="font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:600;color:#E8E8EC;margin-bottom:8px">Label</div>
+      <div onClick="{{ toggleS }}" style="position:relative;width:360px;height:40px;background:#1E1F25;border:1px solid #3A3B44;border-radius:10px;box-sizing:border-box;box-shadow:inset 0 1px 2px rgba(0,0,0,0.35);display:flex;align-items:center;justify-content:space-between;padding:8px 12px 10px 12px;cursor:pointer;transition:120ms ease-in;user-select:none">
+        <div style="{{ ringS }}"></div>
+        <span style="font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:500;color:#E8E8EC">{{ valueS }}</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A5A5B0" stroke-width="1.8" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15.5" rx="3"></rect><path d="M3.5 9.5h17"></path><path d="M8 3v3.5"></path><path d="M16 3v3.5"></path></svg>
+      </div>
+
+      <sc-if value="{{ openS }}" hint-placeholder-val="{{ true }}">
+      <div style="width:400px;margin-top:12px;background:#1B1C21;border-radius:12px;padding:16px;box-sizing:border-box;border:1px solid #34353D;box-shadow:0 6px 16px rgba(0,0,0,0.06)">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;padding:0 4px">
+          <div style="display:flex;align-items:baseline;gap:8px">
+            <span style="font-size:22px;font-weight:700;color:#F2F2F5">{{ monthS }}</span>
+            <span style="font-size:22px;font-weight:400;color:#B8B8C0">{{ yearS }}</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:4px">
+            <button onClick="{{ prevS }}" style="width:32px;height:32px;border:none;background:transparent;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0" style-hover="background:#2A2B32">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8E8EC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6.5L9 12l5.5 5.5"></path></svg>
+            </button>
+            <button onClick="{{ todayS }}" style="border:none;background:transparent;color:#818CF8;font-family:inherit;font-size:14px;font-weight:600;padding:6px 8px;border-radius:8px;cursor:pointer" style-hover="background:#2A2B32">Today</button>
+            <button onClick="{{ nextS }}" style="width:32px;height:32px;border:none;background:transparent;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0" style-hover="background:#2A2B32">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8E8EC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 6.5L15 12l-5.5 5.5"></path></svg>
+            </button>
+          </div>
+        </div>
+        <div style="background:#34353D;padding:1px;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;gap:1px">
+          <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:1px;height:35px"><span style="background:#1E1F25;display:flex;align-items:center;justify-content:center;height:35px;font-size:12px;font-weight:600;color:#8B8B98;border-radius:11px 0 0 0">Mo</span><span style="background:#1E1F25;display:flex;align-items:center;justify-content:center;height:35px;font-size:12px;font-weight:600;color:#8B8B98">Tu</span><span style="background:#1E1F25;display:flex;align-items:center;justify-content:center;height:35px;font-size:12px;font-weight:600;color:#8B8B98">We</span><span style="background:#1E1F25;display:flex;align-items:center;justify-content:center;height:35px;font-size:12px;font-weight:600;color:#8B8B98">Th</span><span style="background:#1E1F25;display:flex;align-items:center;justify-content:center;height:35px;font-size:12px;font-weight:600;color:#8B8B98">Fr</span><span style="background:#1E1F25;display:flex;align-items:center;justify-content:center;height:35px;font-size:12px;font-weight:600;color:#8B8B98">Sa</span><span style="background:#1E1F25;display:flex;align-items:center;justify-content:center;height:35px;font-size:12px;font-weight:600;color:#8B8B98;border-radius:0 11px 0 0">Su</span></div>
+          <sc-for list="{{ singleWeeks }}" as="week" hint-placeholder-count="6">
+            <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:1px">
+              <sc-for list="{{ week }}" as="d" hint-placeholder-count="7">
+                <div style="{{ d.cell }}" onClick="{{ d.onClick }}">
+                  <div style="{{ d.sq }}">
+                    <span style="{{ d.txt }}">{{ d.label }}</span>
+                    <div style="{{ d.bar }}"></div>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      </sc-if>
+    </div>
+
+    <div style="width:400px;display:flex;flex-direction:column">
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9A9AA5;margin-bottom:24px">Date picker / Range</div>
+      <div style="font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:600;color:#E8E8EC;margin-bottom:8px">Label</div>
+      <div onClick="{{ toggleR }}" style="position:relative;width:360px;height:40px;background:#1E1F25;border:1px solid #3A3B44;border-radius:10px;box-sizing:border-box;box-shadow:inset 0 1px 2px rgba(0,0,0,0.35);display:flex;align-items:center;justify-content:space-between;padding:8px 12px 10px 12px;cursor:pointer;transition:120ms ease-in;user-select:none">
+        <div style="{{ ringR }}"></div>
+        <span style="font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:500;color:#E8E8EC">{{ valueR }}</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A5A5B0" stroke-width="1.8" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15.5" rx="3"></rect><path d="M3.5 9.5h17"></path><path d="M8 3v3.5"></path><path d="M16 3v3.5"></path></svg>
+      </div>
+
+      <sc-if value="{{ openR }}" hint-placeholder-val="{{ true }}">
+      <div style="width:400px;margin-top:12px;background:#1B1C21;border-radius:12px;padding:16px;box-sizing:border-box;border:1px solid #34353D;box-shadow:0 6px 16px rgba(0,0,0,0.06)">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;padding:0 4px">
+          <div style="display:flex;align-items:baseline;gap:8px">
+            <span style="font-size:22px;font-weight:700;color:#F2F2F5">{{ monthR }}</span>
+            <span style="font-size:22px;font-weight:400;color:#B8B8C0">{{ yearR }}</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:4px">
+            <button onClick="{{ prevR }}" style="width:32px;height:32px;border:none;background:transparent;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0" style-hover="background:#2A2B32">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8E8EC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6.5L9 12l5.5 5.5"></path></svg>
+            </button>
+            <button onClick="{{ todayR }}" style="border:none;background:transparent;color:#818CF8;font-family:inherit;font-size:14px;font-weight:600;padding:6px 8px;border-radius:8px;cursor:pointer" style-hover="background:#2A2B32">Today</button>
+            <button onClick="{{ nextR }}" style="width:32px;height:32px;border:none;background:transparent;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0" style-hover="background:#2A2B32">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8E8EC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 6.5L15 12l-5.5 5.5"></path></svg>
+            </button>
+          </div>
+        </div>
+        <div style="background:#34353D;padding:1px;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;gap:1px">
+          <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:1px;height:35px"><span style="background:#1E1F25;display:flex;align-items:center;justify-content:center;height:35px;font-size:12px;font-weight:600;color:#8B8B98;border-radius:11px 0 0 0">Mo</span><span style="background:#1E1F25;display:flex;align-items:center;justify-content:center;height:35px;font-size:12px;font-weight:600;color:#8B8B98">Tu</span><span style="background:#1E1F25;display:flex;align-items:center;justify-content:center;height:35px;font-size:12px;font-weight:600;color:#8B8B98">We</span><span style="background:#1E1F25;display:flex;align-items:center;justify-content:center;height:35px;font-size:12px;font-weight:600;color:#8B8B98">Th</span><span style="background:#1E1F25;display:flex;align-items:center;justify-content:center;height:35px;font-size:12px;font-weight:600;color:#8B8B98">Fr</span><span style="background:#1E1F25;display:flex;align-items:center;justify-content:center;height:35px;font-size:12px;font-weight:600;color:#8B8B98">Sa</span><span style="background:#1E1F25;display:flex;align-items:center;justify-content:center;height:35px;font-size:12px;font-weight:600;color:#8B8B98;border-radius:0 11px 0 0">Su</span></div>
+          <sc-for list="{{ rangeWeeks }}" as="week" hint-placeholder-count="6">
+            <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:1px" onMouseLeave="{{ clearHover }}">
+              <sc-for list="{{ week }}" as="d" hint-placeholder-count="7">
+                <div style="{{ d.cell }}" onClick="{{ d.onClick }}" onMouseEnter="{{ d.onEnter }}">
+                  <div style="{{ d.sq }}">
+                    <span style="{{ d.txt }}">{{ d.label }}</span>
+                    <div style="{{ d.bar }}"></div>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      </sc-if>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;$preview&quot;: { &quot;width&quot;: 1080, &quot;height&quot;: 900 },
+  &quot;showOutsideDays&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Calendar&quot; },
+  &quot;showDisabledDates&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Calendar&quot; }
+}">
+class Component extends DCLogic {
+  state = {
+    s: { open: true, sel: 20260718, vy: 2026, vm: 6 },
+    r: { open: true, start: 20260712, end: 20260718, vy: 2026, vm: 6, hover: null },
+  };
+  renderVals() {
+    const showOutside = this.props.showOutsideDays ?? true;
+    const showDisabled = this.props.showDisabledDates ?? true;
+    const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    const SHORT = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const key = (dt) => dt.getFullYear() * 10000 + (dt.getMonth() + 1) * 100 + dt.getDate();
+    const parts = (k) => ({ y: Math.floor(k / 10000), m: Math.floor(k / 100) % 100 - 1, d: k % 100 });
+    const fmt = (k) => { const p = parts(k); return SHORT[p.m] + ' ' + p.d + ', ' + p.y; };
+    const todayKey = key(new Date());
+    const disabledKeys = [20260704, 20260705, 20260725, 20260726];
+    const set = (who, patch) => this.setState(s => ({ [who]: { ...s[who], ...patch } }));
+    const nav = (who, dir) => () => { const p = this.state[who]; const dt = new Date(p.vy, p.vm + dir, 1); set(who, { vy: dt.getFullYear(), vm: dt.getMonth() }); };
+    const goToday = (who) => () => { const t = new Date(); set(who, { vy: t.getFullYear(), vm: t.getMonth() }); };
+    const build = (who) => {
+      const p = this.state[who];
+      const first = new Date(p.vy, p.vm, 1);
+      const offset = (first.getDay() + 6) % 7;
+      const weeks = [];
+      for (let w = 0; w < 6; w++) {
+        const row = [];
+        for (let c = 0; c < 7; c++) {
+          const dt = new Date(p.vy, p.vm, 1 - offset + w * 7 + c);
+          const k = key(dt);
+          const out = dt.getMonth() !== p.vm;
+          const isDis = showDisabled && disabledKeys.includes(k);
+          const isToday = k === todayKey;
+          let sel = false, band = false, preview = false, dist = 0;
+          if (who === 's') sel = k === p.sel;
+          else {
+            sel = k === p.start || k === p.end;
+            if (p.start && p.end) band = k >= p.start && k <= p.end;
+            else if (p.start && !p.end && p.hover) {
+              const lo = Math.min(p.start, p.hover), hi = Math.max(p.start, p.hover);
+              if (k >= lo && k <= hi) {
+                preview = true;
+                const sp = parts(p.start);
+                dist = Math.abs(Math.round((dt - new Date(sp.y, sp.m, sp.d)) / 86400000));
+              }
+            }
+          }
+          const corner = w === 5 && c === 0 ? '0 0 0 11px' : w === 5 && c === 6 ? '0 0 11px 0' : '0';
+          const bg = (band || preview) ? '#2E3038' : '#1E1F25';
+          const onClick = isDis ? undefined : () => {
+            if (who === 's') set('s', { sel: k, vy: dt.getFullYear(), vm: dt.getMonth() });
+            else {
+              const q = this.state.r;
+              if (!q.start || (q.start && q.end)) set('r', { start: k, end: null, hover: null });
+              else if (k < q.start) set('r', { start: k });
+              else set('r', { end: k, hover: null });
+            }
+          };
+          row.push({
+            label: out && !showOutside ? '' : String(dt.getDate()),
+            onClick,
+            onEnter: who === 'r' && p.start && !p.end && !isDis ? () => set('r', { hover: k }) : undefined,
+            cell: { background: isDis ? 'linear-gradient(to bottom right, transparent calc(50% - 0.5px), #4A4B55 calc(50% - 0.5px), #4A4B55 calc(50% + 0.5px), transparent calc(50% + 0.5px)) ' + bg : bg, height: '46px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: corner, cursor: isDis ? 'not-allowed' : 'pointer', transition: 'background 0.18s ease', transitionDelay: preview ? Math.min(dist * 30, 400) + 'ms' : '0ms' },
+            sq: { width: sel ? '100%' : '36px', height: sel ? '100%' : '36px', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', borderRadius: sel ? '0' : '10px', background: sel ? '#F2F2F5' : 'transparent' },
+            txt: { fontSize: '15px', fontWeight: sel ? 700 : 500, color: sel ? '#16171C' : out ? '#565764' : isDis ? '#6A6B76' : '#E8E8EC', pointerEvents: 'none' },
+            bar: isToday && !sel ? { position: 'absolute', bottom: '3px', left: '50%', transform: 'translateX(-50%)', width: '14px', height: '2px', borderRadius: '1px', background: '#E8E8EC' } : { display: 'none' },
+          });
+        }
+        weeks.push(row);
+      }
+      return weeks;
+    };
+    const s = this.state.s, r = this.state.r;
+    let valueR = 'Select dates';
+    if (r.start && r.end) {
+      const a = parts(r.start), b = parts(r.end);
+      if (a.y === b.y && a.m === b.m) valueR = SHORT[a.m] + ' ' + a.d + ' \u2013 ' + b.d + ', ' + a.y;
+      else if (a.y === b.y) valueR = SHORT[a.m] + ' ' + a.d + ' \u2013 ' + SHORT[b.m] + ' ' + b.d + ', ' + a.y;
+      else valueR = fmt(r.start) + ' \u2013 ' + fmt(r.end);
+    } else if (r.start) valueR = fmt(r.start) + ' \u2013 \u2026';
+    const ring = (open) => open ? { position: 'absolute', inset: '-1px', borderRadius: '10px', border: '1px solid hsl(210,100%,42%)', outline: '3px solid rgba(0,115,230,0.5)', outlineOffset: '2px', pointerEvents: 'none' } : { display: 'none' };
+    return {
+      singleWeeks: build('s'), rangeWeeks: build('r'),
+      openS: s.open, openR: r.open,
+      toggleS: () => set('s', { open: !this.state.s.open }),
+      toggleR: () => set('r', { open: !this.state.r.open }),
+      clearHover: () => { if (this.state.r.hover) set('r', { hover: null }); },
+      ringS: ring(s.open), ringR: ring(r.open),
+      valueS: s.sel ? fmt(s.sel) : 'Select date', valueR,
+      monthS: MONTHS[s.vm], yearS: String(s.vy), monthR: MONTHS[r.vm], yearR: String(r.vy),
+      prevS: nav('s', -1), nextS: nav('s', 1), todayS: goToday('s'),
+      prevR: nav('r', -1), nextR: nav('r', 1), todayR: goToday('r'),
+    };
+  }
+}
+</script>
+</body>
+</html>

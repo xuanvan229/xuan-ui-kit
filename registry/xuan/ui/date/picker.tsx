@@ -92,7 +92,7 @@ function DatePicker(props: DatePickerProps) {
         disabled={disabled}
         data-slot="date-picker-trigger"
         className={cn(
-          "control flex w-[360px] cursor-pointer items-center justify-between border border-line-input bg-white font-sans font-medium text-ink inset-input transition-control outline-none select-none hover:border-line-input-hover focus-visible:border-accent-600 focus-visible:focus-ring disabled:cursor-not-allowed disabled:border-disabled-line disabled:bg-disabled-bg disabled:text-ink-disabled disabled:shadow-flat data-popup-open:border-accent-600 data-popup-open:focus-ring",
+          "control flex w-[360px] cursor-pointer items-center justify-between border border-line-input bg-surface font-sans font-medium text-ink inset-input transition-control outline-none select-none hover:border-line-input-hover focus-visible:border-accent-600 focus-visible:focus-ring disabled:cursor-not-allowed disabled:border-disabled-line disabled:bg-disabled-bg disabled:text-ink-disabled disabled:shadow-flat data-popup-open:border-accent-600 data-popup-open:focus-ring",
           className
         )}
         {...triggerProps}

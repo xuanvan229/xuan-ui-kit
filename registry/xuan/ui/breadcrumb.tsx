@@ -63,7 +63,7 @@ function BreadcrumbSeparator({
       role="presentation"
       aria-hidden="true"
       data-slot="breadcrumb-separator"
-      className={cn("flex text-calendar-strike", className)}
+      className={cn("flex text-line-chevron", className)}
       {...props}
     >
       <svg

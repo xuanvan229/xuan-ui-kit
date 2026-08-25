@@ -13,7 +13,7 @@ function Checkbox({ className, size = "default", ...props }: CheckboxProps) {
       data-slot="checkbox"
       data-size={size}
       className={cn(
-        "peer flex shrink-0 cursor-pointer items-center justify-center border border-line-input bg-white outline-none transition-control focus-visible:focus-ring data-checked:border-accent-600 data-checked:bg-accent-500 data-indeterminate:border-accent-600 data-indeterminate:bg-accent-500 data-disabled:cursor-not-allowed data-disabled:border-disabled-line data-disabled:bg-disabled-bg data-disabled:data-checked:border-disabled-fill-line data-disabled:data-checked:bg-disabled-fill data-disabled:data-indeterminate:border-disabled-fill-line data-disabled:data-indeterminate:bg-disabled-fill",
+        "peer flex shrink-0 cursor-pointer items-center justify-center border border-line-input bg-surface transition-control outline-none focus-visible:focus-ring data-checked:border-accent-600 data-checked:bg-accent-500 data-disabled:cursor-not-allowed data-disabled:border-disabled-line data-disabled:bg-disabled-bg data-disabled:data-checked:border-disabled-fill-line data-disabled:data-checked:bg-disabled-fill data-indeterminate:border-accent-600 data-indeterminate:bg-accent-500 data-disabled:data-indeterminate:border-disabled-fill-line data-disabled:data-indeterminate:bg-disabled-fill",
         size === "default" ? "size-5 rounded-sm" : "size-4 rounded-[5px]",
         className
       )}
@@ -21,7 +21,7 @@ function Checkbox({ className, size = "default", ...props }: CheckboxProps) {
     >
       <CheckboxPrimitive.Indicator
         data-slot="checkbox-indicator"
-        className="group/indicator flex items-center justify-center text-white data-disabled:text-ink-muted"
+        className="group/indicator flex items-center justify-center text-on-accent data-disabled:text-ink-muted"
       >
         <svg
           width={iconSize}
@@ -37,7 +37,7 @@ function Checkbox({ className, size = "default", ...props }: CheckboxProps) {
         >
           <path
             d="M4.5 12.5l5 5L19.5 6.5"
-            className="[stroke-dasharray:24] [stroke-dashoffset:0] transition-[stroke-dashoffset] duration-150 ease-out group-data-starting-style/indicator:[stroke-dashoffset:24]"
+            className="transition-[stroke-dashoffset] duration-150 ease-out [stroke-dasharray:24] [stroke-dashoffset:0] group-data-starting-style/indicator:[stroke-dashoffset:24]"
           />
         </svg>
         <span

@@ -6,22 +6,22 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "group/button inline-flex shrink-0 cursor-pointer items-center justify-center border font-sans font-medium whitespace-nowrap outline-none transition-control select-none focus-visible:focus-ring disabled:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:shrink-0",
+  "group/button inline-flex shrink-0 cursor-pointer items-center justify-center border font-sans font-medium whitespace-nowrap transition-control outline-none select-none focus-visible:focus-ring disabled:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:shrink-0",
   {
     variants: {
       variant: {
         primary:
-          "border-accent-600 bg-accent-500 text-white hover:border-accent-active hover:bg-accent-hover active:border-accent-600 active:bg-accent-active disabled:border-disabled-fill-line disabled:bg-disabled-fill disabled:text-ink-muted",
+          "border-accent-600 bg-accent-500 text-on-accent hover:border-accent-active hover:bg-accent-hover active:border-accent-600 active:bg-accent-active disabled:border-disabled-fill-line disabled:bg-disabled-fill disabled:text-ink-muted",
         secondary:
-          "border-line-control bg-[rgb(232_235_237/0.1)] text-ink-strong hover:bg-fill-hover active:bg-fill-active data-popup-open:bg-fill-hover disabled:border-disabled-line disabled:bg-disabled-bg disabled:text-ink-disabled",
+          "border-line-control bg-secondary-fill text-ink-strong hover:bg-fill-hover active:bg-fill-active disabled:border-disabled-line disabled:bg-disabled-bg disabled:text-ink-disabled data-popup-open:bg-fill-hover",
         outline:
-          "border-accent-line bg-white text-accent-700 hover:border-accent-line-hover hover:bg-accent-tint-97 active:border-accent-line-active active:bg-accent-tint-93 active:text-accent-800 disabled:border-disabled-fill disabled:bg-white disabled:text-ink-disabled",
+          "border-accent-line bg-surface text-accent-700 hover:border-accent-line-hover hover:bg-accent-tint-97 active:border-accent-line-active active:bg-accent-tint-93 active:text-accent-800 disabled:border-disabled-fill disabled:bg-surface disabled:text-ink-disabled",
         ghost:
           "border-transparent bg-transparent text-accent-700 hover:bg-accent-tint-95 active:bg-accent-tint-90 active:text-accent-800 disabled:bg-transparent disabled:text-ink-disabled",
         plain:
-          "border-line-control bg-white text-ink-strong hover:bg-fill-hover active:bg-fill-active disabled:border-disabled-line disabled:bg-disabled-bg disabled:text-ink-disabled",
+          "border-line-control bg-surface text-ink-strong hover:bg-fill-hover active:bg-fill-active disabled:border-disabled-line disabled:bg-disabled-bg disabled:text-ink-disabled",
         destructive:
-          "border-destructive-line bg-destructive text-white hover:bg-destructive-hover disabled:border-disabled-fill-line disabled:bg-disabled-fill disabled:text-ink-muted",
+          "border-destructive-line bg-destructive text-on-accent hover:bg-destructive-hover disabled:border-disabled-fill-line disabled:bg-disabled-fill disabled:text-ink-muted",
       },
       size: {
         default:
@@ -40,12 +40,13 @@ const buttonVariants = cva(
         variant: "secondary",
         size: "default",
         class:
-          "bevel-secondary hover:shadow-flat active:shadow-flat data-popup-open:shadow-flat disabled:shadow-flat",
+          "bevel-secondary hover:shadow-flat active:shadow-flat disabled:shadow-flat data-popup-open:shadow-flat",
       },
       {
         variant: "outline",
         size: "default",
-        class: "bevel-outline hover:shadow-flat active:bevel-outline-active disabled:shadow-flat",
+        class:
+          "bevel-outline hover:shadow-flat active:bevel-outline-active disabled:shadow-flat",
       },
       {
         variant: "destructive",
@@ -60,7 +61,12 @@ const buttonVariants = cva(
 
 type ButtonProps = ButtonPrimitive.Props & VariantProps<typeof buttonVariants>
 
-function Button({ className, variant = "primary", size = "default", ...props }: ButtonProps) {
+function Button({
+  className,
+  variant = "primary",
+  size = "default",
+  ...props
+}: ButtonProps) {
   return (
     <ButtonPrimitive
       data-slot="button"
