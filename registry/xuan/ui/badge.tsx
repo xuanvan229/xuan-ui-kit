@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const badgeVariants = cva(
-  "inline-flex items-center gap-1.5 rounded-full border font-sans font-medium whitespace-nowrap",
+  "inline-flex items-center gap-1 rounded-full border font-sans font-medium whitespace-nowrap",
   {
     variants: {
       variant: {
@@ -16,7 +16,7 @@ const badgeVariants = cva(
       },
       size: {
         default: "h-6 px-3 text-[13px]",
-        sm: "h-5 px-2 text-[11.5px]",
+        sm: "h-5 px-2 text-xs",
       },
     },
     defaultVariants: { variant: "neutral", size: "default" },
@@ -62,11 +62,7 @@ function BadgeDot({
       data-slot="badge-dot"
       data-tone={tone}
       aria-hidden="true"
-      className={cn(
-        "size-[7px] shrink-0 rounded-full",
-        DOT_TONE[tone],
-        className
-      )}
+      className={cn("size-2 shrink-0 rounded-full", DOT_TONE[tone], className)}
     />
   )
 }

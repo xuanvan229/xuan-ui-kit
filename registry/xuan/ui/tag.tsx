@@ -5,7 +5,7 @@ function Tag({ className, ...props }: React.ComponentProps<"span">) {
     <span
       data-slot="tag"
       className={cn(
-        "inline-flex h-[26px] items-center gap-[5px] rounded-md border border-accent-line-soft bg-accent-tint-94 pr-[5px] pl-2.5 font-sans text-[13px] font-medium text-accent-deep",
+        "inline-flex h-6 items-center gap-1 rounded-md border border-accent-line-soft bg-accent-tint-94 pr-1 pl-2 font-sans text-[13px] font-medium text-accent-deep",
         className
       )}
       {...props}
@@ -20,14 +20,14 @@ function TagRemove({ className, ...props }: React.ComponentProps<"button">) {
       aria-label="Remove"
       data-slot="tag-remove"
       className={cn(
-        "inline-flex size-4 cursor-pointer items-center justify-center rounded-[5px] transition-control outline-none hover:bg-accent-line-soft focus-visible:focus-ring",
+        "inline-flex size-4 cursor-pointer items-center justify-center rounded-xs transition-control outline-none hover:bg-accent-line-soft focus-visible:focus-ring",
         className
       )}
       {...props}
     >
       <svg
-        width="9"
-        height="9"
+        width="8"
+        height="8"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
@@ -47,7 +47,7 @@ function TagReset({ className, ...props }: React.ComponentProps<"button">) {
       type="button"
       data-slot="tag-reset"
       className={cn(
-        "inline-flex h-[26px] cursor-pointer items-center rounded-md border border-dashed border-line-dashed bg-transparent px-2.5 font-sans text-[13px] font-medium text-ink-secondary transition-control outline-none hover:bg-fill-menu focus-visible:focus-ring",
+        "inline-flex h-6 cursor-pointer items-center rounded-md border border-dashed border-line-dashed bg-transparent px-2 font-sans text-[13px] font-medium text-ink-secondary transition-control outline-none hover:bg-fill-menu focus-visible:focus-ring",
         className
       )}
       {...props}

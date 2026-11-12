@@ -43,7 +43,7 @@ function PreviewTableHead({
         <TableHead>Owner</TableHead>
         <TableHead className="w-[134px]">Status</TableHead>
         <TableHead
-          className="w-[134px] [&>span]:justify-end"
+          className="w-[134px]"
           align="right"
           sortable
           direction={directionOf("updated")}

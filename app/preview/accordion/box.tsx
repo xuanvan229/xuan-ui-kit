@@ -10,7 +10,7 @@ const ITEMS = [
   {
     value: "what",
     title: "What is this design system?",
-    body: "A component library built on a hue-210 blue palette with IBM Plex Sans, 10px radii and a consistent 40px control height. It covers form controls, overlays, navigation and data display.",
+    body: "A component library built on a hue-210 blue palette with IBM Plex Sans, 8px radii and a consistent 40px control height. It covers form controls, overlays, navigation and data display.",
   },
   {
     value: "included",

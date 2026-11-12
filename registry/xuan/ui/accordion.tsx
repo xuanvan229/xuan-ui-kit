@@ -40,7 +40,7 @@ function AccordionTrigger({
       <AccordionPrimitive.Trigger
         data-slot="accordion-trigger"
         className={cn(
-          "group/trigger flex w-full cursor-pointer items-center justify-between gap-3 bg-surface px-4 py-3.5 text-left font-sans text-[15px] font-medium text-ink-heading transition-[background-color] duration-[120ms] ease-in outline-none select-none hover:bg-fill-hover focus-visible:focus-ring focus-visible:-outline-offset-[3px] data-panel-open:font-semibold",
+          "group/trigger flex w-full cursor-pointer items-center justify-between gap-3 bg-surface p-4 text-left font-sans text-[15px] font-medium text-ink-heading transition-[background-color] duration-[120ms] ease-in outline-none select-none hover:bg-fill-hover focus-visible:focus-ring focus-visible:-outline-offset-[3px] data-panel-open:font-semibold",
           className
         )}
         {...props}
@@ -78,7 +78,7 @@ function AccordionPanel({
     >
       <div
         className={cn(
-          "px-4 pb-3.5 font-sans text-sm leading-[1.55] text-ink-secondary",
+          "px-4 pb-4 font-sans text-sm leading-[1.55] text-ink-secondary",
           className
         )}
       >

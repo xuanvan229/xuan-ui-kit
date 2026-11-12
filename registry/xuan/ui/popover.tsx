@@ -33,7 +33,7 @@ function PopoverContent({
         <PopoverPrimitive.Popup
           data-slot="popover-content"
           className={cn(
-            "w-[300px] origin-(--transform-origin) overflow-hidden popup transition-[opacity,transform] duration-100 outline-none data-ending-style:opacity-0 data-starting-style:scale-[0.98] data-starting-style:opacity-0",
+            "w-[300px] max-w-(--available-width) origin-(--transform-origin) overflow-hidden popup transition-[opacity,transform] duration-100 outline-none data-ending-style:opacity-0 data-starting-style:scale-[0.98] data-starting-style:opacity-0",
             className
           )}
           {...props}
@@ -47,7 +47,7 @@ function PopoverBody({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="popover-body"
-      className={cn("flex flex-col gap-1.5 px-4 py-3.5", className)}
+      className={cn("flex flex-col gap-1 p-4", className)}
       {...props}
     />
   )
@@ -74,7 +74,7 @@ function PopoverDescription({
     <PopoverPrimitive.Description
       data-slot="popover-description"
       className={cn(
-        "font-sans text-[13.5px] leading-normal text-ink-secondary",
+        "font-sans text-sm leading-normal text-ink-secondary",
         className
       )}
       {...props}
@@ -87,7 +87,7 @@ function PopoverFooter({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="popover-footer"
       className={cn(
-        "flex gap-2 border-t border-line-hair bg-fill-hover px-4 py-2.5 [&>*]:flex-1",
+        "flex gap-2 border-t border-line-hair bg-fill-hover px-4 py-3 [&>*]:flex-1",
         className
       )}
       {...props}

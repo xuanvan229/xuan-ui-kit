@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react"
-import { describe, expect, it } from "vitest"
+import userEvent from "@testing-library/user-event"
+import { describe, expect, it, vi } from "vitest"
 
 import {
   Table,
@@ -41,5 +42,47 @@ describe("Table", () => {
       "true"
     )
     expect(screen.getByText("button")).toHaveAttribute("data-mono")
+  })
+
+  it("renders the header band on the cool-gray head token with semibold labels", () => {
+    render(
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead>Merchant</TableHead>
+          </TableRow>
+        </TableHeader>
+      </Table>
+    )
+    const head = screen.getByRole("columnheader", { name: "Merchant" })
+    expect(head.className).toContain("font-semibold")
+    expect(head.className).not.toContain("font-normal")
+    expect(head.closest("thead")?.className).toContain("bg-table-head")
+  })
+
+  it("sorts from the keyboard through a button inside the header", async () => {
+    const onSort = vi.fn()
+    render(
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead sortable direction={null} onClick={onSort}>
+              Name
+            </TableHead>
+            <TableHead>Owner</TableHead>
+          </TableRow>
+        </TableHeader>
+      </Table>
+    )
+    const button = screen.getByRole("button", { name: "Name" })
+    expect(button.closest("th")).toHaveAttribute("aria-sort", "none")
+    button.focus()
+    await userEvent.keyboard("{Enter}")
+    expect(onSort).toHaveBeenCalledTimes(1)
+    expect(
+      screen
+        .getByRole("columnheader", { name: "Owner" })
+        .querySelector("button")
+    ).toBeNull()
   })
 })

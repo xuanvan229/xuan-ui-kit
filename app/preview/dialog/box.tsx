@@ -72,7 +72,7 @@ function PreviewDialogBox() {
                 <AlertDialogIconTile>
                   <Trash2Icon strokeWidth={2.2} />
                 </AlertDialogIconTile>
-                <div className="flex min-w-0 flex-col gap-[3px]">
+                <div className="flex min-w-0 flex-col gap-1">
                   <AlertDialogTitle>Delete component?</AlertDialogTitle>
                   <AlertDialogDescription>
                     &ldquo;Tabs&rdquo; will be removed from the library. This

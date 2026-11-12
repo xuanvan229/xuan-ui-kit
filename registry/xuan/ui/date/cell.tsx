@@ -1,8 +1,11 @@
 import { cn } from "@/lib/utils"
+import type { DateKey } from "@/registry/xuan/ui/date/key"
 
 type DateCellProps = {
-  day: number
+  dateKey: DateKey
   date: Date
+  locale: string
+  tabStop: boolean
   selected: boolean
   band: boolean
   today: boolean
@@ -16,8 +19,10 @@ type DateCellProps = {
 }
 
 function DateCell({
-  day,
+  dateKey,
   date,
+  locale,
+  tabStop,
   selected,
   band,
   today,
@@ -36,14 +41,14 @@ function DateCell({
         data-hidden="true"
         aria-hidden="true"
         className={cn(
-          "h-[46px] bg-surface",
+          "size-11 bg-surface",
           corner === "bl" && "rounded-bl-[11px]",
           corner === "br" && "rounded-br-[11px]"
         )}
       />
     )
 
-  const label = date.toLocaleDateString("en-US", {
+  const label = date.toLocaleDateString(locale, {
     weekday: "long",
     month: "long",
     day: "numeric",
@@ -55,11 +60,13 @@ function DateCell({
       type="button"
       disabled={disabled}
       data-slot="date-cell"
+      data-key={dateKey}
+      tabIndex={tabStop ? 0 : -1}
       data-selected={selected ? "true" : null}
       aria-label={label}
       aria-pressed={selected}
       className={cn(
-        "relative flex h-[46px] cursor-pointer items-center justify-center font-sans text-[15px] font-medium text-ink transition-[background-color] duration-[180ms] outline-none focus-visible:z-10 focus-visible:[outline:3px_solid_var(--focus-ring)] focus-visible:-outline-offset-[3px] disabled:cursor-not-allowed disabled:strike-diagonal disabled:text-calendar-disabled",
+        "relative flex size-11 cursor-pointer items-center justify-center font-sans text-[15px] font-medium text-ink transition-[background-color] duration-[180ms] outline-none focus-visible:z-10 focus-visible:[outline:3px_solid_var(--focus-ring)] focus-visible:-outline-offset-[3px] disabled:cursor-not-allowed disabled:strike-diagonal disabled:text-calendar-disabled",
         selected
           ? "bg-calendar-selected font-bold text-calendar-selected-ink"
           : band
@@ -73,11 +80,11 @@ function DateCell({
       onClick={onSelect}
       onMouseEnter={onHover}
     >
-      {day}
+      {dateKey % 100}
       {today && !selected ? (
         <span
           data-slot="date-today"
-          className="absolute bottom-[3px] left-1/2 h-0.5 w-3.5 -translate-x-1/2 rounded-[1px] bg-calendar-today"
+          className="absolute bottom-1 left-1/2 h-0.5 w-4 -translate-x-1/2 rounded-full bg-calendar-today"
         />
       ) : null}
     </button>

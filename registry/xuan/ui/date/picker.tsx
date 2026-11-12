@@ -10,6 +10,10 @@ import {
   formatDateRangeLabel,
 } from "@/registry/xuan/ui/date/format"
 import {
+  type DateLabels,
+  resolveDateLabels,
+} from "@/registry/xuan/ui/date/labels"
+import {
   type DateKey,
   fromDateKey,
   toDateKey,
@@ -39,6 +43,9 @@ type DatePickerProps = DatePickerModeProps & {
   isDateDisabled?: (date: Date) => boolean
   showOutsideDays?: boolean
   disabled?: boolean
+  /** BCP 47 tag for month names and day labels. */
+  locale?: string
+  labels?: Partial<DateLabels>
   className?: string
   triggerProps?: PopoverPrimitive.Trigger.Props
 }
@@ -58,17 +65,30 @@ function DatePicker(props: DatePickerProps) {
     isDateDisabled,
     showOutsideDays = true,
     disabled = false,
+    locale = "en-US",
     className,
     triggerProps,
   } = props
+  const labels = resolveDateLabels(props.labels ?? null)
+  const { className: triggerClassName, ...triggerRest } = triggerProps ?? {}
+  const popupRef = React.useRef<HTMLDivElement>(null)
   const [open, setOpen] = React.useState(false)
   const isRange = props.mode === "range"
   const range: DateRangeState = isRange
     ? { start: keyOf(props.value.start), end: keyOf(props.value.end) }
     : { start: keyOf(props.value), end: keyOf(props.value) }
   const label = isRange
-    ? formatDateRangeLabel(props.value.start, props.value.end)
-    : formatDateLabel(props.value)
+    ? formatDateRangeLabel(
+        props.value.start,
+        props.value.end,
+        locale,
+        labels.rangePlaceholder
+      )
+    : formatDateLabel(props.value, locale, labels.placeholder)
+  const triggerClass = cn(
+    "control flex w-[350px] max-w-full cursor-pointer items-center justify-between border border-line-input bg-surface font-sans font-medium text-ink inset-input transition-control outline-none select-none hover:border-line-input-hover focus-visible:border-accent-600 focus-visible:focus-ring disabled:cursor-not-allowed disabled:border-disabled-line disabled:bg-disabled-bg disabled:text-ink-disabled disabled:shadow-flat data-popup-open:border-accent-600 data-popup-open:focus-ring",
+    className
+  )
 
   const isKeyDisabled = (key: DateKey) => {
     if (min !== null && key < toDateKey(min)) return true
@@ -91,11 +111,12 @@ function DatePicker(props: DatePickerProps) {
       <PopoverPrimitive.Trigger
         disabled={disabled}
         data-slot="date-picker-trigger"
-        className={cn(
-          "control flex w-[360px] cursor-pointer items-center justify-between border border-line-input bg-surface font-sans font-medium text-ink inset-input transition-control outline-none select-none hover:border-line-input-hover focus-visible:border-accent-600 focus-visible:focus-ring disabled:cursor-not-allowed disabled:border-disabled-line disabled:bg-disabled-bg disabled:text-ink-disabled disabled:shadow-flat data-popup-open:border-accent-600 data-popup-open:focus-ring",
-          className
-        )}
-        {...triggerProps}
+        className={
+          typeof triggerClassName === "function"
+            ? (state) => cn(triggerClass, triggerClassName(state))
+            : cn(triggerClass, triggerClassName)
+        }
+        {...triggerRest}
       >
         <span
           data-slot="date-picker-value"
@@ -104,8 +125,8 @@ function DatePicker(props: DatePickerProps) {
           {label}
         </span>
         <svg
-          width="18"
-          height="18"
+          width="16"
+          height="16"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -122,12 +143,18 @@ function DatePicker(props: DatePickerProps) {
         <PopoverPrimitive.Positioner
           side="bottom"
           align="start"
-          sideOffset={12}
+          sideOffset={8}
           className="isolate z-50"
         >
           <PopoverPrimitive.Popup
+            ref={popupRef}
             data-slot="date-picker-content"
-            className="w-[400px] rounded-xl border border-line-popup bg-calendar p-4 shadow-panel transition-[opacity,translate] duration-150 ease-out outline-none data-ending-style:opacity-0 data-starting-style:-translate-y-1 data-starting-style:opacity-0"
+            initialFocus={() =>
+              popupRef.current?.querySelector<HTMLElement>(
+                '[data-slot=date-cell][tabindex="0"]'
+              ) ?? null
+            }
+            className="w-fit max-w-[calc(100vw-16px)] overflow-x-auto rounded-xl border border-line-popup bg-calendar p-4 shadow-panel transition-[opacity,translate] duration-150 ease-out outline-none data-ending-style:opacity-0 data-starting-style:-translate-y-1 data-starting-style:opacity-0"
           >
             <DateCalendar
               mode={isRange ? "range" : "single"}
@@ -135,6 +162,8 @@ function DatePicker(props: DatePickerProps) {
               onSelect={handleSelect}
               isDateDisabled={isKeyDisabled}
               showOutsideDays={showOutsideDays}
+              locale={locale}
+              labels={labels}
             />
           </PopoverPrimitive.Popup>
         </PopoverPrimitive.Positioner>

@@ -33,7 +33,7 @@ function AlertDialogContent({
       <AlertDialogPrimitive.Popup
         data-slot="alert-dialog-content"
         className={cn(
-          "fixed top-1/2 left-1/2 z-50 w-[400px] max-w-[calc(100vw-48px)] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[14px] border border-line-popup bg-surface shadow-modal transition-[opacity,translate,scale] duration-[180ms] ease-out outline-none data-ending-style:translate-y-[calc(-50%+10px)] data-ending-style:scale-[0.97] data-ending-style:opacity-0 data-starting-style:translate-y-[calc(-50%+10px)] data-starting-style:scale-[0.97] data-starting-style:opacity-0",
+          "fixed top-1/2 left-1/2 z-50 flex max-h-[calc(100dvh-48px)] w-[400px] max-w-[calc(100vw-48px)] -translate-x-1/2 -translate-y-1/2 flex-col overflow-hidden rounded-xl border border-line-popup bg-surface shadow-modal transition-[opacity,translate,scale] duration-[180ms] ease-out outline-none data-ending-style:translate-y-[calc(-50%+10px)] data-ending-style:scale-[0.97] data-ending-style:opacity-0 data-starting-style:translate-y-[calc(-50%+10px)] data-starting-style:scale-[0.97] data-starting-style:opacity-0",
           className
         )}
         {...props}
@@ -46,7 +46,10 @@ function AlertDialogBody({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="alert-dialog-body"
-      className={cn("flex items-start gap-3 px-5 py-[18px]", className)}
+      className={cn(
+        "flex min-h-0 items-start gap-3 overflow-y-auto p-5",
+        className
+      )}
       {...props}
     />
   )
@@ -60,7 +63,7 @@ function AlertDialogIconTile({
     <div
       data-slot="alert-dialog-icon-tile"
       className={cn(
-        "flex size-[34px] shrink-0 items-center justify-center rounded-[10px] bg-error-bg text-error-text [&_svg]:size-4",
+        "flex size-8 shrink-0 items-center justify-center rounded-md bg-error-bg text-error-text [&_svg]:size-4",
         className
       )}
       {...props}
@@ -92,7 +95,7 @@ function AlertDialogDescription({
     <AlertDialogPrimitive.Description
       data-slot="alert-dialog-description"
       className={cn(
-        "font-sans text-[13.5px] leading-normal text-ink-secondary",
+        "font-sans text-sm leading-normal text-ink-secondary",
         className
       )}
       {...props}
@@ -108,7 +111,7 @@ function AlertDialogFooter({
     <div
       data-slot="alert-dialog-footer"
       className={cn(
-        "flex justify-end gap-2.5 border-t border-line-hair bg-fill-hover px-5 py-3.5",
+        "flex shrink-0 justify-end gap-2 border-t border-line-hair bg-fill-hover px-5 py-4",
         className
       )}
       {...props}

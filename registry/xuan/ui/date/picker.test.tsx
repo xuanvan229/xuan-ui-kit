@@ -65,4 +65,55 @@ describe("DatePicker", () => {
     const trigger = screen.getByRole("button", { name: "Start date" })
     expect(trigger).toHaveAttribute("id", "start")
   })
+
+  it("merges triggerProps.className with the trigger's own classes", () => {
+    render(
+      <DatePicker
+        value={new Date(2026, 6, 18)}
+        onValueChange={() => {}}
+        triggerProps={{ className: "w-full" }}
+      />
+    )
+    expect(screen.getByRole("button", { name: /Jul 18/ })).toHaveClass(
+      "control",
+      "w-full"
+    )
+  })
+
+  it("uses the placeholder from labels when empty", () => {
+    render(
+      <DatePicker
+        value={null}
+        onValueChange={() => {}}
+        labels={{ placeholder: "Pick a day" }}
+      />
+    )
+    expect(
+      screen.getByRole("button", { name: "Pick a day" })
+    ).toBeInTheDocument()
+  })
+
+  it("puts focus on the selected day when it opens", async () => {
+    render(
+      <DatePicker value={new Date(2026, 6, 18)} onValueChange={() => {}} />
+    )
+    await userEvent.click(screen.getByRole("button", { name: /Jul 18/ }))
+    const selected = await screen.findByRole("button", {
+      name: /July 18, 2026/,
+    })
+    await vi.waitFor(() => expect(selected).toHaveFocus())
+  })
+
+  it("keeps the default for a label passed as undefined", async () => {
+    render(
+      <DatePicker
+        value={new Date(2026, 6, 18)}
+        onValueChange={() => {}}
+        labels={{ today: undefined, weekdays: undefined }}
+      />
+    )
+    await userEvent.click(screen.getByRole("button", { name: /Jul 18/ }))
+    expect(await screen.findByRole("button", { name: "Today" })).toBeVisible()
+    expect(screen.getByText("Mo")).toBeVisible()
+  })
 })

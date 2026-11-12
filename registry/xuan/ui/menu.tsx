@@ -18,7 +18,7 @@ type MenuContentProps = MenuPrimitive.Popup.Props &
 function MenuContent({
   className,
   side = "bottom",
-  sideOffset = 6,
+  sideOffset = 8,
   align = "start",
   ...props
 }: MenuContentProps) {
@@ -33,7 +33,7 @@ function MenuContent({
         <MenuPrimitive.Popup
           data-slot="menu-content"
           className={cn(
-            "w-[220px] origin-(--transform-origin) popup p-[5px] transition-[opacity,transform] duration-100 outline-none data-ending-style:opacity-0 data-starting-style:scale-[0.98] data-starting-style:opacity-0",
+            "w-[220px] max-w-(--available-width) origin-(--transform-origin) popup p-1 transition-[opacity,transform] duration-100 outline-none data-ending-style:opacity-0 data-starting-style:scale-[0.98] data-starting-style:opacity-0",
             className
           )}
           {...props}
@@ -55,7 +55,7 @@ function MenuGroupLabel({
     <MenuPrimitive.GroupLabel
       data-slot="menu-group-label"
       className={cn(
-        "px-2.5 pt-1.5 pb-1 font-sans text-[11px] font-semibold tracking-[0.06em] text-ink-muted uppercase",
+        "px-2 pt-2 pb-1 font-sans text-xs font-semibold tracking-[0.06em] text-ink-muted uppercase",
         className
       )}
       {...props}
@@ -73,7 +73,7 @@ function MenuItem({
       data-slot="menu-item"
       data-variant={variant}
       className={cn(
-        "flex h-[34px] cursor-pointer items-center gap-2.5 rounded-md px-2.5 font-sans text-[14.5px] text-ink transition-[background-color] duration-100 ease-in outline-none select-none data-disabled:cursor-not-allowed data-disabled:text-ink-disabled data-highlighted:bg-fill-menu data-[variant=danger]:text-error-text data-[variant=danger]:data-highlighted:bg-error-bg-soft [&>svg]:size-[15px] [&>svg]:shrink-0",
+        "flex h-8 cursor-pointer items-center gap-2 rounded-md px-2 font-sans text-sm text-ink transition-[background-color] duration-100 ease-in outline-none select-none data-disabled:cursor-not-allowed data-disabled:text-ink-disabled data-highlighted:bg-fill-menu data-[variant=danger]:text-error-text data-[variant=danger]:data-highlighted:bg-error-bg-soft [&>svg]:size-4 [&>svg]:shrink-0",
         className
       )}
       {...props}
@@ -95,7 +95,7 @@ function MenuSeparator({ className, ...props }: MenuPrimitive.Separator.Props) {
   return (
     <MenuPrimitive.Separator
       data-slot="menu-separator"
-      className={cn("mx-1.5 my-[5px] h-px bg-line-hair", className)}
+      className={cn("mx-2 my-1 h-px bg-line-hair", className)}
       {...props}
     />
   )

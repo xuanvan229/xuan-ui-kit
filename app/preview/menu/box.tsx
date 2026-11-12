@@ -110,7 +110,7 @@ function PreviewMenuBox() {
                   <Avatar tone="tint" size="sm">
                     <AvatarFallback>AN</AvatarFallback>
                   </Avatar>
-                  <span className="text-[12.5px] text-ink-muted">
+                  <span className="text-xs text-ink-muted">
                     An Nguyen · updated Aug 24
                   </span>
                 </div>

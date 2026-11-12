@@ -18,7 +18,7 @@ function PreviewKitSection({
       className={cn("flex scroll-mt-12 flex-col gap-8", className)}
       {...props}
     >
-      <h2 className="text-[11px] font-semibold tracking-[0.12em] text-ink-muted uppercase">
+      <h2 className="text-xs font-semibold tracking-[0.12em] text-ink-muted uppercase">
         {label}
       </h2>
       {children}

@@ -1,12 +1,16 @@
 import { PreviewAccordionBox } from "@/app/preview/accordion/box"
+import { PreviewAlertBox } from "@/app/preview/alert/box"
 import { PreviewBadgeBox } from "@/app/preview/badge/box"
 import { PreviewButtonBox } from "@/app/preview/button/box"
+import { PreviewCardBox } from "@/app/preview/card/box"
 import { PreviewCheckboxBox } from "@/app/preview/checkbox/box"
+import { PreviewComboboxBox } from "@/app/preview/combobox/box"
 import { PreviewDateBox } from "@/app/preview/date/box"
 import { PreviewDialogBox } from "@/app/preview/dialog/box"
 import { PreviewInputBox } from "@/app/preview/input/box"
 import { PreviewMenuBox } from "@/app/preview/menu/box"
 import { PreviewNav } from "@/app/preview/nav"
+import { PreviewPaginationBox } from "@/app/preview/pagination/box"
 import { PreviewSelectBox } from "@/app/preview/select/box"
 import { PreviewSwitchBox } from "@/app/preview/switch/box"
 import { PreviewTableBox } from "@/app/preview/table/box"
@@ -41,6 +45,10 @@ export default function PreviewPage() {
         <PreviewMenuBox />
         <PreviewAccordionBox />
         <PreviewBadgeBox />
+        <PreviewCardBox />
+        <PreviewPaginationBox />
+        <PreviewAlertBox />
+        <PreviewComboboxBox />
       </main>
     </div>
   )

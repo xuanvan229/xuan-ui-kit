@@ -20,7 +20,9 @@ describe("Button", () => {
         Edit
       </Button>
     )
-    expect(screen.getByRole("button").className).not.toContain("bevel-secondary")
+    expect(screen.getByRole("button").className).not.toContain(
+      "bevel-secondary"
+    )
   })
 
   it("renders the trailing arrow slot", () => {
@@ -30,7 +32,9 @@ describe("Button", () => {
         <ButtonArrow />
       </Button>
     )
-    expect(screen.getByRole("button").querySelector("[data-slot=button-arrow] svg")).not.toBeNull()
+    expect(
+      screen.getByRole("button").querySelector("[data-slot=button-arrow] svg")
+    ).not.toBeNull()
   })
 
   it("does not fire clicks when disabled", async () => {
@@ -42,5 +46,48 @@ describe("Button", () => {
     )
     await userEvent.click(screen.getByRole("button"))
     expect(onClick).not.toHaveBeenCalled()
+  })
+
+  it("keeps each variant recognisable when disabled", () => {
+    render(
+      <>
+        <Button disabled>Primary</Button>
+        <Button disabled variant="destructive">
+          Delete
+        </Button>
+        <Button disabled variant="plain">
+          Plain
+        </Button>
+      </>
+    )
+    expect(screen.getByRole("button", { name: "Primary" })).toHaveClass(
+      "data-disabled:bg-accent-disabled",
+      "data-disabled:text-accent-disabled-ink"
+    )
+    expect(screen.getByRole("button", { name: "Delete" })).toHaveClass(
+      "data-disabled:bg-destructive-disabled"
+    )
+    expect(screen.getByRole("button", { name: "Plain" })).toHaveClass(
+      "data-disabled:bg-surface"
+    )
+  })
+
+  it("styles the disabled state when it stays focusable", () => {
+    render(
+      <Button disabled focusableWhenDisabled>
+        Save
+      </Button>
+    )
+    const button = screen.getByRole("button", { name: "Save" })
+    expect(button).not.toBeDisabled()
+    expect(button).toHaveAttribute("data-disabled")
+    expect(button).toHaveClass("data-disabled:cursor-not-allowed")
+  })
+
+  it("rests on a neutral border in the outline variant", () => {
+    render(<Button variant="outline">Outline</Button>)
+    expect(screen.getByRole("button", { name: "Outline" })).toHaveClass(
+      "border-line-control"
+    )
   })
 })

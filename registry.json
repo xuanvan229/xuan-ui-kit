@@ -63,9 +63,14 @@
           "color-disabled-line": "var(--disabled-line)",
           "color-disabled-fill": "var(--disabled-fill)",
           "color-disabled-fill-line": "var(--disabled-fill-line)",
+          "color-accent-disabled": "var(--accent-disabled)",
+          "color-accent-disabled-ink": "var(--accent-disabled-ink)",
+          "color-destructive-disabled": "var(--destructive-disabled)",
+          "color-destructive-disabled-ink": "var(--destructive-disabled-ink)",
           "color-switch-off": "var(--switch-off)",
           "color-switch-off-line": "var(--switch-off-line)",
           "color-table-band": "var(--table-band)",
+          "color-table-head": "var(--table-head)",
           "color-table-hair": "var(--table-hair)",
           "color-table-line": "var(--table-line)",
           "color-success": "var(--success)",
@@ -88,6 +93,9 @@
           "color-neutral-bg": "var(--neutral-bg)",
           "color-neutral-text": "var(--neutral-text)",
           "color-neutral-line": "var(--neutral-line)",
+          "color-skeleton": "var(--skeleton)",
+          "color-tooltip": "var(--tooltip)",
+          "color-tooltip-ink": "var(--tooltip-ink)",
           "color-calendar": "var(--calendar)",
           "color-calendar-line": "var(--calendar-line)",
           "color-calendar-band": "var(--calendar-band)",
@@ -127,10 +135,12 @@
           "shadow-toast": "var(--shadow-toast)",
           "shadow-modal": "var(--shadow-modal)",
           "shadow-panel": "var(--shadow-panel)",
-          "radius-sm": "6px",
+          "radius-xs": "4px",
+          "radius-sm": "4px",
           "radius-md": "8px",
-          "radius-lg": "10px",
-          "radius-xl": "12px"
+          "radius-lg": "8px",
+          "radius-xl": "12px",
+          "animate-progress": "progress-slide 1.4s ease-in-out infinite"
         },
         "light": {
           "accent-500": "hsl(210 100% 45%)",
@@ -175,11 +185,16 @@
           "disabled-line": "#e2e2e8",
           "disabled-fill": "#dadae1",
           "disabled-fill-line": "#cdcdd6",
+          "accent-disabled": "hsl(210 80% 92%)",
+          "accent-disabled-ink": "hsl(210 50% 52%)",
+          "destructive-disabled": "hsl(0 80% 94%)",
+          "destructive-disabled-ink": "hsl(0 50% 56%)",
           "switch-off": "#d9d9e0",
           "switch-off-line": "#cdcdd6",
-          "table-band": "#f7f7f2",
-          "table-hair": "#ecece4",
-          "table-line": "#e4e4dc",
+          "table-band": "hsl(215 15% 97%)",
+          "table-head": "hsl(215 15% 97%)",
+          "table-hair": "hsl(215 15% 94%)",
+          "table-line": "hsl(210 14% 87%)",
           "success": "hsl(145 55% 42%)",
           "success-bg": "#dff2e4",
           "success-text": "#1f5b32",
@@ -197,9 +212,12 @@
           "destructive": "hsl(0 72% 48%)",
           "destructive-line": "hsl(0 72% 42%)",
           "destructive-hover": "hsl(0 72% 40%)",
-          "neutral-bg": "#ebebe5",
+          "neutral-bg": "hsl(215 15% 93%)",
           "neutral-text": "#3e3e47",
-          "neutral-line": "#d5d5cb",
+          "neutral-line": "hsl(215 14% 84%)",
+          "skeleton": "hsl(215 15% 92%)",
+          "tooltip": "#1b1b1f",
+          "tooltip-ink": "#ffffff",
           "calendar": "#efeff3",
           "calendar-line": "#d9d9e0",
           "calendar-band": "#e4e4ea",
@@ -207,19 +225,19 @@
           "calendar-outside": "#b9b9c4",
           "calendar-disabled": "#8e8e9b",
           "calendar-strike": "#c2c2cc",
-          "calendar-selected": "#1b1b1f",
-          "today": "#6366f1",
+          "calendar-selected": "var(--accent-500)",
+          "today": "var(--accent-700)",
           "overlay": "rgb(20 22 28 / 0.45)",
           "surface": "#ffffff",
           "on-accent": "#ffffff",
-          "secondary-fill": "rgb(232 235 237 / 0.1)",
+          "secondary-fill": "var(--fill-menu)",
           "secondary-bevel": "inset 0 1px 0 1px #fff, inset 0 -1px 0 1px rgb(223 226 231 / 0.4), 0 1px 2px rgb(223 226 231 / 0.5)",
-          "outline-bevel": "inset 0 1px 0 rgb(255 255 255 / 1), inset 0 -1px 0 1px rgb(0 77 153 / 0.1), 0 2px 4px rgb(9 11 11 / 0.08)",
+          "outline-bevel": "inset 0 1px 0 rgb(255 255 255 / 1), 0 2px 4px rgb(9 11 11 / 0.08)",
           "inset-input": "inset 0 1px 2px rgb(9 11 11 / 0.06)",
           "knob-shadow": "0 1px 2px rgb(9 11 11 / 0.2)",
           "accent-selected": "hsl(210 100% 38%)",
           "line-chevron": "#c2c2cc",
-          "calendar-selected-ink": "#ffffff",
+          "calendar-selected-ink": "var(--on-accent)",
           "calendar-today": "#232329",
           "shadow-popup": "0 8px 24px rgb(24 24 44 / 0.1), 0 2px 6px rgb(24 24 44 / 0.05)",
           "shadow-toast": "0 8px 24px rgb(24 24 44 / 0.14), 0 2px 6px rgb(24 24 44 / 0.06)",
@@ -243,7 +261,7 @@
           "border": "var(--line-control)",
           "input": "var(--line-input)",
           "ring": "var(--focus-ring)",
-          "radius": "10px",
+          "radius": "8px",
           "font-sans": "var(--font-plex-sans, \"IBM Plex Sans\"), sans-serif",
           "font-mono": "var(--font-plex-mono, \"IBM Plex Mono\"), monospace"
         },
@@ -290,9 +308,14 @@
           "disabled-line": "#34353d",
           "disabled-fill": "#2e2f37",
           "disabled-fill-line": "#3a3b44",
+          "accent-disabled": "hsl(210 45% 22%)",
+          "accent-disabled-ink": "hsl(210 45% 60%)",
+          "destructive-disabled": "hsl(0 40% 22%)",
+          "destructive-disabled-ink": "hsl(0 50% 66%)",
           "switch-off": "#34353d",
           "switch-off-line": "#3a3b44",
           "table-band": "#25262b",
+          "table-head": "#26272e",
           "table-hair": "#2e2f35",
           "table-line": "#3a3b44",
           "success": "hsl(145 55% 42%)",
@@ -315,6 +338,9 @@
           "neutral-bg": "#2e2f35",
           "neutral-text": "#b8b8c0",
           "neutral-line": "#454650",
+          "skeleton": "#3a3b44",
+          "tooltip": "#f2f2f5",
+          "tooltip-ink": "#1b1b1f",
           "calendar": "#1b1c21",
           "calendar-line": "#34353d",
           "calendar-band": "#2e3038",
@@ -322,19 +348,19 @@
           "calendar-outside": "#565764",
           "calendar-disabled": "#6a6b76",
           "calendar-strike": "#4a4b55",
-          "calendar-selected": "#f2f2f5",
-          "today": "#818cf8",
+          "calendar-selected": "var(--accent-500)",
+          "today": "var(--accent-700)",
           "overlay": "rgb(0 0 0 / 0.6)",
           "surface": "#1e1f25",
           "on-accent": "#ffffff",
-          "secondary-fill": "rgb(255 255 255 / 0.04)",
+          "secondary-fill": "var(--fill-menu)",
           "secondary-bevel": "inset 0 1px 0 rgb(255 255 255 / 0.08), 0 1px 2px rgb(0 0 0 / 0.4)",
-          "outline-bevel": "inset 0 1px 0 rgb(255 255 255 / 0.06), inset 0 -1px 0 1px rgb(0 77 153 / 0.1), 0 2px 4px rgb(0 0 0 / 0.4)",
+          "outline-bevel": "inset 0 1px 0 rgb(255 255 255 / 0.06), 0 2px 4px rgb(0 0 0 / 0.4)",
           "inset-input": "inset 0 1px 2px rgb(0 0 0 / 0.35)",
           "knob-shadow": "0 1px 2px rgb(0 0 0 / 0.5)",
           "accent-selected": "hsl(210 90% 70%)",
           "line-chevron": "#4a4b55",
-          "calendar-selected-ink": "#16171c",
+          "calendar-selected-ink": "var(--on-accent)",
           "calendar-today": "#e8e8ec",
           "shadow-popup": "0 8px 24px rgb(0 0 0 / 0.1), 0 2px 6px rgb(0 0 0 / 0.05)",
           "shadow-toast": "0 8px 24px rgb(0 0 0 / 0.14), 0 2px 6px rgb(0 0 0 / 0.06)",
@@ -358,16 +384,24 @@
           "border": "var(--line-control)",
           "input": "var(--line-input)",
           "ring": "var(--focus-ring)",
-          "radius": "10px",
+          "radius": "8px",
           "font-sans": "var(--font-plex-sans, \"IBM Plex Sans\"), sans-serif",
           "font-mono": "var(--font-plex-mono, \"IBM Plex Mono\"), monospace"
         }
       },
       "css": {
+        "@keyframes progress-slide": {
+          "from": {
+            "translate": "-100% 0"
+          },
+          "to": {
+            "translate": "300% 0"
+          }
+        },
         "@utility control": {
           "height": "40px",
-          "border-radius": "10px",
-          "padding": "8px 12px 10px",
+          "border-radius": "8px",
+          "padding": "8px 12px",
           "font-size": "15px",
           "box-sizing": "border-box"
         },
@@ -491,7 +525,8 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -509,7 +544,8 @@
         "@base-ui/react"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -523,8 +559,12 @@
       "type": "registry:ui",
       "title": "Textarea",
       "description": "Textarea with focus/error/disabled states and a character counter.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -539,7 +579,8 @@
       "title": "Label",
       "description": "15px inline label for checkbox, radio and switch rows.",
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -557,7 +598,8 @@
         "@base-ui/react"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -575,7 +617,8 @@
         "@base-ui/react"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -593,7 +636,8 @@
         "@base-ui/react"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -611,7 +655,8 @@
         "@base-ui/react"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -629,7 +674,8 @@
         "@base-ui/react"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -655,7 +701,8 @@
         "@base-ui/react"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -664,6 +711,14 @@
         },
         {
           "path": "registry/xuan/ui/date/grid.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/xuan/ui/date/keyboard.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/xuan/ui/date/labels.ts",
           "type": "registry:ui"
         },
         {
@@ -701,7 +756,8 @@
         "@base-ui/react"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -716,7 +772,8 @@
       "title": "Table",
       "description": "Warm-gray data table: hairline grid, band header/footer, sortable heads, selected rows, mono cells.",
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -729,12 +786,13 @@
       "name": "toast",
       "type": "registry:ui",
       "title": "Toast",
-      "description": "Bottom-right toast stack with success/error/warning/info icons, 4s auto-dismiss and enter/exit animation.",
+      "description": "Bottom-right toast stack on Sonner with success/error/warning/info icons and 4s auto-dismiss.",
       "dependencies": [
-        "@base-ui/react"
+        "sonner"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -752,7 +810,8 @@
         "@base-ui/react"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -770,7 +829,8 @@
         "@base-ui/react"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -788,7 +848,8 @@
         "@base-ui/react"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -806,7 +867,8 @@
         "@base-ui/react"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -824,7 +886,8 @@
         "@base-ui/react"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -842,7 +905,8 @@
         "@base-ui/react"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -860,7 +924,8 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -875,7 +940,8 @@
       "title": "Tag",
       "description": "Removable 26px tag chip and a dashed reset button.",
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -893,7 +959,8 @@
         "@base-ui/react"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -911,11 +978,192 @@
         "@base-ui/react"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
           "path": "registry/xuan/ui/separator.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "Dark 12px hint with an 8px arrow, shown 400ms after hover or on focus.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "@xuan/xuan"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "Bordered 12px surface with header, body and a footer band.",
+      "registryDependencies": [
+        "utils",
+        "@xuan/xuan"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "Pulsing placeholder block that respects reduced motion.",
+      "registryDependencies": [
+        "utils",
+        "@xuan/xuan"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/skeleton.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "Pagination",
+      "description": "32px page buttons with previous/next and collapsed ranges.",
+      "registryDependencies": [
+        "utils",
+        "@xuan/xuan"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/pagination/pages.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/xuan/ui/pagination/pagination.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "empty",
+      "type": "registry:ui",
+      "title": "Empty state",
+      "description": "Centered icon tile, title and description for empty views.",
+      "registryDependencies": [
+        "utils",
+        "@xuan/xuan"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/empty.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert",
+      "type": "registry:ui",
+      "title": "Alert",
+      "description": "Inline info/success/warning/error message with icon, title and description.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils",
+        "@xuan/xuan"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/alert.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "spinner",
+      "type": "registry:ui",
+      "title": "Spinner",
+      "description": "Accent loading spinner in 16, 20 and 24px.",
+      "registryDependencies": [
+        "utils",
+        "@xuan/xuan"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/spinner.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress",
+      "description": "8px progress bar with optional label, value and an indeterminate state.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "@xuan/xuan"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/progress.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "combobox",
+      "type": "registry:ui",
+      "title": "Combobox",
+      "description": "Filterable input with a popup list, check indicator and empty message.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "@xuan/xuan"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/combobox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "title": "Sheet",
+      "description": "Side panel from the left or right edge, sharing the dialog's header, body and footer.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "@xuan/xuan",
+        "@xuan/dialog"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/sheet.tsx",
           "type": "registry:ui"
         }
       ]
