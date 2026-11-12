@@ -22,7 +22,7 @@ function Avatar({
       data-size={size}
       className={cn(
         "relative flex shrink-0 items-center justify-center overflow-hidden rounded-full font-sans text-[10px] font-semibold select-none",
-        size === "default" ? "size-6" : "size-[22px]",
+        size === "default" ? "size-6" : "size-5",
         tone === "warm"
           ? "bg-neutral-bg text-neutral-text"
           : "bg-accent-tint-94 text-accent-deep",

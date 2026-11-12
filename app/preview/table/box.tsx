@@ -94,14 +94,14 @@ function PreviewTableBox() {
                       {row.status}
                     </Badge>
                   </TableCell>
-                  <TableCell mono align="right" className="text-[13.5px]">
+                  <TableCell mono align="right" className="text-sm">
                     {row.updated}
                   </TableCell>
                   <TableCell className="text-center">
                     <button
                       type="button"
                       aria-label={`Actions for ${row.name}`}
-                      className="mx-auto flex size-[26px] cursor-pointer items-center justify-center rounded-sm text-ink-secondary transition-control outline-none hover:bg-table-hair hover:text-ink focus-visible:focus-ring"
+                      className="mx-auto flex size-6 cursor-pointer items-center justify-center rounded-xs text-ink-secondary transition-control outline-none hover:bg-table-hair hover:text-ink focus-visible:focus-ring"
                     >
                       <MoreHorizontalIcon size={15} />
                     </button>
@@ -120,7 +120,7 @@ function PreviewTableBox() {
                 <TableCell
                   mono
                   align="right"
-                  className="border-r-0 py-3 text-[13.5px] font-medium text-ink-heading"
+                  className="border-r-0 py-3 text-sm font-medium text-ink-heading"
                 >
                   {selected.length > 0
                     ? `${selected.length} / ${previewTableRows.length} selected`

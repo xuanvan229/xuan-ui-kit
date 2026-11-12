@@ -42,4 +42,20 @@ describe("Table", () => {
     )
     expect(screen.getByText("button")).toHaveAttribute("data-mono")
   })
+
+  it("renders the header band on the cool-gray head token with semibold labels", () => {
+    render(
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead>Merchant</TableHead>
+          </TableRow>
+        </TableHeader>
+      </Table>
+    )
+    const head = screen.getByRole("columnheader", { name: "Merchant" })
+    expect(head.className).toContain("font-semibold")
+    expect(head.className).not.toContain("font-normal")
+    expect(head.closest("thead")?.className).toContain("bg-table-head")
+  })
 })

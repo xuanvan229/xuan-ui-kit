@@ -11,22 +11,22 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          "border-accent-600 bg-accent-500 text-on-accent hover:border-accent-active hover:bg-accent-hover active:border-accent-600 active:bg-accent-active disabled:border-disabled-fill-line disabled:bg-disabled-fill disabled:text-ink-muted",
+          "border-accent-600 bg-accent-500 text-on-accent hover:border-accent-active hover:bg-accent-hover active:border-accent-600 active:bg-accent-active disabled:opacity-50",
         secondary:
-          "border-line-control bg-secondary-fill text-ink-strong hover:bg-fill-hover active:bg-fill-active disabled:border-disabled-line disabled:bg-disabled-bg disabled:text-ink-disabled data-popup-open:bg-fill-hover",
+          "border-line-control bg-secondary-fill text-ink-strong hover:bg-fill-active active:bg-fill-active disabled:border-disabled-line disabled:bg-disabled-bg disabled:text-ink-disabled data-popup-open:bg-fill-active",
         outline:
           "border-accent-line bg-surface text-accent-700 hover:border-accent-line-hover hover:bg-accent-tint-97 active:border-accent-line-active active:bg-accent-tint-93 active:text-accent-800 disabled:border-disabled-fill disabled:bg-surface disabled:text-ink-disabled",
         ghost:
           "border-transparent bg-transparent text-accent-700 hover:bg-accent-tint-95 active:bg-accent-tint-90 active:text-accent-800 disabled:bg-transparent disabled:text-ink-disabled",
         plain:
-          "border-line-control bg-surface text-ink-strong hover:bg-fill-hover active:bg-fill-active disabled:border-disabled-line disabled:bg-disabled-bg disabled:text-ink-disabled",
+          "border-line-control bg-surface text-ink-strong hover:bg-fill-hover active:bg-fill-active disabled:border-disabled-line disabled:bg-surface disabled:text-ink-disabled",
         destructive:
-          "border-destructive-line bg-destructive text-on-accent hover:bg-destructive-hover disabled:border-disabled-fill-line disabled:bg-disabled-fill disabled:text-ink-muted",
+          "border-destructive-line bg-destructive text-on-accent hover:bg-destructive-hover disabled:opacity-50",
       },
       size: {
         default:
-          "h-10 rounded-[10px] px-3.5 pt-2 pb-2.5 text-[15px] leading-[1.25] has-[[data-slot=button-arrow]]:pr-2.5 has-[[data-slot=button-arrow]]:pl-3",
-        compact: "h-8 rounded-md px-3 text-[13.5px] leading-[1.25]",
+          "h-10 rounded-md px-4 py-2 text-[15px] leading-[1.25] has-[[data-slot=button-arrow]]:pr-2 has-[[data-slot=button-arrow]]:pl-3",
+        compact: "h-8 rounded-md px-3 text-sm leading-[1.25]",
       },
     },
     compoundVariants: [
@@ -34,7 +34,7 @@ const buttonVariants = cva(
         variant: "primary",
         size: "default",
         class:
-          "bevel-primary text-shadow-button hover:shadow-flat active:bevel-primary-active disabled:shadow-flat disabled:text-shadow-none",
+          "bevel-primary text-shadow-button hover:shadow-flat active:bevel-primary-active disabled:shadow-flat",
       },
       {
         variant: "secondary",
@@ -52,7 +52,7 @@ const buttonVariants = cva(
         variant: "destructive",
         size: "default",
         class:
-          "bevel-destructive text-shadow-destructive hover:shadow-flat disabled:shadow-flat disabled:text-shadow-none",
+          "bevel-destructive text-shadow-destructive hover:shadow-flat disabled:shadow-flat",
       },
     ],
     defaultVariants: { variant: "primary", size: "default" },

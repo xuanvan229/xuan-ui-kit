@@ -43,4 +43,28 @@ describe("DateCalendar", () => {
     const selected = screen.getByRole("button", { name: /July 20, 2026/ })
     expect(selected).toHaveAttribute("aria-pressed", "true")
   })
+
+  it("reads the clock once on mount, not on every render", () => {
+    vi.useFakeTimers({ toFake: ["Date"] })
+    try {
+      vi.setSystemTime(new Date(2026, 6, 10, 12))
+      const anchor = toDateKey(new Date(2026, 6, 20))
+      const props = {
+        mode: "single" as const,
+        range: { start: anchor, end: anchor },
+        onSelect: vi.fn(),
+        isDateDisabled: () => false,
+        showOutsideDays: true,
+      }
+      const { rerender } = render(<DateCalendar {...props} />)
+      const marker = () =>
+        document.querySelector("[data-slot=date-today]")?.closest("button")
+      expect(marker()).toHaveAccessibleName(/July 10, 2026/)
+      vi.setSystemTime(new Date(2026, 6, 11, 12))
+      rerender(<DateCalendar {...props} />)
+      expect(marker()).toHaveAccessibleName(/July 10, 2026/)
+    } finally {
+      vi.useRealTimers()
+    }
+  })
 })

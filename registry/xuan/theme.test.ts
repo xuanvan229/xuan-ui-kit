@@ -37,6 +37,60 @@ describe("theme tokens", () => {
     })
   })
 
+  it("defines the table head band as cool gray in light mode", () => {
+    expect(cssVars.light).toMatchObject({ "table-head": "hsl(215 15% 97%)" })
+    expect(cssVars.dark).toHaveProperty("table-head")
+    expect(cssVars.theme).toMatchObject({
+      "color-table-head": "var(--table-head)",
+    })
+  })
+
+  it("keeps the light table neutrals on the cool-gray family", () => {
+    expect(cssVars.light).toMatchObject({
+      "table-band": "hsl(215 15% 97%)",
+      "table-hair": "hsl(215 15% 94%)",
+      "table-line": "hsl(210 14% 87%)",
+    })
+  })
+
+  it("uses the blue accent for every selection, including the calendar", () => {
+    for (const mode of [cssVars.light, cssVars.dark])
+      expect(mode).toMatchObject({
+        "calendar-selected": "var(--accent-500)",
+        "calendar-selected-ink": "var(--on-accent)",
+        today: "var(--accent-700)",
+      })
+  })
+
+  it("fills the secondary button so it reads apart from plain", () => {
+    for (const mode of [cssVars.light, cssVars.dark])
+      expect(mode).toMatchObject({ "secondary-fill": "var(--fill-menu)" })
+  })
+
+  it("keeps the neutral badge on the cool gray of the other neutrals", () => {
+    expect(cssVars.light).toMatchObject({
+      "neutral-bg": expect.stringMatching(/^hsl\(215 /),
+      "neutral-line": expect.stringMatching(/^hsl\(215 /),
+    })
+  })
+
+  it("draws the outline button without a blue inner rim", () => {
+    for (const mode of [cssVars.light, cssVars.dark])
+      expect(mode).toMatchObject({
+        "outline-bevel": expect.not.stringContaining("0 77 153"),
+      })
+  })
+
+  it("exposes a 4/8/12px radius scale", () => {
+    expect(cssVars.theme).toMatchObject({
+      "radius-xs": "4px",
+      "radius-sm": "4px",
+      "radius-md": "8px",
+      "radius-lg": "8px",
+      "radius-xl": "12px",
+    })
+  })
+
   it("gives every :root token (literal and var()) a dark value, with no dark-only tokens", () => {
     const lightNames = Object.keys(cssVars.light)
     const darkNames = Object.keys(cssVars.dark)

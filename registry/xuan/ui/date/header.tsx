@@ -22,7 +22,7 @@ function DateHeader({
   return (
     <div
       data-slot="date-header"
-      className="mb-3.5 flex items-center justify-between px-1"
+      className="mb-3 flex h-8 items-center justify-between"
     >
       <div className="flex items-baseline gap-2 font-sans text-[22px]">
         <span className="font-bold text-ink-heading">{monthName}</span>
@@ -40,7 +40,7 @@ function DateHeader({
         <button
           type="button"
           onClick={onToday}
-          className="cursor-pointer rounded-md px-2 py-1.5 font-sans text-sm font-semibold text-today transition-control outline-none hover:bg-calendar-nav focus-visible:focus-ring"
+          className="h-8 cursor-pointer rounded-md px-2 font-sans text-sm font-semibold text-today transition-control outline-none hover:bg-calendar-nav focus-visible:focus-ring"
         >
           Today
         </button>
@@ -60,8 +60,8 @@ function DateHeader({
 function DateHeaderChevron({ direction }: { direction: "left" | "right" }) {
   return (
     <svg
-      width="18"
-      height="18"
+      width="16"
+      height="16"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -70,7 +70,13 @@ function DateHeaderChevron({ direction }: { direction: "left" | "right" }) {
       strokeLinejoin="round"
       aria-hidden="true"
     >
-      <path d={direction === "left" ? "M14.5 6.5L9 12l5.5 5.5" : "M9.5 6.5L15 12l-5.5 5.5"} />
+      <path
+        d={
+          direction === "left"
+            ? "M14.5 6.5L9 12l5.5 5.5"
+            : "M9.5 6.5L15 12l-5.5 5.5"
+        }
+      />
     </svg>
   )
 }

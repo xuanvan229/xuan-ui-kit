@@ -48,9 +48,10 @@
   --switch-off: #d9d9e0;
   --switch-off-line: #cdcdd6;
 
-  --table-band: #f7f7f2;
-  --table-hair: #ecece4;
-  --table-line: #e4e4dc;
+  --table-band: hsl(215 15% 97%);
+  --table-head: hsl(215 15% 97%);
+  --table-hair: hsl(215 15% 94%);
+  --table-line: hsl(210 14% 87%);
 
   --success: hsl(145 55% 42%);
   --success-bg: #dff2e4;
@@ -69,9 +70,9 @@
   --destructive: hsl(0 72% 48%);
   --destructive-line: hsl(0 72% 42%);
   --destructive-hover: hsl(0 72% 40%);
-  --neutral-bg: #ebebe5;
+  --neutral-bg: hsl(215 15% 93%);
   --neutral-text: #3e3e47;
-  --neutral-line: #d5d5cb;
+  --neutral-line: hsl(215 14% 84%);
 
   --calendar: #efeff3;
   --calendar-line: #d9d9e0;
@@ -80,24 +81,23 @@
   --calendar-outside: #b9b9c4;
   --calendar-disabled: #8e8e9b;
   --calendar-strike: #c2c2cc;
-  --calendar-selected: #1b1b1f;
-  --today: #6366f1;
+  --calendar-selected: var(--accent-500);
+  --today: var(--accent-700);
   --overlay: rgb(20 22 28 / 0.45);
 
   --surface: #ffffff;
   --on-accent: #ffffff;
-  --secondary-fill: rgb(232 235 237 / 0.1);
+  --secondary-fill: var(--fill-menu);
   --secondary-bevel:
     inset 0 1px 0 1px #fff, inset 0 -1px 0 1px rgb(223 226 231 / 0.4),
     0 1px 2px rgb(223 226 231 / 0.5);
   --outline-bevel:
-    inset 0 1px 0 rgb(255 255 255 / 1), inset 0 -1px 0 1px rgb(0 77 153 / 0.1),
-    0 2px 4px rgb(9 11 11 / 0.08);
+    inset 0 1px 0 rgb(255 255 255 / 1), 0 2px 4px rgb(9 11 11 / 0.08);
   --inset-input: inset 0 1px 2px rgb(9 11 11 / 0.06);
   --knob-shadow: 0 1px 2px rgb(9 11 11 / 0.2);
   --accent-selected: hsl(210 100% 38%);
   --line-chevron: #c2c2cc;
-  --calendar-selected-ink: #ffffff;
+  --calendar-selected-ink: var(--on-accent);
   --calendar-today: #232329;
 
   --shadow-popup:
@@ -127,7 +127,7 @@
   --border: var(--line-control);
   --input: var(--line-input);
   --ring: var(--focus-ring);
-  --radius: 10px;
+  --radius: 8px;
 
   /* Pinned again here (unlayered :root) so they win over any font CSS custom
      properties a consumer's base template already defines under the same
@@ -190,6 +190,7 @@
   --switch-off-line: #3a3b44;
 
   --table-band: #25262b;
+  --table-head: #26272e;
   --table-hair: #2e2f35;
   --table-line: #3a3b44;
 
@@ -221,23 +222,22 @@
   --calendar-outside: #565764;
   --calendar-disabled: #6a6b76;
   --calendar-strike: #4a4b55;
-  --calendar-selected: #f2f2f5;
-  --today: #818cf8;
+  --calendar-selected: var(--accent-500);
+  --today: var(--accent-700);
   --overlay: rgb(0 0 0 / 0.6);
 
   --surface: #1e1f25;
   --on-accent: #ffffff;
-  --secondary-fill: rgb(255 255 255 / 0.04);
+  --secondary-fill: var(--fill-menu);
   --secondary-bevel:
     inset 0 1px 0 rgb(255 255 255 / 0.08), 0 1px 2px rgb(0 0 0 / 0.4);
   --outline-bevel:
-    inset 0 1px 0 rgb(255 255 255 / 0.06),
-    inset 0 -1px 0 1px rgb(0 77 153 / 0.1), 0 2px 4px rgb(0 0 0 / 0.4);
+    inset 0 1px 0 rgb(255 255 255 / 0.06), 0 2px 4px rgb(0 0 0 / 0.4);
   --inset-input: inset 0 1px 2px rgb(0 0 0 / 0.35);
   --knob-shadow: 0 1px 2px rgb(0 0 0 / 0.5);
   --accent-selected: hsl(210 90% 70%);
   --line-chevron: #4a4b55;
-  --calendar-selected-ink: #16171c;
+  --calendar-selected-ink: var(--on-accent);
   --calendar-today: #e8e8ec;
 
   --shadow-popup: 0 8px 24px rgb(0 0 0 / 0.1), 0 2px 6px rgb(0 0 0 / 0.05);
@@ -264,7 +264,7 @@
   --border: var(--line-control);
   --input: var(--line-input);
   --ring: var(--focus-ring);
-  --radius: 10px;
+  --radius: 8px;
 
   /* Pinned again here for parity with :root (see the comment there) so a
      scoped .dark subtree still wins over a consumer's font CSS custom
@@ -320,6 +320,7 @@
   --color-switch-off: var(--switch-off);
   --color-switch-off-line: var(--switch-off-line);
   --color-table-band: var(--table-band);
+  --color-table-head: var(--table-head);
   --color-table-hair: var(--table-hair);
   --color-table-line: var(--table-line);
   --color-success: var(--success);
@@ -381,16 +382,17 @@
   --shadow-toast: var(--shadow-toast);
   --shadow-modal: var(--shadow-modal);
   --shadow-panel: var(--shadow-panel);
-  --radius-sm: 6px;
+  --radius-xs: 4px;
+  --radius-sm: 4px;
   --radius-md: 8px;
-  --radius-lg: 10px;
+  --radius-lg: 8px;
   --radius-xl: 12px;
 }
 
 @utility control {
   height: 40px;
-  border-radius: 10px;
-  padding: 8px 12px 10px;
+  border-radius: 8px;
+  padding: 8px 12px;
   font-size: 15px;
   box-sizing: border-box;
 }

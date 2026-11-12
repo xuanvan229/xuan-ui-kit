@@ -9,7 +9,7 @@ export default function HomePage() {
       </h1>
       <a
         href="/preview"
-        className="w-fit rounded-md px-1 py-0.5 text-sm font-medium text-accent-700 underline-offset-4 transition-control outline-none hover:underline focus-visible:focus-ring"
+        className="w-fit rounded-md p-1 text-sm font-medium text-accent-700 underline-offset-4 transition-control outline-none hover:underline focus-visible:focus-ring"
       >
         Browse the component preview →
       </a>

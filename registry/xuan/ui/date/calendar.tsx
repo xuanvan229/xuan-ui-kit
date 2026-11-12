@@ -39,7 +39,8 @@ function DateCalendar({
   showOutsideDays,
   className,
 }: DateCalendarProps) {
-  const today = toDateKey(new Date())
+  // note: lazy initializer keeps render pure; the popup remounts the calendar on every open.
+  const [today] = React.useState(() => toDateKey(new Date()))
   const anchor = range.start ?? today
   const [view, setView] = React.useState({
     year: dateKeyYear(anchor),
@@ -61,7 +62,7 @@ function DateCalendar({
   }
 
   return (
-    <div data-slot="date-calendar" className={cn("font-sans", className)}>
+    <div data-slot="date-calendar" className={cn("w-fit font-sans", className)}>
       <DateHeader
         year={view.year}
         month={view.month}
@@ -72,7 +73,7 @@ function DateCalendar({
         }
       />
       <div className="flex flex-col gap-px overflow-hidden rounded-xl bg-calendar-line p-px">
-        <div className="grid h-[35px] grid-cols-7 gap-px">
+        <div className="grid h-8 grid-cols-7 gap-px">
           {WEEKDAYS.map((name) => (
             <div
               key={name}

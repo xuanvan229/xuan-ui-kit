@@ -14,7 +14,7 @@ function Checkbox({ className, size = "default", ...props }: CheckboxProps) {
       data-size={size}
       className={cn(
         "peer flex shrink-0 cursor-pointer items-center justify-center border border-line-input bg-surface transition-control outline-none focus-visible:focus-ring data-checked:border-accent-600 data-checked:bg-accent-500 data-disabled:cursor-not-allowed data-disabled:border-disabled-line data-disabled:bg-disabled-bg data-disabled:data-checked:border-disabled-fill-line data-disabled:data-checked:bg-disabled-fill data-indeterminate:border-accent-600 data-indeterminate:bg-accent-500 data-disabled:data-indeterminate:border-disabled-fill-line data-disabled:data-indeterminate:bg-disabled-fill",
-        size === "default" ? "size-5 rounded-sm" : "size-4 rounded-[5px]",
+        size === "default" ? "size-5 rounded-xs" : "size-4 rounded-xs",
         className
       )}
       {...props}
@@ -43,8 +43,8 @@ function Checkbox({ className, size = "default", ...props }: CheckboxProps) {
         <span
           data-slot="checkbox-dash"
           className={cn(
-            "hidden rounded-[2px] bg-current group-data-indeterminate/indicator:block",
-            size === "default" ? "h-[2.5px] w-2.5" : "h-0.5 w-2"
+            "hidden rounded-full bg-current group-data-indeterminate/indicator:block",
+            size === "default" ? "h-0.5 w-2.5" : "h-0.5 w-2"
           )}
         />
       </CheckboxPrimitive.Indicator>

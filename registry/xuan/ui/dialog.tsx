@@ -26,7 +26,7 @@ function DialogContent({ className, ...props }: DialogPrimitive.Popup.Props) {
       <DialogPrimitive.Popup
         data-slot="dialog-content"
         className={cn(
-          "fixed top-1/2 left-1/2 z-50 w-[440px] max-w-[calc(100vw-48px)] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[14px] border border-line-popup bg-surface shadow-modal transition-[opacity,translate,scale] duration-[180ms] ease-out outline-none data-ending-style:translate-y-[calc(-50%+10px)] data-ending-style:scale-[0.97] data-ending-style:opacity-0 data-starting-style:translate-y-[calc(-50%+10px)] data-starting-style:scale-[0.97] data-starting-style:opacity-0",
+          "fixed top-1/2 left-1/2 z-50 flex max-h-[calc(100dvh-48px)] w-[440px] max-w-[calc(100vw-48px)] -translate-x-1/2 -translate-y-1/2 flex-col overflow-hidden rounded-xl border border-line-popup bg-surface shadow-modal transition-[opacity,translate,scale] duration-[180ms] ease-out outline-none data-ending-style:translate-y-[calc(-50%+10px)] data-ending-style:scale-[0.97] data-ending-style:opacity-0 data-starting-style:translate-y-[calc(-50%+10px)] data-starting-style:scale-[0.97] data-starting-style:opacity-0",
           className
         )}
         {...props}
@@ -45,21 +45,21 @@ function DialogHeader({
     <div
       data-slot="dialog-header"
       className={cn(
-        "flex items-start justify-between gap-3 px-5 pt-[18px]",
+        "flex shrink-0 items-start justify-between gap-3 px-5 pt-5",
         className
       )}
       {...props}
     >
-      <div className="flex min-w-0 flex-col gap-[3px]">{children}</div>
+      <div className="flex min-w-0 flex-col gap-1">{children}</div>
       {showClose ? (
         <DialogPrimitive.Close
           data-slot="dialog-close"
           aria-label="Close"
-          className="flex size-[26px] shrink-0 cursor-pointer items-center justify-center rounded-sm text-ink-muted transition-control outline-none hover:bg-fill-active hover:text-ink focus-visible:focus-ring"
+          className="flex size-6 shrink-0 cursor-pointer items-center justify-center rounded-xs text-ink-muted transition-control outline-none hover:bg-fill-active hover:text-ink focus-visible:focus-ring"
         >
           <svg
-            width="11"
-            height="11"
+            width="12"
+            height="12"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -96,7 +96,7 @@ function DialogDescription({
     <DialogPrimitive.Description
       data-slot="dialog-description"
       className={cn(
-        "font-sans text-[13.5px] leading-normal text-ink-secondary",
+        "font-sans text-sm leading-normal text-ink-secondary",
         className
       )}
       {...props}
@@ -108,7 +108,10 @@ function DialogBody({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="dialog-body"
-      className={cn("flex flex-col gap-2 px-5 py-[18px]", className)}
+      className={cn(
+        "flex min-h-0 flex-col gap-2 overflow-y-auto p-5",
+        className
+      )}
       {...props}
     />
   )
@@ -119,7 +122,7 @@ function DialogFooter({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="dialog-footer"
       className={cn(
-        "flex justify-end gap-2.5 border-t border-line-hair bg-fill-hover px-5 py-3.5",
+        "flex shrink-0 justify-end gap-2 border-t border-line-hair bg-fill-hover px-5 py-4",
         className
       )}
       {...props}
@@ -132,7 +135,7 @@ function DialogIconTile({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="dialog-icon-tile"
       className={cn(
-        "flex size-[34px] shrink-0 items-center justify-center rounded-[10px] bg-error-bg text-error-text [&_svg]:size-4",
+        "flex size-8 shrink-0 items-center justify-center rounded-md bg-error-bg text-error-text [&_svg]:size-4",
         className
       )}
       {...props}

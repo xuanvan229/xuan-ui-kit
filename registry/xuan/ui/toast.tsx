@@ -27,7 +27,7 @@ function ToastIcon({ type }: { type: ToastType }) {
       data-slot="toast-icon"
       data-type={type}
       className={cn(
-        "mt-px flex size-5 shrink-0 items-center justify-center rounded-full text-on-accent",
+        "flex size-5 shrink-0 items-center justify-center rounded-full text-on-accent",
         icon.className
       )}
     >
@@ -55,27 +55,27 @@ function ToastList() {
       key={item.id}
       toast={item}
       data-slot="toast"
-      className="flex w-[380px] items-start gap-2.5 rounded-xl border border-line-popup bg-surface px-3.5 py-3 shadow-toast transition-[translate,scale,opacity] duration-200 ease-out data-ending-style:translate-y-3 data-ending-style:opacity-0 data-starting-style:translate-y-3 data-starting-style:scale-[0.97] data-starting-style:opacity-0"
+      className="flex w-[380px] items-start gap-3 rounded-xl border border-line-popup bg-surface px-4 py-3 shadow-toast transition-[translate,scale,opacity] duration-200 ease-out data-ending-style:translate-y-3 data-ending-style:opacity-0 data-starting-style:translate-y-3 data-starting-style:scale-[0.97] data-starting-style:opacity-0"
     >
       {isToastType(item.type) ? <ToastIcon type={item.type} /> : null}
-      <div className="flex min-w-0 flex-1 flex-col gap-0.5">
+      <div className="flex min-w-0 flex-1 flex-col gap-1">
         <ToastPrimitive.Title
           data-slot="toast-title"
           className="font-sans text-sm font-semibold text-ink-heading"
         />
         <ToastPrimitive.Description
           data-slot="toast-description"
-          className="font-sans text-[13.5px] text-ink-secondary"
+          className="font-sans text-sm text-ink-secondary"
         />
       </div>
       <ToastPrimitive.Close
         data-slot="toast-close"
         aria-label="Close"
-        className="flex size-[22px] shrink-0 cursor-pointer items-center justify-center rounded-sm text-ink-muted transition-control outline-none hover:bg-fill-active hover:text-ink focus-visible:focus-ring"
+        className="flex size-6 shrink-0 cursor-pointer items-center justify-center rounded-xs text-ink-muted transition-control outline-none hover:bg-fill-active hover:text-ink focus-visible:focus-ring"
       >
         <svg
-          width="10"
-          height="10"
+          width="12"
+          height="12"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -106,7 +106,7 @@ function Toaster({
       <ToastPrimitive.Portal>
         <ToastPrimitive.Viewport
           data-slot="toast-viewport"
-          className="fixed right-6 bottom-6 z-50 flex flex-col-reverse gap-2.5 outline-none"
+          className="fixed right-6 bottom-6 z-50 flex flex-col-reverse gap-2 outline-none"
         >
           <ToastList />
         </ToastPrimitive.Viewport>

@@ -20,7 +20,9 @@ describe("Button", () => {
         Edit
       </Button>
     )
-    expect(screen.getByRole("button").className).not.toContain("bevel-secondary")
+    expect(screen.getByRole("button").className).not.toContain(
+      "bevel-secondary"
+    )
   })
 
   it("renders the trailing arrow slot", () => {
@@ -30,7 +32,9 @@ describe("Button", () => {
         <ButtonArrow />
       </Button>
     )
-    expect(screen.getByRole("button").querySelector("[data-slot=button-arrow] svg")).not.toBeNull()
+    expect(
+      screen.getByRole("button").querySelector("[data-slot=button-arrow] svg")
+    ).not.toBeNull()
   })
 
   it("does not fire clicks when disabled", async () => {
@@ -42,5 +46,27 @@ describe("Button", () => {
     )
     await userEvent.click(screen.getByRole("button"))
     expect(onClick).not.toHaveBeenCalled()
+  })
+
+  it("keeps each variant recognisable when disabled", () => {
+    render(
+      <>
+        <Button disabled>Primary</Button>
+        <Button disabled variant="destructive">
+          Delete
+        </Button>
+        <Button disabled variant="plain">
+          Plain
+        </Button>
+      </>
+    )
+    for (const name of ["Primary", "Delete"]) {
+      const button = screen.getByRole("button", { name })
+      expect(button).toHaveClass("disabled:opacity-50")
+      expect(button).not.toHaveClass("disabled:bg-disabled-fill")
+    }
+    expect(screen.getByRole("button", { name: "Plain" })).toHaveClass(
+      "disabled:bg-surface"
+    )
   })
 })

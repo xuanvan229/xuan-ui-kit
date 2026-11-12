@@ -6,7 +6,7 @@ function Table({ className, ...props }: React.ComponentProps<"table">) {
   return (
     <div
       data-slot="table-container"
-      className="w-full overflow-x-auto rounded-[14px] border border-table-line bg-surface"
+      className="w-full overflow-x-auto rounded-xl border border-table-line bg-surface"
     >
       <table
         data-slot="table"
@@ -24,7 +24,7 @@ function TableHeader({ className, ...props }: React.ComponentProps<"thead">) {
   return (
     <thead
       data-slot="table-header"
-      className={cn("bg-table-band", className)}
+      className={cn("bg-table-head", className)}
       {...props}
     />
   )
@@ -95,7 +95,7 @@ function TableHead({
           }
         : {})}
       className={cn(
-        "border-r border-table-hair px-3.5 py-3 text-left align-middle text-sm font-normal text-ink-secondary transition-colors duration-[120ms] last:border-r-0 data-sortable:cursor-pointer data-sortable:select-none data-sortable:hover:text-ink data-[align=center]:text-center data-[align=right]:text-right",
+        "border-r border-table-hair p-3 text-left align-middle text-sm font-semibold text-ink-secondary transition-colors duration-[120ms] last:border-r-0 data-sortable:cursor-pointer data-sortable:select-none data-sortable:hover:text-ink data-[align=center]:text-center data-[align=right]:text-right",
         className
       )}
       {...props}
@@ -127,7 +127,7 @@ function TableCell({
       data-align={align}
       data-mono={mono ? "true" : null}
       className={cn(
-        "border-r border-table-hair px-3.5 py-2.5 align-middle last:border-r-0 data-mono:font-mono data-[align=center]:text-center data-[align=right]:text-right",
+        "border-r border-table-hair p-3 align-middle last:border-r-0 data-mono:font-mono data-[align=center]:text-center data-[align=right]:text-right",
         className
       )}
       {...props}

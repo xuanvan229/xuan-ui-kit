@@ -35,7 +35,7 @@ function BreadcrumbLink({
     props: {
       "data-slot": "breadcrumb-link",
       className: cn(
-        "rounded-sm px-1 py-0.5 text-ink-secondary transition-control outline-none hover:bg-fill-menu hover:text-ink focus-visible:focus-ring",
+        "rounded-xs p-1 text-ink-secondary transition-control outline-none hover:bg-fill-menu hover:text-ink focus-visible:focus-ring",
         className
       ),
       ...props,
@@ -48,7 +48,7 @@ function BreadcrumbPage({ className, ...props }: React.ComponentProps<"span">) {
     <span
       data-slot="breadcrumb-page"
       aria-current="page"
-      className={cn("px-1 py-0.5 font-semibold text-ink-heading", className)}
+      className={cn("p-1 font-semibold text-ink-heading", className)}
       {...props}
     />
   )
@@ -67,8 +67,8 @@ function BreadcrumbSeparator({
       {...props}
     >
       <svg
-        width="13"
-        height="13"
+        width="12"
+        height="12"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
@@ -92,14 +92,14 @@ function BreadcrumbEllipsis({
       aria-label="More"
       data-slot="breadcrumb-ellipsis"
       className={cn(
-        "flex size-6 cursor-pointer items-center justify-center rounded-sm text-ink-secondary transition-control outline-none hover:bg-fill-menu hover:text-ink focus-visible:focus-ring",
+        "flex size-6 cursor-pointer items-center justify-center rounded-xs text-ink-secondary transition-control outline-none hover:bg-fill-menu hover:text-ink focus-visible:focus-ring",
         className
       )}
       {...props}
     >
       <svg
-        width="14"
-        height="14"
+        width="16"
+        height="16"
         viewBox="0 0 24 24"
         fill="currentColor"
         aria-hidden="true"
