@@ -8,7 +8,7 @@ import { themeToRegistryFields } from "../sync.mjs"
 // intercept this at build time and turn it into a dev-server URL.
 const themeCssPath = "./theme.css"
 const css = readFileSync(new URL(themeCssPath, import.meta.url), "utf8")
-const { cssVars } = themeToRegistryFields(css)
+const { cssVars, css: cssRules } = themeToRegistryFields(css)
 
 describe("theme tokens", () => {
   it("defines the surface and accent-text tokens", () => {
@@ -79,6 +79,17 @@ describe("theme tokens", () => {
       expect(mode).toMatchObject({
         "outline-bevel": expect.not.stringContaining("0 77 153"),
       })
+  })
+
+  it("gives the skeleton its own fill in both modes", () => {
+    expect(cssVars.light).toHaveProperty("skeleton")
+    expect(cssVars.dark).toHaveProperty("skeleton")
+    expect(cssVars.theme).toMatchObject({ "color-skeleton": "var(--skeleton)" })
+  })
+
+  it("ships the progress animation with its keyframes", () => {
+    expect(cssVars.theme).toHaveProperty("animate-progress")
+    expect(cssRules).toHaveProperty("@keyframes progress-slide")
   })
 
   it("exposes a 4/8/12px radius scale", () => {

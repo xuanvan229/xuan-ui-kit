@@ -43,6 +43,7 @@ describe("Skeleton", () => {
     expect(skeleton).toHaveAttribute("aria-hidden", "true")
     expect(skeleton).toHaveClass(
       "animate-pulse",
+      "bg-skeleton",
       "motion-reduce:animate-none",
       "w-40"
     )

@@ -24,7 +24,7 @@ The registry code diverges from the spec below on these points. Where the two di
 | Popup offset | 6px | 8px |
 | Toast | hand-built stack | built on Sonner; `toast.success/error/warning/info(title, { description })`, at most 3 visible |
 
-Added after the spec: Tooltip, Card, Skeleton, Pagination, Empty state. The date picker takes `labels` and `locale`, and the calendar supports arrow keys, Home, End, PageUp and PageDown.
+Added after the spec: Tooltip, Card, Skeleton, Pagination, Empty state, Alert, Spinner, Progress, Combobox, Sheet. The date picker takes `labels` and `locale`, and the calendar supports arrow keys, Home, End, PageUp and PageDown.
 
 
 ## About the Design Files

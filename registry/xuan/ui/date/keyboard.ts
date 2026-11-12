@@ -34,7 +34,8 @@ function jumpDateKey(key: DateKey, eventKey: string): DateKey | null {
 
 /**
  * The day a key press moves focus to: `null` when the key is not a navigation
- * key, the starting day when the move is blocked. Arrow keys skip disabled days.
+ * key, the starting day when the move is blocked. Arrow keys skip disabled
+ * days; Home, End, PageUp and PageDown stop at the nearest enabled day.
  */
 function moveDateKey(
   key: DateKey,
@@ -43,8 +44,13 @@ function moveDateKey(
 ): DateKey | null {
   const step = ARROW_STEPS[eventKey] ?? null
   if (step === null) {
-    const jump = jumpDateKey(key, eventKey)
-    return jump === null ? null : isDisabled(jump) ? key : jump
+    let jump = jumpDateKey(key, eventKey)
+    if (jump === null) return null
+    // note: a disabled jump target walks back toward the starting day, so the
+    // key lands on the nearest enabled day instead of doing nothing.
+    const back = jump < key ? 1 : -1
+    while (jump !== key && isDisabled(jump)) jump = shiftDateKey(jump, back)
+    return jump
   }
   let target = shiftDateKey(key, step)
   for (let skips = 0; isDisabled(target); skips++) {
