@@ -49,7 +49,7 @@ function PreviewTableBox() {
     <PreviewKitSection id="table" label="Table">
       <PreviewKitGroup label="selectable rows">
         <div className="w-[840px] max-w-full">
-          <Table className="table-fixed">
+          <Table className="min-w-[800px] table-fixed">
             <PreviewTableHead
               all={all}
               some={some}

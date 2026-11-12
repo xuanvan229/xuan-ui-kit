@@ -45,6 +45,10 @@
   --disabled-line: #e2e2e8;
   --disabled-fill: #dadae1;
   --disabled-fill-line: #cdcdd6;
+  --accent-disabled: hsl(210 80% 92%);
+  --accent-disabled-ink: hsl(210 50% 52%);
+  --destructive-disabled: hsl(0 80% 94%);
+  --destructive-disabled-ink: hsl(0 50% 56%);
   --switch-off: #d9d9e0;
   --switch-off-line: #cdcdd6;
 
@@ -73,6 +77,8 @@
   --neutral-bg: hsl(215 15% 93%);
   --neutral-text: #3e3e47;
   --neutral-line: hsl(215 14% 84%);
+  --tooltip: #1b1b1f;
+  --tooltip-ink: #ffffff;
 
   --calendar: #efeff3;
   --calendar-line: #d9d9e0;
@@ -186,6 +192,10 @@
   --disabled-line: #34353d;
   --disabled-fill: #2e2f37;
   --disabled-fill-line: #3a3b44;
+  --accent-disabled: hsl(210 45% 22%);
+  --accent-disabled-ink: hsl(210 45% 60%);
+  --destructive-disabled: hsl(0 40% 22%);
+  --destructive-disabled-ink: hsl(0 50% 66%);
   --switch-off: #34353d;
   --switch-off-line: #3a3b44;
 
@@ -214,6 +224,8 @@
   --neutral-bg: #2e2f35;
   --neutral-text: #b8b8c0;
   --neutral-line: #454650;
+  --tooltip: #f2f2f5;
+  --tooltip-ink: #1b1b1f;
 
   --calendar: #1b1c21;
   --calendar-line: #34353d;
@@ -317,6 +329,10 @@
   --color-disabled-line: var(--disabled-line);
   --color-disabled-fill: var(--disabled-fill);
   --color-disabled-fill-line: var(--disabled-fill-line);
+  --color-accent-disabled: var(--accent-disabled);
+  --color-accent-disabled-ink: var(--accent-disabled-ink);
+  --color-destructive-disabled: var(--destructive-disabled);
+  --color-destructive-disabled-ink: var(--destructive-disabled-ink);
   --color-switch-off: var(--switch-off);
   --color-switch-off-line: var(--switch-off-line);
   --color-table-band: var(--table-band);
@@ -343,6 +359,8 @@
   --color-neutral-bg: var(--neutral-bg);
   --color-neutral-text: var(--neutral-text);
   --color-neutral-line: var(--neutral-line);
+  --color-tooltip: var(--tooltip);
+  --color-tooltip-ink: var(--tooltip-ink);
   --color-calendar: var(--calendar);
   --color-calendar-line: var(--calendar-line);
   --color-calendar-band: var(--calendar-band);

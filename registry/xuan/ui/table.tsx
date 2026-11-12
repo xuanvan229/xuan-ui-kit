@@ -65,11 +65,16 @@ function TableRow({
   )
 }
 
-type TableHeadProps = React.ComponentProps<"th"> & {
+type TableHeadProps = Omit<React.ComponentProps<"th">, "onClick"> & {
   align?: Align
   sortable?: boolean
   direction?: "asc" | "desc" | null
+  /** Runs on the sort button when sortable, on the cell otherwise. */
+  onClick?: React.MouseEventHandler<HTMLElement>
 }
+
+const HEAD_CONTENT =
+  "inline-flex items-center gap-1 group-data-[align=center]/head:justify-center group-data-[align=right]/head:justify-end"
 
 function TableHead({
   className,
@@ -77,8 +82,17 @@ function TableHead({
   align = "left",
   sortable = false,
   direction = null,
+  onClick,
   ...props
 }: TableHeadProps) {
+  const content = (
+    <>
+      {children}
+      {direction === null ? null : (
+        <span aria-hidden="true">{direction === "asc" ? "↑" : "↓"}</span>
+      )}
+    </>
+  )
   return (
     <th
       data-slot="table-head"
@@ -95,17 +109,27 @@ function TableHead({
           }
         : {})}
       className={cn(
-        "border-r border-table-hair p-3 text-left align-middle text-sm font-semibold text-ink-secondary transition-colors duration-[120ms] last:border-r-0 data-sortable:cursor-pointer data-sortable:select-none data-sortable:hover:text-ink data-[align=center]:text-center data-[align=right]:text-right",
+        "group/head border-r border-table-hair p-3 text-left align-middle text-sm font-semibold text-ink-secondary transition-colors duration-[120ms] last:border-r-0 data-sortable:hover:text-ink data-[align=center]:text-center data-[align=right]:text-right",
         className
       )}
+      onClick={sortable ? undefined : onClick}
       {...props}
     >
-      <span className="inline-flex items-center gap-1">
-        {children}
-        {direction === null ? null : (
-          <span aria-hidden="true">{direction === "asc" ? "↑" : "↓"}</span>
-        )}
-      </span>
+      {sortable ? (
+        <button
+          type="button"
+          data-slot="table-sort"
+          onClick={onClick}
+          className={cn(
+            HEAD_CONTENT,
+            "flex w-full cursor-pointer rounded-xs font-semibold outline-none select-none focus-visible:focus-ring"
+          )}
+        >
+          {content}
+        </button>
+      ) : (
+        <span className={HEAD_CONTENT}>{content}</span>
+      )}
     </th>
   )
 }

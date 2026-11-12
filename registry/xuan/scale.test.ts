@@ -24,12 +24,8 @@ function spacingPx(match: RegExpMatchArray): number {
   return Number(match[3]) * 4
 }
 
-// note: the date trigger matches its popup (7 × 44px cells + grid lines + padding);
-// the switch track is 16px thumb + 2px inset + 1px border on each side.
-const SIZE_EXCEPTIONS = new Set([
-  "date/picker.tsx: w-[350px]",
-  "switch.tsx: h-[22px]",
-])
+// note: the date trigger matches its popup (7 × 44px cells + grid lines + padding).
+const SIZE_EXCEPTIONS = new Set(["date/picker.tsx: w-[350px]"])
 
 function sources(dir: string): string[] {
   return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {

@@ -1,8 +1,11 @@
 import { cn } from "@/lib/utils"
+import type { DateKey } from "@/registry/xuan/ui/date/key"
 
 type DateCellProps = {
-  day: number
+  dateKey: DateKey
   date: Date
+  locale: string
+  tabStop: boolean
   selected: boolean
   band: boolean
   today: boolean
@@ -16,8 +19,10 @@ type DateCellProps = {
 }
 
 function DateCell({
-  day,
+  dateKey,
   date,
+  locale,
+  tabStop,
   selected,
   band,
   today,
@@ -43,7 +48,7 @@ function DateCell({
       />
     )
 
-  const label = date.toLocaleDateString("en-US", {
+  const label = date.toLocaleDateString(locale, {
     weekday: "long",
     month: "long",
     day: "numeric",
@@ -55,6 +60,8 @@ function DateCell({
       type="button"
       disabled={disabled}
       data-slot="date-cell"
+      data-key={dateKey}
+      tabIndex={tabStop ? 0 : -1}
       data-selected={selected ? "true" : null}
       aria-label={label}
       aria-pressed={selected}
@@ -73,7 +80,7 @@ function DateCell({
       onClick={onSelect}
       onMouseEnter={onHover}
     >
-      {day}
+      {dateKey % 100}
       {today && !selected ? (
         <span
           data-slot="date-today"

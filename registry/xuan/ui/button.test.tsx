@@ -60,13 +60,34 @@ describe("Button", () => {
         </Button>
       </>
     )
-    for (const name of ["Primary", "Delete"]) {
-      const button = screen.getByRole("button", { name })
-      expect(button).toHaveClass("disabled:opacity-50")
-      expect(button).not.toHaveClass("disabled:bg-disabled-fill")
-    }
+    expect(screen.getByRole("button", { name: "Primary" })).toHaveClass(
+      "data-disabled:bg-accent-disabled",
+      "data-disabled:text-accent-disabled-ink"
+    )
+    expect(screen.getByRole("button", { name: "Delete" })).toHaveClass(
+      "data-disabled:bg-destructive-disabled"
+    )
     expect(screen.getByRole("button", { name: "Plain" })).toHaveClass(
-      "disabled:bg-surface"
+      "data-disabled:bg-surface"
+    )
+  })
+
+  it("styles the disabled state when it stays focusable", () => {
+    render(
+      <Button disabled focusableWhenDisabled>
+        Save
+      </Button>
+    )
+    const button = screen.getByRole("button", { name: "Save" })
+    expect(button).not.toBeDisabled()
+    expect(button).toHaveAttribute("data-disabled")
+    expect(button).toHaveClass("data-disabled:cursor-not-allowed")
+  })
+
+  it("rests on a neutral border in the outline variant", () => {
+    render(<Button variant="outline">Outline</Button>)
+    expect(screen.getByRole("button", { name: "Outline" })).toHaveClass(
+      "border-line-control"
     )
   })
 })

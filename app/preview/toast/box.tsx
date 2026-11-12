@@ -36,11 +36,7 @@ function PreviewToastBox() {
             key={item.type}
             variant="secondary"
             onClick={() =>
-              toast.add({
-                title: item.title,
-                description: item.description,
-                type: item.type,
-              })
+              toast[item.type](item.title, { description: item.description })
             }
           >
             Fire {item.type}

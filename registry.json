@@ -63,6 +63,10 @@
           "color-disabled-line": "var(--disabled-line)",
           "color-disabled-fill": "var(--disabled-fill)",
           "color-disabled-fill-line": "var(--disabled-fill-line)",
+          "color-accent-disabled": "var(--accent-disabled)",
+          "color-accent-disabled-ink": "var(--accent-disabled-ink)",
+          "color-destructive-disabled": "var(--destructive-disabled)",
+          "color-destructive-disabled-ink": "var(--destructive-disabled-ink)",
           "color-switch-off": "var(--switch-off)",
           "color-switch-off-line": "var(--switch-off-line)",
           "color-table-band": "var(--table-band)",
@@ -89,6 +93,8 @@
           "color-neutral-bg": "var(--neutral-bg)",
           "color-neutral-text": "var(--neutral-text)",
           "color-neutral-line": "var(--neutral-line)",
+          "color-tooltip": "var(--tooltip)",
+          "color-tooltip-ink": "var(--tooltip-ink)",
           "color-calendar": "var(--calendar)",
           "color-calendar-line": "var(--calendar-line)",
           "color-calendar-band": "var(--calendar-band)",
@@ -177,6 +183,10 @@
           "disabled-line": "#e2e2e8",
           "disabled-fill": "#dadae1",
           "disabled-fill-line": "#cdcdd6",
+          "accent-disabled": "hsl(210 80% 92%)",
+          "accent-disabled-ink": "hsl(210 50% 52%)",
+          "destructive-disabled": "hsl(0 80% 94%)",
+          "destructive-disabled-ink": "hsl(0 50% 56%)",
           "switch-off": "#d9d9e0",
           "switch-off-line": "#cdcdd6",
           "table-band": "hsl(215 15% 97%)",
@@ -203,6 +213,8 @@
           "neutral-bg": "hsl(215 15% 93%)",
           "neutral-text": "#3e3e47",
           "neutral-line": "hsl(215 14% 84%)",
+          "tooltip": "#1b1b1f",
+          "tooltip-ink": "#ffffff",
           "calendar": "#efeff3",
           "calendar-line": "#d9d9e0",
           "calendar-band": "#e4e4ea",
@@ -293,6 +305,10 @@
           "disabled-line": "#34353d",
           "disabled-fill": "#2e2f37",
           "disabled-fill-line": "#3a3b44",
+          "accent-disabled": "hsl(210 45% 22%)",
+          "accent-disabled-ink": "hsl(210 45% 60%)",
+          "destructive-disabled": "hsl(0 40% 22%)",
+          "destructive-disabled-ink": "hsl(0 50% 66%)",
           "switch-off": "#34353d",
           "switch-off-line": "#3a3b44",
           "table-band": "#25262b",
@@ -319,6 +335,8 @@
           "neutral-bg": "#2e2f35",
           "neutral-text": "#b8b8c0",
           "neutral-line": "#454650",
+          "tooltip": "#f2f2f5",
+          "tooltip-ink": "#1b1b1f",
           "calendar": "#1b1c21",
           "calendar-line": "#34353d",
           "calendar-band": "#2e3038",
@@ -495,7 +513,8 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -513,7 +532,8 @@
         "@base-ui/react"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -531,7 +551,8 @@
         "@base-ui/react"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -546,7 +567,8 @@
       "title": "Label",
       "description": "15px inline label for checkbox, radio and switch rows.",
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -564,7 +586,8 @@
         "@base-ui/react"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -582,7 +605,8 @@
         "@base-ui/react"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -600,7 +624,8 @@
         "@base-ui/react"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -618,7 +643,8 @@
         "@base-ui/react"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -636,7 +662,8 @@
         "@base-ui/react"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -662,7 +689,8 @@
         "@base-ui/react"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -671,6 +699,14 @@
         },
         {
           "path": "registry/xuan/ui/date/grid.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/xuan/ui/date/keyboard.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/xuan/ui/date/labels.ts",
           "type": "registry:ui"
         },
         {
@@ -708,7 +744,8 @@
         "@base-ui/react"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -723,7 +760,8 @@
       "title": "Table",
       "description": "Warm-gray data table: hairline grid, band header/footer, sortable heads, selected rows, mono cells.",
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -736,12 +774,13 @@
       "name": "toast",
       "type": "registry:ui",
       "title": "Toast",
-      "description": "Bottom-right toast stack with success/error/warning/info icons, 4s auto-dismiss and enter/exit animation.",
+      "description": "Bottom-right toast stack on Sonner with success/error/warning/info icons and 4s auto-dismiss.",
       "dependencies": [
-        "@base-ui/react"
+        "sonner"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -759,7 +798,8 @@
         "@base-ui/react"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -777,7 +817,8 @@
         "@base-ui/react"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -795,7 +836,8 @@
         "@base-ui/react"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -813,7 +855,8 @@
         "@base-ui/react"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -831,7 +874,8 @@
         "@base-ui/react"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -849,7 +893,8 @@
         "@base-ui/react"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -867,7 +912,8 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -882,7 +928,8 @@
       "title": "Tag",
       "description": "Removable 26px tag chip and a dashed reset button.",
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -900,7 +947,8 @@
         "@base-ui/react"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
@@ -918,11 +966,99 @@
         "@base-ui/react"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@xuan/xuan"
       ],
       "files": [
         {
           "path": "registry/xuan/ui/separator.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "Dark 12px hint with an 8px arrow, shown 400ms after hover or on focus.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "@xuan/xuan"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "Bordered 12px surface with header, body and a footer band.",
+      "registryDependencies": [
+        "utils",
+        "@xuan/xuan"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "Pulsing placeholder block that respects reduced motion.",
+      "registryDependencies": [
+        "utils",
+        "@xuan/xuan"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/skeleton.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "Pagination",
+      "description": "32px page buttons with previous/next and collapsed ranges.",
+      "registryDependencies": [
+        "utils",
+        "@xuan/xuan"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/pagination/pages.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/xuan/ui/pagination/pagination.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "empty",
+      "type": "registry:ui",
+      "title": "Empty state",
+      "description": "Centered icon tile, title and description for empty views.",
+      "registryDependencies": [
+        "utils",
+        "@xuan/xuan"
+      ],
+      "files": [
+        {
+          "path": "registry/xuan/ui/empty.tsx",
           "type": "registry:ui"
         }
       ]

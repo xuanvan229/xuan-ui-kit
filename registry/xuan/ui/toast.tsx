@@ -1,23 +1,23 @@
 "use client"
 
-import { Toast as ToastPrimitive } from "@base-ui/react/toast"
+import { toast as sonnerToast, Toaster as SonnerToaster } from "sonner"
 
 import { cn } from "@/lib/utils"
 
-const toast = ToastPrimitive.createToastManager()
-const useToastManager = ToastPrimitive.useToastManager
-
 type ToastType = "success" | "error" | "warning" | "info"
+
+type ToastOptions = {
+  description?: React.ReactNode
+  /** Milliseconds before the toast closes itself. */
+  duration?: number
+  closeLabel?: string
+}
 
 const TOAST_ICON: Record<ToastType, { className: string; path: string }> = {
   success: { className: "bg-success", path: "M4.5 12.5l5 5L19.5 6.5" },
   error: { className: "bg-error", path: "M6 6l12 12M18 6L6 18" },
   warning: { className: "bg-warning", path: "M12 5v9m0 4v.5" },
   info: { className: "bg-accent-500", path: "M12 19v-9m0-4v-.5" },
-}
-
-function isToastType(type: string | undefined): type is ToastType {
-  return type !== undefined && type in TOAST_ICON
 }
 
 function ToastIcon({ type }: { type: ToastType }) {
@@ -48,29 +48,49 @@ function ToastIcon({ type }: { type: ToastType }) {
   )
 }
 
-function ToastList() {
-  const { toasts } = useToastManager()
-  return toasts.map((item) => (
-    <ToastPrimitive.Root
-      key={item.id}
-      toast={item}
+type ToastCardProps = {
+  type: ToastType
+  title: React.ReactNode
+  description: React.ReactNode
+  closeLabel: string
+  onClose: () => void
+}
+
+function ToastCard({
+  type,
+  title,
+  description,
+  closeLabel,
+  onClose,
+}: ToastCardProps) {
+  return (
+    <div
       data-slot="toast"
-      className="flex w-[380px] items-start gap-3 rounded-xl border border-line-popup bg-surface px-4 py-3 shadow-toast transition-[translate,scale,opacity] duration-200 ease-out data-ending-style:translate-y-3 data-ending-style:opacity-0 data-starting-style:translate-y-3 data-starting-style:scale-[0.97] data-starting-style:opacity-0"
+      data-type={type}
+      className="flex w-full items-start gap-3 rounded-xl border border-line-popup bg-surface px-4 py-3 shadow-toast"
     >
-      {isToastType(item.type) ? <ToastIcon type={item.type} /> : null}
+      <ToastIcon type={type} />
       <div className="flex min-w-0 flex-1 flex-col gap-1">
-        <ToastPrimitive.Title
+        <div
           data-slot="toast-title"
           className="font-sans text-sm font-semibold text-ink-heading"
-        />
-        <ToastPrimitive.Description
-          data-slot="toast-description"
-          className="font-sans text-sm text-ink-secondary"
-        />
+        >
+          {title}
+        </div>
+        {description == null ? null : (
+          <div
+            data-slot="toast-description"
+            className="font-sans text-sm text-ink-secondary"
+          >
+            {description}
+          </div>
+        )}
       </div>
-      <ToastPrimitive.Close
+      <button
+        type="button"
         data-slot="toast-close"
-        aria-label="Close"
+        aria-label={closeLabel}
+        onClick={onClose}
         className="flex size-6 shrink-0 cursor-pointer items-center justify-center rounded-xs text-ink-muted transition-control outline-none hover:bg-fill-active hover:text-ink focus-visible:focus-ring"
       >
         <svg
@@ -85,34 +105,57 @@ function ToastList() {
         >
           <path d="M6 6l12 12M18 6L6 18" />
         </svg>
-      </ToastPrimitive.Close>
-    </ToastPrimitive.Root>
-  ))
-}
-
-function Toaster({
-  children,
-  toastManager = toast,
-  timeout = 4000,
-  ...props
-}: ToastPrimitive.Provider.Props) {
-  return (
-    <ToastPrimitive.Provider
-      toastManager={toastManager}
-      timeout={timeout}
-      {...props}
-    >
-      {children}
-      <ToastPrimitive.Portal>
-        <ToastPrimitive.Viewport
-          data-slot="toast-viewport"
-          className="fixed right-6 bottom-6 z-50 flex flex-col-reverse gap-2 outline-none"
-        >
-          <ToastList />
-        </ToastPrimitive.Viewport>
-      </ToastPrimitive.Portal>
-    </ToastPrimitive.Provider>
+      </button>
+    </div>
   )
 }
 
-export { toast, Toaster, useToastManager }
+function show(type: ToastType, title: React.ReactNode, options?: ToastOptions) {
+  return sonnerToast.custom(
+    (id) => (
+      <ToastCard
+        type={type}
+        title={title}
+        description={options?.description ?? null}
+        closeLabel={options?.closeLabel ?? "Close"}
+        onClose={() => sonnerToast.dismiss(id)}
+      />
+    ),
+    options?.duration == null ? {} : { duration: options.duration }
+  )
+}
+
+const toast = {
+  success: (title: React.ReactNode, options?: ToastOptions) =>
+    show("success", title, options),
+  error: (title: React.ReactNode, options?: ToastOptions) =>
+    show("error", title, options),
+  warning: (title: React.ReactNode, options?: ToastOptions) =>
+    show("warning", title, options),
+  info: (title: React.ReactNode, options?: ToastOptions) =>
+    show("info", title, options),
+  dismiss: (id?: string | number) => sonnerToast.dismiss(id),
+}
+
+// note: Sonner reads its toast width from this custom property.
+const TOASTER_STYLE = { "--width": "380px" } as React.CSSProperties
+
+function Toaster({
+  style,
+  ...props
+}: React.ComponentProps<typeof SonnerToaster>) {
+  return (
+    <SonnerToaster
+      position="bottom-right"
+      offset={24}
+      gap={8}
+      duration={4000}
+      expand
+      style={{ ...TOASTER_STYLE, ...style }}
+      {...props}
+    />
+  )
+}
+
+export { toast, Toaster }
+export type { ToastOptions, ToastType }

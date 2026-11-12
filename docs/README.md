@@ -3,6 +3,30 @@
 ## Overview
 A complete component library spec: 15 components with full state coverage (default / hover / focus / active / disabled / error), interactive behaviors, and micro-animations. Built around a hue-210 blue accent, IBM Plex Sans, a shared 40px control height and 10px radius. Intended implementation target: **Base UI (unstyled primitives) + your styling layer** — the anatomy of every component maps 1:1 onto Base UI parts.
 
+## Implementation overrides (2026-11-12)
+
+The registry code diverges from the spec below on these points. Where the two disagree, this section wins. `registry/xuan/scale.test.ts` enforces the scales.
+
+| Topic | Spec below | Registry |
+|---|---|---|
+| Spacing | 5, 7, 10, 14, 18px appear | Padding, gap and margin are multiples of 4px |
+| Radius | 5, 6, 7, 8, 10, 12, 14px | 4, 8, 12px (`rounded-xs/md/xl`); the calendar's inner corner stays 11px |
+| Type scale | 11, 11.5, 13.5, 14.5px appear | 10, 12, 13, 14, 15, 17, 22px |
+| Control | radius 10px, padding 8/12/10 | radius 8px, padding 8px 12px |
+| Fixed sizes and icons | 22, 26, 34px; icons 9–18px | Multiples of 4px; icons 8, 12, 16, 20px |
+| Switch | 36×22 track, 16px knob | 40×24 track, 20px knob, 2px inset |
+| Calendar | 46px cells, black selection, indigo Today | 44px square cells, blue accent for selection and Today, trigger and panel 350px |
+| Secondary button | near-white fill | `--fill-menu` fill, so it reads apart from plain |
+| Outline button | blue resting border | neutral border, blue on hover |
+| Disabled buttons | one gray style | primary and destructive keep a tint of their colour |
+| Error state | ring always visible | red border; ring only on focus |
+| Table and neutral badge | warm gray (`#F7F7F2`, `#ECECE4`) | cool gray, hue 215 |
+| Popup offset | 6px | 8px |
+| Toast | hand-built stack | built on Sonner; `toast.success/error/warning/info(title, { description })`, at most 3 visible |
+
+Added after the spec: Tooltip, Card, Skeleton, Pagination, Empty state. The date picker takes `labels` and `locale`, and the calendar supports arrow keys, Home, End, PageUp and PageDown.
+
+
 ## About the Design Files
 The `.dc.html` files in this bundle are **design references created in HTML** — prototypes showing intended look and behavior, not production code to copy directly. Recreate them in your target codebase (React + Base UI was the stated plan) using its established patterns. Open any file in a browser to inspect the live component.
 

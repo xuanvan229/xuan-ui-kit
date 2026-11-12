@@ -39,7 +39,8 @@ export default function RootLayout({
               "try{if(localStorage.getItem('xuan-theme')==='dark')document.documentElement.classList.add('dark')}catch(e){}",
           }}
         />
-        <Toaster>{children}</Toaster>
+        {children}
+        <Toaster />
       </body>
     </html>
   )

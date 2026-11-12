@@ -8,7 +8,10 @@ function Breadcrumb({ className, ...props }: React.ComponentProps<"ol">) {
   return (
     <nav aria-label="Breadcrumb" data-slot="breadcrumb">
       <ol
-        className={cn("flex items-center gap-2 font-sans text-sm", className)}
+        className={cn(
+          "flex flex-wrap items-center gap-2 font-sans text-sm",
+          className
+        )}
         {...props}
       />
     </nav>
@@ -19,7 +22,7 @@ function BreadcrumbItem({ className, ...props }: React.ComponentProps<"li">) {
   return (
     <li
       data-slot="breadcrumb-item"
-      className={cn("inline-flex items-center", className)}
+      className={cn("inline-flex items-center whitespace-nowrap", className)}
       {...props}
     />
   )

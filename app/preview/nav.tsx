@@ -14,6 +14,8 @@ const PREVIEW_SECTIONS = [
   { id: "menu", label: "Menu & Popover" },
   { id: "accordion", label: "Accordion" },
   { id: "badge", label: "Breadcrumb, Badge & Tag" },
+  { id: "card", label: "Card, Skeleton & Empty" },
+  { id: "pagination", label: "Pagination & Tooltip" },
 ] as const
 
 function PreviewNav() {

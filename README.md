@@ -11,7 +11,26 @@ pnpm dlx shadcn@latest add @xuan/xuan                 # tokens, fonts, utilities
 pnpm dlx shadcn@latest add @xuan/button @xuan/select  # any component
 ```
 
-Wrap the app root in a `<div className="isolate">` (Base UI portals) and mount `<Toaster>` once.
+Wrap the app root in a `<div className="isolate">` (Base UI portals).
+
+Since `@xuan/xuan` is a dependency of every component, adding a component also installs the tokens.
+
+### Toast
+
+The toast is built on [Sonner](https://sonner.emilkowal.ski). Mount `<Toaster />` once, next to the app (it takes no children), then call `toast` from anywhere:
+
+```tsx
+import { toast, Toaster } from "@/components/ui/toast"
+
+toast.success("Saved", { description: "Component published." })
+toast.error("Something went wrong")
+```
+
+`toast.warning` and `toast.info` take the same arguments. Options: `description`, `duration` (ms, default 4000) and `closeLabel`.
+
+### Date picker
+
+`<DatePicker>` takes `locale` (month names, day labels) and `labels` (Today, month buttons, placeholders, weekday names) for translation. The calendar supports arrow keys, Home, End, PageUp and PageDown.
 
 ## Dark mode
 
@@ -31,3 +50,5 @@ pnpm registry:build   # theme.css → registry.json → public/r
 ```
 
 Design references: `docs/*.dc.html`; exact values: `docs/plans/2026-08-25-ui-kit-values.md`.
+Where the code diverges from those (4px grid, radius 4/8/12, Sonner toast, new components), see
+"Implementation overrides" in `docs/README.md`.

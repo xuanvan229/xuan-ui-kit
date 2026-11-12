@@ -1,6 +1,10 @@
+import type { DateLabels } from "@/registry/xuan/ui/date/labels"
+
 type DateHeaderProps = {
   year: number
   month: number
+  locale: string
+  labels: DateLabels
   onPrevious: () => void
   onNext: () => void
   onToday: () => void
@@ -12,11 +16,13 @@ const NAV_BUTTON =
 function DateHeader({
   year,
   month,
+  locale,
+  labels,
   onPrevious,
   onNext,
   onToday,
 }: DateHeaderProps) {
-  const monthName = new Date(year, month, 1).toLocaleString("en-US", {
+  const monthName = new Date(year, month, 1).toLocaleString(locale, {
     month: "long",
   })
   return (
@@ -31,7 +37,7 @@ function DateHeader({
       <div className="flex items-center gap-1">
         <button
           type="button"
-          aria-label="Previous month"
+          aria-label={labels.previousMonth}
           onClick={onPrevious}
           className={NAV_BUTTON}
         >
@@ -42,11 +48,11 @@ function DateHeader({
           onClick={onToday}
           className="h-8 cursor-pointer rounded-md px-2 font-sans text-sm font-semibold text-today transition-control outline-none hover:bg-calendar-nav focus-visible:focus-ring"
         >
-          Today
+          {labels.today}
         </button>
         <button
           type="button"
-          aria-label="Next month"
+          aria-label={labels.nextMonth}
           onClick={onNext}
           className={NAV_BUTTON}
         >
