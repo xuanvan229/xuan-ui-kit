@@ -67,7 +67,7 @@ function ToastCard({
     <div
       data-slot="toast"
       data-type={type}
-      className="flex w-full items-start gap-3 rounded-xl border border-line-popup bg-surface px-4 py-3 shadow-toast"
+      className="flex w-(--width) max-w-full items-start gap-3 rounded-xl border border-line-popup bg-surface px-4 py-3 shadow-toast"
     >
       <ToastIcon type={type} />
       <div className="flex min-w-0 flex-1 flex-col gap-1">

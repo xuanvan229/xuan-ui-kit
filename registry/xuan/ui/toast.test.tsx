@@ -24,6 +24,8 @@ describe("Toaster", () => {
     const root = title.closest("[data-slot=toast]")
     expect(root).not.toBeNull()
     expect(screen.getByText("Component published.")).toBeInTheDocument()
+    // note: Sonner does not size custom toasts, so the card takes the width itself.
+    expect(root).toHaveClass("w-(--width)", "max-w-full")
     expect(root!.querySelector("[data-slot=toast-icon]")).toHaveAttribute(
       "data-type",
       "success"
